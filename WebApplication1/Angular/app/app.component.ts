@@ -2,7 +2,8 @@
 
 @Component({
     selector: 'my-app',
-    template: `<h1>Hello {{name}} test to build</h1>`
+    template: `<h1>Hello {{name}} test to build</h1>
+<button class="btn btn-sm btn-danger">test button</button>`
 })
 export class AppComponent { name = 'Angular'; }
 
