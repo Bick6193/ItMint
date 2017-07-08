@@ -4,7 +4,148 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebApplication1</title>
+    <title>Chart Application</title>
+    
+    <style>
+        body.preloader {
+            background: #3e6486 url('Content/cg/images/background.jpg') no-repeat no-repeat 0 0;
+            background-size: cover;
+        }
+
+        @@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+            /* Retina-specific stuff here */
+            body.preloader {
+                background: #3e6486 url('Content/cg/images/retina-background.jpg') no-repeat no-repeat 0 0;
+                background-size: cover;
+            }
+        }
+
+        .noselect {
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Chrome/Safari/Opera */
+            -khtml-user-select: none; /* Konqueror */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE/Edge */
+            user-select: none; /* non-prefixed version, currently not supported by any browser */
+        }
+
+        /*mouse lock style*/
+
+        body.busy, body.busy input { cursor: wait !important; }
+
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+        }
+
+        #preloader > div {
+            display: block;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            width: 150px;
+            height: 150px;
+            margin: -75px 0 0 -75px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #FFFFFF;
+            transform: translateZ(0);
+            animation: spin 2s linear infinite;
+        }
+
+        #preloader > div:before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #FFFFFF;
+            -webkit-animation: spin 3s linear infinite;
+            animation: spin 3s linear infinite;
+        }
+
+        #preloader > div:after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: #FFFFFF;
+            animation: spin 1.5s linear infinite;
+        }
+
+        @@-webkit-keyframes spin {
+            0% { transform: rotate(0deg); }
+
+            to { transform: rotate(1turn); }
+        }
+
+        @@keyframes spin {
+            0% { transform: rotate(0deg); }
+
+            to { transform: rotate(1turn); }
+        }
+
+        @@-moz-keyframes spin {
+            0% { transform: rotate(0deg); }
+
+            to { transform: rotate(1turn); }
+        }
+
+        #offline {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 1000;
+            top: 0;
+        }
+
+        #offline div.offline-background {
+            width: 100%;
+            height: 100%;
+            opacity: 0.6;
+            position: absolute;
+            background: black;
+            transition: opacity 0.8s !important;
+        }
+
+        #offline div.offline-message {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            max-width: 420px;
+        }
+
+        #offline div.offline-message img {
+            animation: spin 1.5s linear infinite;
+            margin: 0 auto;
+            display: block;
+            box-shadow: 0 0 24px #ffffff;
+            border-radius: 24px;
+        }
+
+        #offline div.offline-message div {
+            font-size: 11pt;
+            font-weight: bold;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .profiler-results.profiler-left.profiler-no-controls { display: none; }
+    </style>
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -42,13 +183,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">WebApplication1</a>
+                <a asp-area="" asp-controller="Default" asp-action="Index" class="navbar-brand">WebApplication1</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Default" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Default" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Default" asp-action="Contact">Contact</a></li>
                 </ul>
             </div>
         </div>
