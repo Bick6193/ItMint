@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DALModelLib.File">
+    <Position X="4.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgBAAEAAAAAABAAAAAAAAAAAAAAQAAJAAAA=</HashCode>
+      <FileName>DB\File.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="RequestForm" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="DALModelLib.RequestForm">
+    <Position X="1.25" Y="0.75" Width="1.5" />
+    <AssociationLine Name="RequestType" Type="DALModelLib.RequestType" FixedToPoint="true">
+      <Path>
+        <Point X="2.75" Y="2.537" />
+        <Point X="3.125" Y="2.537" />
+        <Point X="3.125" Y="3.664" />
+        <Point X="4.5" Y="3.664" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACBgAAAAAAAABAwAAABAgEABAAAAIAAAAIA=</HashCode>
+      <FileName>DB\RequestForm .cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="RequestType" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Files" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="DALModelLib.RequestType">
+    <Position X="4.5" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAkAAAAAQEAAAAAABAAAEABAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>DB\RequestType.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="RequestForms" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
