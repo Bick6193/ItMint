@@ -3,6 +3,7 @@ using System.Linq;
 using Domain;
 using AutoMapper;
 using DAL.Context;
+using DAL.Repositories.RepositoriesAbstract;
 using DAL.SafeDelete;
 using Domain.SafeDelete;
 using Microsoft.EntityFrameworkCore;

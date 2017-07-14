@@ -1,7 +1,6 @@
-﻿using System.Linq;
-using Domain;
+﻿using Domain;
 
-namespace DAL.Repository
+namespace DAL.Repositories.RepositoriesAbstract
 {
     public interface IBaseRepository<TEntity, TDomain> where TEntity : EntityBase, new() where TDomain : DomainBase, new()
     {
