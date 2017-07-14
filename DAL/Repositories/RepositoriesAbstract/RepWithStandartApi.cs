@@ -10,17 +10,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Repository
 {
-    public class RepositoryBase<TEntity, TDomain> : IBaseRepository<TEntity, TDomain> where TEntity : EntityBase, new() where TDomain : DomainBase, new()
+    public class RepWithStandartApi<TEntity, TDomain> : BaseRepository, IRepWithStandartApi<TEntity, TDomain> 
+                                                        where TEntity : EntityBase, new() 
+                                                        where TDomain : DomainBase, new()
     {
-        protected AppContext Context { get; }
-
         protected readonly List<IExternalReferenceDescriptor> ExternalReferences = new List<IExternalReferenceDescriptor>();
 
         private DbSet<TEntity> DbSet { get; }
 
-        public RepositoryBase(AppContext context)
+        public RepWithStandartApi(ApplicationContext context) : base(context)
         {
-            Context = context;
             DbSet = Context.Set<TEntity>();
         }
 

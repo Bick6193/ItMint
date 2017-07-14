@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Concurrent;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Reflection;
-using DAL.Attributes;
 using DAL.Model;
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
@@ -11,14 +5,15 @@ using Serilog;
 
 namespace DAL.Context
 {
-    public  class AppContext : DbContext
+    public  class ApplicationContext : DbContext
     {
-        public AppContext() : base()
+        public ApplicationContext() : base()
         {
              
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<ApiClient> ApiClients { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

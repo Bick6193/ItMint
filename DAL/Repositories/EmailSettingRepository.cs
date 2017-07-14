@@ -6,9 +6,9 @@ using ScheduleModelLib.DB;
 
 namespace DAL.Repositories
 {
-    public class EmailSettingRepository : RepositoryBase<EmailSettings, EmailSettingsDetails>
+    public class EmailSettingRepository : RepWithStandartApi<EmailSettings, EmailSettingsDetails>
     {
-        public EmailSettingRepository(AppContext context) : base(context)
+        public EmailSettingRepository(ApplicationContext context) : base(context)
         {
             
         }
