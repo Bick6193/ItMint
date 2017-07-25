@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Serilog.Extensions.Logging" Version="1.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Global.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

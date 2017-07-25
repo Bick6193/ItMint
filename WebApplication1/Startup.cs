@@ -1,17 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Common.Configuration;
+using Configuration.IoC;
+using DAL.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+
 
 namespace WebApplication1
 {
     public class Startup
     {
+        //todo remuve after loggin setup
+        public IConfigurationRoot Configuration { get; }
+
+        public ICustomConfigurationProvider ConfigurationProvider { get; }
+
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -20,14 +27,17 @@ namespace WebApplication1
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            ConfigurationProvider = new CustomConfigurationProvider(Configuration);
+  
         }
-
-        public IConfigurationRoot Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
+        
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
+            DependencyMapper.Configure(services, ConfigurationProvider);
+
+            services.AddEntityFramework().AddDbContext<ApplicationContext>(options => options.UseSqlServer(""));
+            
             services.AddMvc();
         }
 
@@ -37,6 +47,7 @@ namespace WebApplication1
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            //todo find out ????
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
