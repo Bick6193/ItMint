@@ -49,6 +49,8 @@ namespace Common.Configuration
         int SMTPSendTimeout { get; }
 
         TimeZoneInfo TimeZone { get; }
+
+        string ContentRootPath { get; }
     }
 
     public enum SeedType

@@ -13,9 +13,10 @@ namespace Common.Configuration
 
         private IConfiguration AppSettings => Configuration.GetSection("AppSettings");
 
-        public CustomConfigurationProvider(IConfigurationRoot configuration)
+        public CustomConfigurationProvider(IConfigurationRoot configuration, string contentRootPath)
         {
             Configuration = configuration;
+            ContentRootPath = contentRootPath;
         }
 
         public SeedType SeedType => AppSettings.GetSeedType();
@@ -41,6 +42,8 @@ namespace Common.Configuration
         public string LoggerFileTemplate => AppSettings.GetString(nameof(LoggerFileTemplate), true);
         
         public TimeZoneInfo TimeZone => TimeZoneInfo.FindSystemTimeZoneById(AppSettings.GetString(nameof(TimeZone), true));
+
+        public string ContentRootPath { get; private set; }
 
         public int SMTPSendAttemptsNumber => AppSettings.GetInt(nameof(SMTPSendAttemptsNumber), true);
 
@@ -81,6 +84,8 @@ namespace Common.Configuration
             
             //see https://msdn.microsoft.com/en-us/library/gg154758.aspx
             public TimeZoneInfo TimeZone => TimeZoneInfo.FindSystemTimeZoneById(DefaultTimeZone);
+
+            public string ContentRootPath { get; }
         }
     }
 }

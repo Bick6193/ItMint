@@ -1,0 +1,228 @@
+20:21:02 [Debug] [1] [] []    Hosting starting
+20:21:02 [Debug] [1] [] []    Hosting started
+20:21:03 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA8V"" started.
+20:21:03 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA8V"" received FIN.
+20:21:03 [Debug] [3] [] []    Connection id ""0HL6MKOO5PA8V"" disconnecting.
+20:21:03 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA90"" started.
+20:21:03 [Debug] [10] [] []    Connection id ""0HL6MKOO5PA91"" started.
+20:21:03 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA8V"" sending FIN.
+20:21:03 [Debug] [10] [] []    Connection id ""0HL6MKOO5PA92"" started.
+20:21:03 [Debug] [10] [] []    Connection id ""0HL6MKOO5PA93"" started.
+20:21:03 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA8V"" sent FIN with status "0".
+20:21:03 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA8V"" stopped.
+20:21:03 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA94"" started.
+20:21:03 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA95"" started.
+20:21:03 [Information] [3] [] []    Request starting HTTP/1.1 GET http://localhost:51549/  
+20:21:03 [Debug] [3] [] []    The request path "/" does not match a supported file type
+20:21:03 [Debug] [3] [] []    Request successfully matched the route with name '"default"' and template '"{controller=Default}/{action=Index}/{id?}"'.
+20:21:04 [Debug] [3] [] []    Executing action "WebApplication1.Controllers.DefaultController.Index (Web)"
+20:21:04 [Information] [3] [] []    Executing action method "WebApplication1.Controllers.DefaultController.Index (Web)" with arguments (null) - ModelState is Valid
+20:21:04 [Debug] [3] [] []    Executed action method "WebApplication1.Controllers.DefaultController.Index (Web)", returned result "Microsoft.AspNetCore.Mvc.ViewResult".
+20:21:04 [Debug] [3] [] []    View lookup cache miss for view '"Index"' in controller '"Default"'.
+20:21:04 [Debug] [3] [] []    Code generation for the Razor file at '"/Views/Default/Index.cshtml"' started.
+20:21:05 [Debug] [3] [] []    Code generation for the Razor file at '"/Views/Default/Index.cshtml"' completed in 526.7281ms.
+20:21:05 [Debug] [3] [] []    Compilation of the generated code for the Razor file at '"/Views/Default/Index.cshtml"' started.
+20:21:07 [Debug] [3] [] []    Compilation of the generated code for the Razor file at '"/Views/Default/Index.cshtml"' completed in 1791.9851ms.
+20:21:07 [Debug] [3] [] []    Code generation for the Razor file at '"/Views/_ViewStart.cshtml"' started.
+20:21:07 [Debug] [3] [] []    Code generation for the Razor file at '"/Views/_ViewStart.cshtml"' completed in 6.8401ms.
+20:21:07 [Debug] [3] [] []    Compilation of the generated code for the Razor file at '"/Views/_ViewStart.cshtml"' started.
+20:21:07 [Debug] [3] [] []    Compilation of the generated code for the Razor file at '"/Views/_ViewStart.cshtml"' completed in 60.4006ms.
+20:21:07 [Debug] [3] [] []    The view '"Index"' was found.
+20:21:07 [Information] [3] [] []    Executing ViewResult, running view at path "/Views/Default/Index.cshtml".
+20:21:07 [Information] [3] [] []    User profile is available. Using '"C:\Users\vlad\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+20:21:07 [Debug] [3] [] []    View lookup cache miss for view '"_Layout"' in controller '"Default"'.
+20:21:07 [Debug] [3] [] []    Code generation for the Razor file at '"/Views/Shared/_Layout.cshtml"' started.
+20:21:07 [Debug] [3] [] []    Code generation for the Razor file at '"/Views/Shared/_Layout.cshtml"' completed in 204.0354ms.
+20:21:07 [Debug] [3] [] []    Compilation of the generated code for the Razor file at '"/Views/Shared/_Layout.cshtml"' started.
+20:21:07 [Debug] [3] [] []    Compilation of the generated code for the Razor file at '"/Views/Shared/_Layout.cshtml"' completed in 205.7377ms.
+20:21:08 [Information] [3] [] []    Executed action "WebApplication1.Controllers.DefaultController.Index (Web)" in 3926.9723ms
+20:21:08 [Information] [4] [] []    Request starting HTTP/1.1 GET http://localhost:51549/Content/cg/images/saving.png  
+20:21:08 [Debug] [3] [] []    Connection id ""0HL6MKOO5PA90"" completed keep alive response.
+20:21:08 [Debug] [4] [] []    The request path "/Content/cg/images/saving.png" does not match an existing file
+20:21:08 [Debug] [4] [] []    Request did not match any routes.
+20:21:08 [Debug] [4] [] []    Connection id ""0HL6MKOO5PA91"" completed keep alive response.
+20:21:08 [Information] [3] [] []    Request finished in 4841.8249ms 200 text/html; charset=utf-8
+20:21:08 [Information] [4] [] []    Request finished in 124.8092ms 404 
+20:21:08 [Information] [14] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/main.js  
+20:21:08 [Information] [14] [] []    Sending file. Request path: '"/js/main.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\main.js"'
+20:21:08 [Debug] [14] [] []    Connection id ""0HL6MKOO5PA91"" completed keep alive response.
+20:21:08 [Information] [14] [] []    Request finished in 144.3288ms 200 application/javascript
+20:21:08 [Information] [14] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/app/app.module.js  
+20:21:08 [Information] [14] [] []    Sending file. Request path: '"/js/app/app.module.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\app\app.module.js"'
+20:21:08 [Debug] [14] [] []    Connection id ""0HL6MKOO5PA91"" completed keep alive response.
+20:21:08 [Information] [14] [] []    Request finished in 46.7022ms 200 application/javascript
+20:21:08 [Information] [4] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/app/app.component.js  
+20:21:08 [Information] [4] [] []    Sending file. Request path: '"/js/app/app.component.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\app\app.component.js"'
+20:21:08 [Debug] [4] [] []    Connection id ""0HL6MKOO5PA91"" completed keep alive response.
+20:21:08 [Information] [4] [] []    Request finished in 65.9457ms 200 application/javascript
+20:21:12 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA94"" received FIN.
+20:21:12 [Debug] [10] [] []    Connection id ""0HL6MKOO5PA92"" received FIN.
+20:21:12 [Debug] [3] [] []    Connection id ""0HL6MKOO5PA94"" disconnecting.
+20:21:12 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA95"" received FIN.
+20:21:12 [Debug] [10] [] []    Connection id ""0HL6MKOO5PA93"" received FIN.
+20:21:12 [Debug] [4] [] []    Connection id ""0HL6MKOO5PA92"" disconnecting.
+20:21:12 [Debug] [13] [] []    Connection id ""0HL6MKOO5PA93"" disconnecting.
+20:21:12 [Debug] [10] [] []    Connection id ""0HL6MKOO5PA91"" received FIN.
+20:21:12 [Debug] [3] [] []    Connection id ""0HL6MKOO5PA95"" disconnecting.
+20:21:13 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA90"" received FIN.
+20:21:13 [Debug] [4] [] []    Connection id ""0HL6MKOO5PA91"" disconnecting.
+20:21:13 [Debug] [10] [] []    Connection id ""0HL6MKOO5PA92"" sending FIN.
+20:21:13 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA94"" sending FIN.
+20:21:13 [Debug] [12] [] []    Connection id ""0HL6MKOO5PA90"" disconnecting.
+20:21:13 [Debug] [10] [] []    Connection id ""0HL6MKOO5PA93"" sending FIN.
+20:21:13 [Debug] [10] [] []    Connection id ""0HL6MKOO5PA91"" sending FIN.
+20:21:13 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA95"" sending FIN.
+20:21:13 [Debug] [10] [] []    Connection id ""0HL6MKOO5PA91"" sent FIN with status "0".
+20:21:13 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA90"" sending FIN.
+20:21:13 [Debug] [10] [] []    Connection id ""0HL6MKOO5PA91"" stopped.
+20:21:13 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA90"" sent FIN with status "0".
+20:21:13 [Debug] [10] [] []    Connection id ""0HL6MKOO5PA93"" sent FIN with status "0".
+20:21:13 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA90"" stopped.
+20:21:13 [Debug] [10] [] []    Connection id ""0HL6MKOO5PA93"" stopped.
+20:21:13 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA95"" sent FIN with status "0".
+20:21:13 [Debug] [10] [] []    Connection id ""0HL6MKOO5PA92"" sent FIN with status "0".
+20:21:13 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA95"" stopped.
+20:21:13 [Debug] [10] [] []    Connection id ""0HL6MKOO5PA92"" stopped.
+20:21:13 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA94"" sent FIN with status "0".
+20:21:13 [Debug] [11] [] []    Connection id ""0HL6MKOO5PA94"" stopped.
+20:23:14 [Information] [3] [] []    Request starting HTTP/1.1 GET http://localhost:51549/  
+20:23:14 [Information] [3] [] []    Executing action method "WebApplication1.Controllers.DefaultController.Index (Web)" with arguments (null) - ModelState is Valid
+20:23:16 [Information] [3] [] []    Executing ViewResult, running view at path "/Views/Default/Index.cshtml".
+20:23:16 [Information] [3] [] []    User profile is available. Using '"C:\Users\vlad\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+20:23:16 [Information] [3] [] []    Executed action "WebApplication1.Controllers.DefaultController.Index (Web)" in 2419.0116ms
+20:23:17 [Information] [3] [] []    Request finished in 2935.1272ms 200 text/html; charset=utf-8
+20:23:17 [Information] [12] [] []    Request starting HTTP/1.1 GET http://localhost:51549/Content/cg/images/saving.png  
+20:23:17 [Information] [12] [] []    Request finished in 25.0481ms 404 
+20:23:17 [Information] [4] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/main.js  
+20:23:17 [Information] [4] [] []    Sending file. Request path: '"/js/main.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\main.js"'
+20:23:17 [Information] [4] [] []    Request finished in 66.3143ms 200 application/javascript
+20:23:17 [Information] [4] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/app/app.module.js  
+20:23:17 [Information] [4] [] []    Sending file. Request path: '"/js/app/app.module.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\app\app.module.js"'
+20:23:17 [Information] [4] [] []    Request finished in 10.5805ms 200 application/javascript
+20:23:17 [Information] [13] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/app/app.component.js  
+20:23:17 [Information] [13] [] []    Sending file. Request path: '"/js/app/app.component.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\app\app.component.js"'
+20:23:17 [Information] [13] [] []    Request finished in 13.4502ms 200 application/javascript
+20:26:01 [Information] [12] [] []    Request starting HTTP/1.1 GET http://localhost:51549/  
+20:26:01 [Information] [12] [] []    Executing action method "WebApplication1.Controllers.DefaultController.Index (Web)" with arguments (null) - ModelState is Valid
+20:26:03 [Information] [12] [] []    Executing ViewResult, running view at path "/Views/Default/Index.cshtml".
+20:26:03 [Information] [12] [] []    User profile is available. Using '"C:\Users\vlad\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+20:26:04 [Information] [12] [] []    Executed action "WebApplication1.Controllers.DefaultController.Index (Web)" in 2555.5984ms
+20:26:04 [Information] [4] [] []    Request starting HTTP/1.1 GET http://localhost:51549/Content/cg/images/saving.png  
+20:26:04 [Information] [12] [] []    Request finished in 3075.2139ms 200 text/html; charset=utf-8
+20:26:04 [Information] [4] [] []    Request finished in 68.9873ms 404 
+20:26:04 [Information] [12] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/main.js  
+20:26:04 [Information] [12] [] []    Sending file. Request path: '"/js/main.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\main.js"'
+20:26:04 [Information] [12] [] []    Request finished in 36.2003ms 200 application/javascript
+20:26:04 [Information] [4] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/app/app.module.js  
+20:26:04 [Information] [4] [] []    Sending file. Request path: '"/js/app/app.module.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\app\app.module.js"'
+20:26:04 [Information] [4] [] []    Request finished in 34.2961ms 200 application/javascript
+20:26:04 [Information] [12] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/app/app.component.js  
+20:26:04 [Information] [12] [] []    Sending file. Request path: '"/js/app/app.component.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\app\app.component.js"'
+20:26:04 [Information] [12] [] []    Request finished in 18.6038ms 200 application/javascript
+20:27:14 [Information] [1] [] [] Program.cs 24 Main App started ;)
+20:27:15 [Information] [3] [] []    Request starting HTTP/1.1 GET http://localhost:51549/  
+20:27:15 [Information] [3] [] []    Executing action method "WebApplication1.Controllers.DefaultController.Index (Web)" with arguments (null) - ModelState is Valid
+20:27:17 [Information] [3] [] []    Executing ViewResult, running view at path "/Views/Default/Index.cshtml".
+20:27:17 [Information] [3] [] []    User profile is available. Using '"C:\Users\vlad\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+20:27:18 [Information] [3] [] []    Executed action "WebApplication1.Controllers.DefaultController.Index (Web)" in 2742.9203ms
+20:27:18 [Information] [3] [] []    Request finished in 3200.7006ms 200 text/html; charset=utf-8
+20:27:18 [Information] [3] [] []    Request starting HTTP/1.1 GET http://localhost:51549/Content/cg/images/saving.png  
+20:27:18 [Information] [3] [] []    Request finished in 28.898ms 404 
+20:27:18 [Information] [13] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/main.js  
+20:27:18 [Information] [13] [] []    Sending file. Request path: '"/js/main.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\main.js"'
+20:27:18 [Information] [13] [] []    Request finished in 43.7642ms 200 application/javascript
+20:27:18 [Information] [4] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/app/app.module.js  
+20:27:18 [Information] [4] [] []    Sending file. Request path: '"/js/app/app.module.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\app\app.module.js"'
+20:27:18 [Information] [4] [] []    Request finished in 64.3722ms 200 application/javascript
+20:27:18 [Information] [13] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/app/app.component.js  
+20:27:18 [Information] [13] [] []    Sending file. Request path: '"/js/app/app.component.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\app\app.component.js"'
+20:27:18 [Information] [13] [] []    Request finished in 27.0684ms 200 application/javascript
+20:28:12 [Information] [1] [] [] Startup.cs 37 .ctor App started ;)
+20:28:14 [Information] [3] [] []    Request starting HTTP/1.1 GET http://localhost:51549/  
+20:28:14 [Information] [3] [] []    Executing action method "WebApplication1.Controllers.DefaultController.Index (Web)" with arguments (null) - ModelState is Valid
+20:28:16 [Information] [3] [] []    Executing ViewResult, running view at path "/Views/Default/Index.cshtml".
+20:28:16 [Information] [3] [] []    User profile is available. Using '"C:\Users\vlad\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+20:28:17 [Information] [3] [] []    Executed action "WebApplication1.Controllers.DefaultController.Index (Web)" in 2541.9866ms
+20:28:17 [Information] [3] [] []    Request finished in 2954.5212ms 200 text/html; charset=utf-8
+20:28:17 [Information] [12] [] []    Request starting HTTP/1.1 GET http://localhost:51549/Content/cg/images/saving.png  
+20:28:17 [Information] [12] [] []    Request finished in 21.3286ms 404 
+20:28:17 [Information] [4] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/main.js  
+20:28:17 [Information] [4] [] []    Sending file. Request path: '"/js/main.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\main.js"'
+20:28:17 [Information] [4] [] []    Request finished in 185.4528ms 200 application/javascript
+20:28:17 [Information] [4] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/app/app.module.js  
+20:28:17 [Information] [4] [] []    Sending file. Request path: '"/js/app/app.module.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\app\app.module.js"'
+20:28:18 [Information] [4] [] []    Request finished in 652.9267ms 200 application/javascript
+20:28:18 [Information] [4] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/app/app.component.js  
+20:28:18 [Information] [4] [] []    Sending file. Request path: '"/js/app/app.component.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\app\app.component.js"'
+20:28:18 [Information] [4] [] []    Request finished in 68.1312ms 200 application/javascript
+20:29:52 [Information] [1] [] [] Startup.cs 37 .ctor App started ;)
+20:30:22 [Information] [10] [] []    Request starting HTTP/1.1 GET http://localhost:51549/  
+20:30:22 [Information] [10] [] []    Executing action method "WebApplication1.Controllers.DefaultController.Index (Web)" with arguments (null) - ModelState is Valid
+20:30:24 [Information] [10] [] []    Executing ViewResult, running view at path "/Views/Default/Index.cshtml".
+20:30:25 [Information] [10] [] []    User profile is available. Using '"C:\Users\vlad\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+20:30:25 [Information] [10] [] []    Executed action "WebApplication1.Controllers.DefaultController.Index (Web)" in 2693.5281ms
+20:30:25 [Information] [10] [] []    Request finished in 3152.1495ms 200 text/html; charset=utf-8
+20:30:25 [Information] [13] [] []    Request starting HTTP/1.1 GET http://localhost:51549/Content/cg/images/saving.png  
+20:30:25 [Information] [13] [] []    Request finished in 19.1182ms 404 
+20:30:25 [Information] [10] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/main.js  
+20:30:25 [Information] [10] [] []    Sending file. Request path: '"/js/main.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\main.js"'
+20:30:25 [Information] [10] [] []    Request finished in 126.8706ms 200 application/javascript
+20:30:25 [Information] [10] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/app/app.module.js  
+20:30:25 [Information] [10] [] []    Sending file. Request path: '"/js/app/app.module.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\app\app.module.js"'
+20:30:25 [Information] [10] [] []    Request finished in 12.173ms 200 application/javascript
+20:30:25 [Information] [14] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/app/app.component.js  
+20:30:25 [Information] [14] [] []    Sending file. Request path: '"/js/app/app.component.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\app\app.component.js"'
+20:30:25 [Information] [14] [] []    Request finished in 26.7962ms 200 application/javascript
+20:40:30 [Information] [1] [] [] Startup.cs 37 .ctor App started ;)
+20:40:32 [Information] [3] [] []    Request starting HTTP/1.1 GET http://localhost:51549/  
+20:40:33 [Information] [3] [] []    Executing action method "WebApplication1.Controllers.DefaultController.Index (Web)" with arguments (null) - ModelState is Valid
+20:40:35 [Information] [3] [] []    Executing ViewResult, running view at path "/Views/Default/Index.cshtml".
+20:40:35 [Information] [3] [] []    User profile is available. Using '"C:\Users\vlad\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+20:40:35 [Information] [3] [] []    Executed action "WebApplication1.Controllers.DefaultController.Index (Web)" in 2531.999ms
+20:40:35 [Information] [3] [] []    Request finished in 2958.3782ms 200 text/html; charset=utf-8
+20:40:35 [Information] [3] [] []    Request starting HTTP/1.1 GET http://localhost:51549/Content/cg/images/saving.png  
+20:40:35 [Information] [3] [] []    Request finished in 20.0324ms 404 
+20:40:35 [Information] [12] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/main.js  
+20:40:35 [Information] [12] [] []    Sending file. Request path: '"/js/main.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\main.js"'
+20:40:35 [Information] [12] [] []    Request finished in 40.493ms 200 application/javascript
+20:40:35 [Information] [4] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/app/app.module.js  
+20:40:35 [Information] [4] [] []    Sending file. Request path: '"/js/app/app.module.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\app\app.module.js"'
+20:40:35 [Information] [4] [] []    Request finished in 28.7411ms 200 application/javascript
+20:40:35 [Information] [13] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/app/app.component.js  
+20:40:35 [Information] [13] [] []    Sending file. Request path: '"/js/app/app.component.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\app\app.component.js"'
+20:40:35 [Information] [13] [] []    Request finished in 18.1187ms 200 application/javascript
+20:49:33 [Information] [1] [] [] Startup.cs 55 Configure Application is starting...
+20:49:34 [Information] [1] [] [] Startup.cs 57 Configure Configuration:
+20:49:34 [Information] [1] [] [] Startup.cs 59 Configure ["SeedType"] = 'TestData'
+20:49:34 [Information] [1] [] [] Startup.cs 59 Configure ["EnableSqlLog"] = 'True'
+20:49:34 [Information] [1] [] [] Startup.cs 59 Configure ["EnableDetailedSqlLog"] = 'True'
+20:49:34 [Information] [1] [] [] Startup.cs 59 Configure ["ClientVersionFilterEnabled"] = 'True'
+20:49:34 [Information] [1] [] [] Startup.cs 59 Configure ["ApplicationUrl"] = '"http://tfs.itmint.ca/creditorguard/"'
+20:49:34 [Information] [1] [] [] Startup.cs 59 Configure ["Revision"] = '"1.0.0"'
+20:49:34 [Information] [1] [] [] Startup.cs 59 Configure ["BuildNumber"] = '0'
+20:49:34 [Information] [1] [] [] Startup.cs 59 Configure ["LoggerSeqUrl"] = 'null'
+20:49:34 [Information] [1] [] [] Startup.cs 59 Configure ["LoggerDirectory"] = '""'
+20:49:34 [Information] [1] [] [] Startup.cs 59 Configure ["LoggerConsoleTemplate"] = '"{Timestamp:HH:mm:ss} [{Level}] [{ThreadId}] {File} {Line} {Member} {Message}{NewLine}{Exception}"'
+20:49:34 [Information] [1] [] [] Startup.cs 59 Configure ["LoggerFileTemplate"] = '"{Timestamp:HH:mm:ss} [{Level}] [{ThreadId}] [{HttpRequestId}] [{HttpRequestUrl}] {File} {Line} {Member} {Message}{NewLine}{Exception}"'
+20:49:34 [Information] [1] [] [] Startup.cs 59 Configure ["TimeZone"] = '"(UTC-05:00) Eastern Time (US & Canada)"'
+20:49:34 [Information] [1] [] [] Startup.cs 59 Configure ["ContentRootPath"] = '"C:\DevFolder\chatapp\WebApplication1"'
+20:49:34 [Information] [1] [] [] Startup.cs 59 Configure ["SMTPSendAttemptsNumber"] = '3'
+20:49:34 [Information] [1] [] [] Startup.cs 59 Configure ["SMTPSendTimeout"] = '300000'
+20:49:34 [Information] [1] [] [] Startup.cs 59 Configure ["ConnectionString"] = '"Server=(localdb)\mssqllocaldb;Database=ChatApp;Trusted_Connection=True;MultipleActiveResultSets=true"'
+20:49:35 [Information] [3] [] []    Request starting HTTP/1.1 GET http://localhost:51549/  
+20:49:35 [Information] [3] [] []    Executing action method "WebApplication1.Controllers.DefaultController.Index (Web)" with arguments (null) - ModelState is Valid
+20:49:37 [Information] [3] [] []    Executing ViewResult, running view at path "/Views/Default/Index.cshtml".
+20:49:37 [Information] [3] [] []    User profile is available. Using '"C:\Users\vlad\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+20:49:37 [Information] [3] [] []    Executed action "WebApplication1.Controllers.DefaultController.Index (Web)" in 2449.416ms
+20:49:37 [Information] [3] [] []    Request finished in 2883.581ms 200 text/html; charset=utf-8
+20:49:37 [Information] [3] [] []    Request starting HTTP/1.1 GET http://localhost:51549/Content/cg/images/saving.png  
+20:49:37 [Information] [3] [] []    Request finished in 21.7868ms 404 
+20:49:38 [Information] [12] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/main.js  
+20:49:38 [Information] [12] [] []    Sending file. Request path: '"/js/main.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\main.js"'
+20:49:38 [Information] [12] [] []    Request finished in 39.217ms 200 application/javascript
+20:49:38 [Information] [12] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/app/app.module.js  
+20:49:38 [Information] [12] [] []    Sending file. Request path: '"/js/app/app.module.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\app\app.module.js"'
+20:49:38 [Information] [12] [] []    Request finished in 25.2903ms 200 application/javascript
+20:49:38 [Information] [13] [] []    Request starting HTTP/1.1 GET http://localhost:51549/js/app/app.component.js  
+20:49:38 [Information] [13] [] []    Sending file. Request path: '"/js/app/app.component.js"'. Physical path: '"C:\DevFolder\chatapp\WebApplication1\wwwroot\js\app\app.component.js"'
+20:49:38 [Information] [13] [] []    Request finished in 14.7476ms 200 application/javascript
