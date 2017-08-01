@@ -16,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using Web.Tracing;
 using Log = Common.Log;
 
 
@@ -57,7 +58,9 @@ namespace WebApplication1
 
                 services.AddEntityFramework().AddDbContext<ApplicationContext>(options => options.UseSqlServer(""));
             
-                services.AddMvc();
+                var builder = services.AddMvc();
+
+                builder.AddMvcOptions(x => x.Filters.Add(new GlobalExceptionHandler()));
             }
             catch (Exception e)
             {

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication1.Controllers
@@ -7,7 +8,7 @@ namespace WebApplication1.Controllers
     {
         [AllowAnonymous]
         public IActionResult Index()
-        {
+        {throw new Exception();
             return View();
         }
     }
