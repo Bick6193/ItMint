@@ -8,7 +8,7 @@ namespace WebApplication1.Controllers
     {
         [AllowAnonymous]
         public IActionResult Index()
-        {throw new Exception();
+        {
             return View();
         }
     }
