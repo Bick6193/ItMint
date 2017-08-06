@@ -1,13 +1,16 @@
 ﻿{
-  "iisSettings": {
+  "iisSettings": 
+  {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
-    "iisExpress": {
+    "iisExpress": 
+    {
       "applicationUrl": "http://localhost:51548/",
       "sslPort": 0
     }
   },
-  "profiles": {
+  "profiles": 
+  {
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
@@ -15,6 +18,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
+
     "Self Host": {
       "commandName": "Project",
       "launchBrowser": true,
@@ -23,13 +27,26 @@
       },
       "applicationUrl": "http://localhost:51549"
     },
-    "Angular CLi": {
+
+    "console without Browser": 
+    {
       "commandName": "Project",
-      "launchBrowser": false,
-      "environmentVariables": {
+      "launch": false,
+      "environmentVariables": 
+      {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:51549"
+      "applicationUrl": "http://localhost:5000"
+    },
+
+    "dotnet watch": {
+      "executablePath": "C:\\Program Files\\dotnet\\dotnet.exe",
+      "commandLineArgs": "watch run",
+
+      "environmentVariables": 
+      {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
     }
   }
 }

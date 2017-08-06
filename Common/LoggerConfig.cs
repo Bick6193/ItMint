@@ -28,7 +28,7 @@ namespace Common
             
             var configuration = new LoggerConfiguration()
                 .Enrich.With<ThreadIdEnricher>()
-                .MinimumLevel.Debug()
+                .MinimumLevel.Information()
                 //.WriteTo.Async(a => a.MSSqlServer(configurationProvider.ConnectionString, "Serilog", restrictedToMinimumLevel:LogEventLevel.Debug, autoCreateSqlTable:true))
                 .WriteTo.Async(a => a.RollingFile(logFilePath, LogEventLevel.Debug, configurationProvider.LoggerFileTemplate, null, 1073741824, 31, null, false, true));
 

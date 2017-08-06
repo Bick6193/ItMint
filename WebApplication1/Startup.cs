@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using Common;
@@ -100,13 +101,30 @@ namespace WebApplication1
                    // app.UseBrowserLink();
                 }
 
+                app.UseDefaultFiles();
                 app.UseStaticFiles();
 
-                app.UseMvc(routes =>
+                app.UseMvcWithDefaultRoute();
+
+                //app.UseMvc(routes =>
+                //{
+                //    routes.MapRoute(
+                //        name: "default",
+                //        template: "{controller=Default}/{action=Index}/{id?}");
+                //});
+
+              app.UseMvc();
+
+        app.Use(async (context, next) => 
                 {
-                    routes.MapRoute(
-                        name: "default",
-                        template: "{controller=Default}/{action=Index}/{id?}");
+                    await next();
+                    if (context.Response.StatusCode == 404 &&
+                        !Path.HasExtension(context.Request.Path.Value) &&
+                        !context.Request.Path.Value.StartsWith("/api/"))
+                    {
+                        context.Request.Path = "/index.html";
+                        await next();
+                    }
                 });
 
             }
