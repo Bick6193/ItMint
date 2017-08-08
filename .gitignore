@@ -264,3 +264,4 @@ __pycache__/
 /WebApplication1/Logs
 *.txt
 /WebApplication1/Logs
+/WebApplication1/wwwroot
