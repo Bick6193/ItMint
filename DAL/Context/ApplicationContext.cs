@@ -1,4 +1,3 @@
-using Common.Configuration;
 using DAL.Model;
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
@@ -26,8 +25,7 @@ namespace DAL.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var conf = CustomConfigurationProvider.DefaultProvider;
-            base.OnConfiguring(optionsBuilder.UseSqlServer(conf.ConnectionString));
+           base.OnConfiguring(optionsBuilder);
         }
     }
 }
