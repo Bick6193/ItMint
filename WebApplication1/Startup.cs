@@ -29,11 +29,7 @@ namespace WebApplication1
 {
     public class Startup
     {
-      private static readonly string secretKey = "mysupersecret_secretkey!123";
-      private static readonly string issure = "AltairCA";
-      private static readonly string audience = "AltairCAAudience";
-
-    public ICustomConfigurationProvider ConfigurationProvider { get; }
+        public ICustomConfigurationProvider ConfigurationProvider { get; }
 
         public Startup(IHostingEnvironment env)
         {
@@ -108,56 +104,8 @@ namespace WebApplication1
             // app.UseDeveloperExceptionPage();
             // app.UseBrowserLink();
           }
-
-          //start jwt token config
-          var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretKey));
-          //generate token
-
-          var jwtOptions = new TokenProviderOptions
-          {
-            Audience = audience,
-            Issuer = issure,
-            SigningCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256)
-          };
-
-          app.UseMiddleware<TokenProviderMiddleware>(Options.Create(jwtOptions));
-
-          //validation key
-
-
-          var tokenValidationParameters = new TokenValidationParameters
-          {
-            //The signing key must match !
-            ValidateIssuerSigningKey = true,
-            IssuerSigningKey = signingKey,
-
-            //Validate the JWT Issuer (iss) claim
-            ValidateIssuer = true,
-            ValidIssuer = issure,
-
-            //validate the JWT Audience (aud) claim
-
-            ValidateAudience = true,
-            ValidAudience = audience,
-
-            //validate the token expiry
-            ValidateLifetime = true,
-
-            // If you  want to allow a certain amout of clock drift
-            ClockSkew = TimeSpan.Zero
-          };
-
-          app.UseJwtBearerAuthentication(new JwtBearerOptions
-          {
-            AutomaticAuthenticate = false,
-            AutomaticChallenge = true,
-            TokenValidationParameters = tokenValidationParameters,
-            AuthenticationScheme = "Bearer"
-          });
-
-          //end jwt token config
-          app.UseApplicationInsightsRequestTelemetry();
-
+          
+          app.ConfigJwtBearerAuthentication();
 
           app.UseDefaultFiles();
           app.UseStaticFiles();
@@ -172,7 +120,7 @@ namespace WebApplication1
           //});
 
           app.UseMvc();
-
+          
           app.Use(async (context, next) =>
           {
             await next();
@@ -196,6 +144,6 @@ namespace WebApplication1
 
           Log.Logger().Information("Startup time: {Seconds}s", stopwatch.Elapsed.Seconds);
         }
-        }
+      }
     }
 }

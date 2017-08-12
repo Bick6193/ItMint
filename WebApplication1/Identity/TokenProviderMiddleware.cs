@@ -4,7 +4,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
@@ -51,26 +50,13 @@ namespace Web.Identity
       }
       var now = DateTime.UtcNow;
 
-
-      /*var claims = new Claim[]
-      {
-          new Claim(JwtRegisteredClaimNames.Sub, username),
-          new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-          new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(), ClaimValueTypes.Integer64)
-      };
-      */
-     // var userClaims = await _userManager.GetRolesAsync(user);
+      //jti (random nonce), iat (issued timestamp), and sub (subject/user) claims.
       List<Claim> claims = new List<Claim>();
       claims.Add(new Claim(JwtRegisteredClaimNames.Sub, username));
       claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
       claims.Add(new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(), ClaimValueTypes.Integer64));
-      //claims.AddRange(user.Claims.ToArray());
-
-      //foreach (var x in userClaims)
-      //{
-      //  claims.Add(new Claim(ClaimTypes.Role, x));
-      //}
-
+      
+      //add user claims
 
       var jwt = new JwtSecurityToken(
         issuer: _options.Issuer,
