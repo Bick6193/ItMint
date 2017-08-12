@@ -11,7 +11,7 @@ namespace CreditorGuard.Common
     /// </summary>
     public static class DateTimeContext
     {
-        private static TimeZoneInfo TimeZone { get; set; } = CustomConfigurationProvider.DefaultProvider.TimeZone;
+        private static TimeZoneInfo TimeZone { get; set; } = TimeZoneInfo.Local; // todo!!
 
         public static DateTime Today => GetCurrentDate();
 

@@ -15,9 +15,7 @@ namespace Security
       public string Login => IdentityUser.Login ?? SystemUserName;
 
       public string Email => IdentityUser.Email;
-
-      public string EmailPassword => IdentityUser.EmailPassword;
-
+    
       public UserType Type => IdentityUser.Type;
 
       public string FullName => IdentityUser.UserFullName ?? SystemUserName;

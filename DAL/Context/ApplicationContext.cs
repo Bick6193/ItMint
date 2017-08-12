@@ -8,10 +8,9 @@ namespace DAL.Context
     public  class ApplicationContext : DbContext
     {
         public ApplicationContext(DbContextOptions options):base(options) { }
-        
-        public DbSet<User> Users { get; set; }
+        public DbSet<ApplicationUser> Users { get; set; }
         public DbSet<ApiClient> ApiClients { get; set; }
-        public DbSet<IdentityUser> IdentityUsers { get; set; }
+        public DbSet<ApplicationUser> IdentityUsers { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<RolePermission> RolePermissions { get; set; }
         

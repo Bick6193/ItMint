@@ -22,7 +22,7 @@ using Web.Identity;
 using Log = Common.Log;
 
 
-namespace WebApplication1
+namespace Web
 {
     public class Startup
     {

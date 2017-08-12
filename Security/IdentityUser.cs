@@ -18,8 +18,6 @@ namespace Security
 
       public const string ClaimEmail = ClaimTypes.Email;
 
-      public const string ClaimEmailPassword = "ClaimEmailPassword";
-
       public const string ClaimRole = ClaimTypes.Role;
 
       public const string ClaimType = "ClaimType";
@@ -50,10 +48,7 @@ namespace Security
 
       [CanBeNull]
       public string Email { get; }
-
-      [CanBeNull]
-      public string EmailPassword { get; }
-
+    
       public UserType Type { get; }
 
       [CanBeNull]
@@ -77,8 +72,7 @@ namespace Security
         UserFullName = GetClaimValue<string>(ClaimName);
         Login = GetClaimValue<string>(ClaimLogin);
         Email = GetClaimValue<string>(ClaimEmail);
-        EmailPassword = GetClaimValue<string>(ClaimEmailPassword);
-
+        
         var userTypeName = GetClaimValue<string>(ClaimType);
         Type = userTypeName == null || !userTypeName.Any()  ? UserType.None : (UserType)Enum.Parse(typeof(UserType), userTypeName);
 

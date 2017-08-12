@@ -13,9 +13,6 @@ namespace CreditorGuard.Security
         [CanBeNull]
         string Email { get; }
 
-        [CanBeNull]
-        string EmailPassword { get; }
-
         UserType Type { get; }
 
         [NotNull]

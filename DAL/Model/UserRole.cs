@@ -13,10 +13,10 @@ namespace DAL.Model
 
         public virtual Role Role { get; set; }
 
-        [ForeignKey(nameof(User))]
+        [ForeignKey(nameof(ApplicationUser))]
         public long? UserId { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
         [NotMapped]
         public long? LinkedDataId

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DAL.Model
 {
-    public class Employee : User
+    public class Employee : ApplicationUser
     {
         public DateTime WorkingHoursStartTime { get; set; }
         public DateTime WorkingHoursEndTime { get; set; }
