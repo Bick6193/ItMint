@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using Common;
 using Common.Configuration;
 using Configuration.IoC;
@@ -17,8 +16,6 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using Web.Filters;
 using Web.Identity;
@@ -29,52 +26,53 @@ namespace WebApplication1
 {
     public class Startup
     {
-        public ICustomConfigurationProvider ConfigurationProvider { get; }
+      public ICustomConfigurationProvider ConfigurationProvider { get; }
 
-        public Startup(IHostingEnvironment env)
+      public Startup(IHostingEnvironment env)
+      {
+        try
         {
-            try
-            {
-                var builder = new ConfigurationBuilder()
-                    .SetBasePath(env.ContentRootPath)
-                    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                    .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                    .AddEnvironmentVariables();
-                var configuration = builder.Build();
+          var builder = new ConfigurationBuilder()
+            .SetBasePath(env.ContentRootPath)
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+            .AddEnvironmentVariables();
+          var configuration = builder.Build();
 
-                ConfigurationProvider = new CustomConfigurationProvider(configuration, env.ContentRootPath);
+          ConfigurationProvider = new CustomConfigurationProvider(configuration, env.ContentRootPath);
 
-                LoggerConfig.Configure(ConfigurationProvider);
-            }
-            catch (Exception e)
-            {
-                Log.Logger().Error(e, "Application failed to start");
-                throw;
-            }
+          LoggerConfig.Configure(ConfigurationProvider);
         }
-        
-        public void ConfigureServices(IServiceCollection services)
+        catch (Exception e)
         {
-            try
-            {
-                Log.Logger().Information("Configure Dependency Injection...");
-
-                DependencyMapper.Configure(services, ConfigurationProvider);
-
-                services.AddEntityFramework().AddDbContext<ApplicationContext>(options => options.UseSqlServer(""));
-            
-                var builder = services.AddMvc();
-
-                builder.AddMvcOptions(x => x.Filters.Add(new GlobalExceptionHandler()));
-            }
-            catch (Exception e)
-            {
-                Log.Logger().Error(e, "Application failed to start");
-                throw;
-            }
+          Log.Logger().Error(e, "Application failed to start");
+          throw;
         }
+      }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+      public void ConfigureServices(IServiceCollection services)
+      {
+        try
+        {
+          Log.Logger().Information("Configure Dependency Injection...");
+          DependencyMapper.Configure(services, ConfigurationProvider);
+
+          Log.Logger().Information("Configure ApplicationContext...");
+          services.AddEntityFramework()
+            .AddDbContext<ApplicationContext>(options => options.UseSqlServer(ConfigurationProvider.ConnectionString));
+
+          Log.Logger().Information("Configure MVC services...");
+          var builder = services.AddMvc();
+          builder.AddMvcOptions(x => x.Filters.Add(new GlobalExceptionHandler()));
+        }
+        catch (Exception e)
+        {
+          Log.Logger().Error(e, "Application failed to start");
+          throw;
+        }
+      }
+
+      // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
       public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
       {
         var stopwatch = Stopwatch.StartNew();
@@ -83,19 +81,17 @@ namespace WebApplication1
           loggerFactory.AddSerilog();
 
           Log.Logger().Information("Application is starting...");
-
           Log.Logger().Information("Configuration:");
 
           ConfigurationProvider.GetType().GetProperties().ToList().ForEach(prop =>
           {
-            Log.Logger().Information("[{name}] = '{value}'", prop.Name,
+              Log.Logger().Information("[{name}] = '{value}'", prop.Name,
               prop.GetValue(ConfigurationProvider));
           });
 
           DateTimeContext.Initialize(ConfigurationProvider.TimeZone);
 
           Log.Logger().Information("Configure EF Mappings...");
-
           MappingConfig.RegisterMappings();
 
           //todo find out ????
@@ -104,7 +100,8 @@ namespace WebApplication1
             // app.UseDeveloperExceptionPage();
             // app.UseBrowserLink();
           }
-          
+
+          Log.Logger().Information("Configure Jwt Bearer Authentication...");
           app.ConfigJwtBearerAuthentication();
 
           app.UseDefaultFiles();
@@ -120,7 +117,7 @@ namespace WebApplication1
           //});
 
           app.UseMvc();
-          
+
           app.Use(async (context, next) =>
           {
             await next();
@@ -141,7 +138,6 @@ namespace WebApplication1
         finally
         {
           stopwatch.Stop();
-
           Log.Logger().Information("Startup time: {Seconds}s", stopwatch.Elapsed.Seconds);
         }
       }

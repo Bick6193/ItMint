@@ -1,9 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using DAL.Attributes;
-using Domain;
 
-namespace ScheduleModelLib.DB
+namespace DAL
 {
     public class EmailSettings : EntityBase
     {

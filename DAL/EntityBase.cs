@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using AutoMapper;
 
-namespace Domain
+namespace DAL
 {
     public abstract class EntityBase
     {
@@ -19,8 +19,10 @@ namespace Domain
         [Required]
         public DateTime CreatedDate { get; set; }
 
+        [IgnoreMap]
         public DateTime? DeletedDate { get; set; }
 
+        [IgnoreMap]
         [Required]
         public virtual bool IsDeleted { get; set; }
 

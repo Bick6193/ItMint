@@ -2,7 +2,6 @@
 using DAL.Repository;
 using DAL.Model;
 using Domain.MailSettings;
-using ScheduleModelLib.DB;
 
 namespace DAL.Repositories
 {

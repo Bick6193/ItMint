@@ -16,9 +16,7 @@ namespace DAL.Model
         public string ContentType { get; set; }
 
         public int? RequestFormId { get; set; }
-        
-        public byte[] RowVersion { get; set; }
-
+       
         public string RequestFormToken { get; set; }
 
         public int? FileIndex { get; set; }
@@ -26,7 +24,5 @@ namespace DAL.Model
         public int BinaryDataId { get; set; }
 
         public virtual BinaryData BinaryData { get; set; }
-
-        public DateTime CreatedDate { get; set; }
     }
 }

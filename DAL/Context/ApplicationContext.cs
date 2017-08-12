@@ -1,17 +1,21 @@
+using Common.Configuration;
 using DAL.Model;
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
-using Serilog;
 
 namespace DAL.Context
 {
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public  class ApplicationContext : DbContext
     {
-        public ApplicationContext() : base(){}
+        public ApplicationContext(DbContextOptions options):base(options) { }
         
         public DbSet<User> Users { get; set; }
         public DbSet<ApiClient> ApiClients { get; set; }
-
+        public DbSet<IdentityUser> IdentityUsers { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
+        public DbSet<RolePermission> RolePermissions { get; set; }
+        
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -22,7 +26,8 @@ namespace DAL.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           base.OnConfiguring(optionsBuilder);
+            var conf = CustomConfigurationProvider.DefaultProvider;
+            base.OnConfiguring(optionsBuilder.UseSqlServer(conf.ConnectionString));
         }
     }
 }
