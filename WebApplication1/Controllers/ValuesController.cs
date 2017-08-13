@@ -8,7 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers
 {
-  [Authorize(Roles = "MyRole!!")]
+ // [Authorize(Roles = "MyRole!!")]
+  [Authorize]
   [Produces("application/json")]
   [Route("api/Values")]
   public class ValuesController : Controller
@@ -16,6 +17,7 @@ namespace Web.Controllers
     [HttpGet]
     public IEnumerable<string> Get()
     {
+      var user = ControllerContext.HttpContext.User;
       return new string[] {"Hello", "World", "World test2" };
     }
   }

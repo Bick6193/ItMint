@@ -6,6 +6,7 @@ using DAL.Context;
 using DAL.Repositories;
 using DAL.Repositories.Infrastructure;
 using DAL.Repositories.RepositoriesAbstract;
+using DAL.SeedMamagers;
 using JetBrains.Annotations;
 
 namespace Configuration.IoC
@@ -20,9 +21,8 @@ namespace Configuration.IoC
             services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
 
             services.AddScoped<ApplicationContext>();
-            services.AddScoped<ITransactionManager, TransactionManager>();
-
-            
+            services.AddScoped<BasicSeedManager>();
+            services.AddScoped<ITransactionManager, TransactionManager>();   
         }
     }
 }

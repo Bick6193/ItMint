@@ -9,6 +9,7 @@ using Configuration.IoC;
 using Configuration.Mapping;
 using CreditorGuard.Common;
 using DAL.Context;
+using DAL.SeedMamagers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -73,7 +74,7 @@ namespace Web
       }
 
       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-      public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+      public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, BasicSeedManager seedManager)
       {
         var stopwatch = Stopwatch.StartNew();
         try
@@ -94,13 +95,7 @@ namespace Web
           Log.Logger().Information("Configure EF Mappings...");
           MappingConfig.RegisterMappings();
 
-          //todo find out ????
-          if (env.IsDevelopment())
-          {
-            // app.UseDeveloperExceptionPage();
-            // app.UseBrowserLink();
-          }
-
+         
           Log.Logger().Information("Configure Jwt Bearer Authentication...");
           app.ConfigJwtBearerAuthentication();
 
@@ -108,14 +103,6 @@ namespace Web
           app.UseStaticFiles();
 
           app.UseMvcWithDefaultRoute();
-
-          //app.UseMvc(routes =>
-          //{
-          //    routes.MapRoute(
-          //        name: "default",
-          //        template: "{controller=Default}/{action=Index}/{id?}");
-          //});
-
           app.UseMvc();
 
           app.Use(async (context, next) =>
@@ -129,7 +116,14 @@ namespace Web
               await next();
             }
           });
+
+        if (env.IsDevelopment())
+        {
+          //applay migrations
+          //seed data
+          seedManager.Seed();
         }
+      }
         catch (Exception e)
         {
           Log.Logger().Error(e, "Application failed to start");

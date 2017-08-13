@@ -5,17 +5,7 @@ namespace DAL.Model
 {
     public class ApplicationUser : EntityBase
     {
-      public bool ForceToResetPassword { get; set; }
-
-      public bool IsAdministrative { get; set; }
-
-      public bool CanEdit { get; set; }
-
-      public string Login { get; set; }
-
-      public string Email { get; set; }
-    
-      public UserType Type { get; set; }
+    public string Login { get; set; }
 
       public string FirstName { get; set; }
 
@@ -23,6 +13,20 @@ namespace DAL.Model
 
       public string FullName { get; set; }
 
-      public virtual List<ApplicationUserRole> Roles { get; }
+      public string Email { get; set; }
+
+      public string Password { get; set; }
+
+      public UserType Type { get; set; }
+
+      public bool Active { get; set; }
+
+      public bool ForceToResetPassword { get; set; }
+
+      public bool IsAdministrative { get; set; }
+
+      public bool CanEdit { get; set; }
+    
+      public virtual List<ApplicationUserRole> Roles { get; } = new List<ApplicationUserRole>();
     }
 }

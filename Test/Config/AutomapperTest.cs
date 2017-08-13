@@ -1,7 +1,8 @@
 ﻿using Configuration.Mapping;
 using NUnit.Framework;
+using AutoMapper;
 
-namespace Tests.Config
+namespace Test.Config
 {
     [TestFixture]
     public class AutomapperTest
@@ -10,7 +11,7 @@ namespace Tests.Config
         public void AutomapperConfigTest()
         {
             MappingConfig.RegisterMappings();
-            AutoMapper.Mapper.AssertConfigurationIsValid();
+            Mapper.AssertConfigurationIsValid();
         }
     }
 }

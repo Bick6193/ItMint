@@ -20,20 +20,19 @@ namespace Domain.User
 
         public string LastName { get; set; }
 
+        public string FullName { get; set; }
+
         public string Email { get; set; }
     
         public string Password { get; set; }
 
         public UserType UserType { get; set; }
+    
+        public bool Active { get; set; }
+    
+        public bool ForceToResetPassword { get; set; }
 
         public List<RoleDetails> Roles { get; set; }
-
-        public bool Active { get; set; }
-
-        public string FullName { get; set; }
-
-        public bool ChangePasswordOnFirstLogon { get; set; }
-
 
         public List<RolePermissionDetails> GetPermissions()
         {

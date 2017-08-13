@@ -50,7 +50,7 @@ namespace Web.Identity
 
       var result = UserService.LoginUser(login, password);
 
-      if (result.Success)
+      if (!result.Success)
       {
         context.Response.StatusCode = 400;
         await context.Response.WriteAsync(string.Join(" ,", result.Messages));
@@ -97,7 +97,7 @@ namespace Web.Identity
         new Claim(IdentityUser.ClaimEmail, user.Email ?? "", ClaimValueTypes.String),
         new Claim(IdentityUser.ClaimLogin, user.Login, ClaimValueTypes.String),
         new Claim(IdentityUser.ClaimType, user.UserType.ToString(), ClaimValueTypes.String),
-        new Claim(IdentityUser.ClaimForceToResetPassword, user.ChangePasswordOnFirstLogon.ToString(), ClaimValueTypes.Boolean),
+        new Claim(IdentityUser.ClaimForceToResetPassword, user.ForceToResetPassword.ToString(), ClaimValueTypes.Boolean),
         new Claim(IdentityUser.ClaimIsAdministrative, user.IsAdministrative().ToString(), ClaimValueTypes.Boolean),
         new Claim(IdentityUser.ClaimCanEdit, user.CanEdit().ToString(), ClaimValueTypes.Boolean),
         new Claim(IdentityUser.ClaimPermissions, JsonConvert.SerializeObject(user.GetPermissionsMap()), ClaimValueTypes.String)
