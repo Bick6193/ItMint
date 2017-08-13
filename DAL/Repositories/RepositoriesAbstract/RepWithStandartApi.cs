@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Domain;
 using AutoMapper;
 using DAL.Context;
-using DAL.Repositories.RepositoriesAbstract;
 using DAL.SafeDelete;
+using Domain;
 using Domain.SafeDelete;
 using Microsoft.EntityFrameworkCore;
 
-namespace DAL.Repository
+namespace DAL.Repositories.RepositoriesAbstract
 {
     public class RepWithStandartApi<TEntity, TDomain> : BaseRepository, IRepWithStandartApi<TEntity, TDomain> 
                                                         where TEntity : EntityBase, new() 

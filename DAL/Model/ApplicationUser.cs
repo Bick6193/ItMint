@@ -23,6 +23,6 @@ namespace DAL.Model
 
       public string FullName { get; set; }
 
-      public virtual List<UserRole> Roles { get; }
+      public virtual List<ApplicationUserRole> Roles { get; }
     }
 }

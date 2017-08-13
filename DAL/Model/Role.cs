@@ -16,7 +16,7 @@ namespace DAL.Model
         [SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
         public Role()
         {
-            Users = new List<UserRole>();
+            Users = new List<ApplicationUserRole>();
             RolePermissions = new List<RolePermission>();
         }
 
@@ -35,7 +35,7 @@ namespace DAL.Model
         [Required]
         public bool IsBuiltIn { get; set; }
 
-        public virtual ICollection<UserRole> Users { get; set; }
+        public virtual ICollection<ApplicationUserRole> Users { get; set; }
 
         public virtual ICollection<RolePermission> RolePermissions { get; set; }
     }

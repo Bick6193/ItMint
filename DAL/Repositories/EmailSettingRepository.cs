@@ -1,6 +1,6 @@
 ﻿using DAL.Context;
-using DAL.Repository;
 using DAL.Model;
+using DAL.Repositories.RepositoriesAbstract;
 using Domain.MailSettings;
 
 namespace DAL.Repositories

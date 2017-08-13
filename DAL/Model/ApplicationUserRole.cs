@@ -6,7 +6,7 @@ namespace DAL.Model
 {
     [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     [SuppressMessage("ReSharper", "ClassWithVirtualMembersNeverInherited.Global")]
-    public class UserRole : EntityBase, IManyToManyTable
+    public class ApplicationUserRole : EntityBase, IManyToManyTable
     {
         [ForeignKey(nameof(Role))]
         public long? RoleId { get; set; }

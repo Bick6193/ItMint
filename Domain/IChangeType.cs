@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using CreditorGuard.Domain;
 using JetBrains.Annotations;
 
 namespace Domain

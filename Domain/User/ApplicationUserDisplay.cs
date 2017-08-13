@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Domain.User
 {
-    public class UserDisplay
+    public class ApplicationUserDisplay
     {
     public bool ForceToResetPassword { get; set; }
 
@@ -23,7 +23,5 @@ namespace Domain.User
       public string LastName { get; set; }
 
       public string FullName { get; set; }
-
-      //public virtual List<UserRole> Roles { get; }
   }
 }

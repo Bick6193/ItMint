@@ -1,5 +1,4 @@
 ﻿using JetBrains.Annotations;
-using System.ComponentModel;
 
 namespace Common.List
 {
@@ -11,5 +10,11 @@ namespace Common.List
         public  ListSortDirection Direction { get; set; }
 
         public string Key => $"{Column}_{(Direction == ListSortDirection.Ascending ? "ASC" : "DESC")}";
+    }
+
+    public enum ListSortDirection
+    {
+      Ascending,
+      Descending
     }
 }
