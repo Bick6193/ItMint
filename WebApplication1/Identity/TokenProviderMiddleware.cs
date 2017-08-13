@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using BLL.Infrastructure;
+using Domain.User;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using Security;
 
 
 namespace Web.Identity
@@ -14,13 +18,16 @@ namespace Web.Identity
   {
     private readonly RequestDelegate _next;
     private readonly TokenProviderOptions _options;
-    //todo inject users service
     
+    private IApplicationUserService UserService { get; }
+
     public TokenProviderMiddleware(RequestDelegate next,
-                                  IOptions<TokenProviderOptions> options)
+                                  IOptions<TokenProviderOptions> options, 
+                                  IApplicationUserService userService)
     {
       _next = next;
       _options = options.Value;
+      UserService = userService;
     }
     public Task Invoke(HttpContext context)
     {
@@ -38,21 +45,24 @@ namespace Web.Identity
 
     private async Task GenerateToken(HttpContext context)
     {
-      var username = context.Request.Form["username"];
+      var login = context.Request.Form["username"];
       var password = context.Request.Form["password"];
 
-      var identity = await GetIdentity(username, password);
-      if (identity == null)
+      var result = UserService.LoginUser(login, password);
+
+      if (result.Success)
       {
         context.Response.StatusCode = 400;
-        await context.Response.WriteAsync("Invalid username or password");
+        await context.Response.WriteAsync(string.Join(" ,", result.Messages));
         return;
       }
+
+      var user = result.Object;
       var now = DateTime.UtcNow;
 
       //jti (random nonce), iat (issued timestamp), and sub (subject/user) claims.
-      List<Claim> claims = new List<Claim>();
-      claims.Add(new Claim(JwtRegisteredClaimNames.Sub, username));
+      List<Claim> claims = CreateClaims(user);
+      claims.Add(new Claim(JwtRegisteredClaimNames.Sub, login));
       claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
       claims.Add(new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(), ClaimValueTypes.Integer64));
       
@@ -78,16 +88,24 @@ namespace Web.Identity
       await context.Response.WriteAsync(JsonConvert.SerializeObject(response, new JsonSerializerSettings { Formatting = Formatting.Indented }));
     }
 
-    private Task<ClaimsIdentity> GetIdentity(string username, string password)
+    private List<Claim> CreateClaims(ApplicationUserLogin user)
     {
-      // DON'T do this in production, obviously!
-      if (username == "TEST" && password == "TEST")
+      var result = new List<Claim>
       {
-        return Task.FromResult(new ClaimsIdentity(new System.Security.Principal.GenericIdentity(username, "Token"), new Claim[] { }));
-      }
+        new Claim(IdentityUser.ClaimName, user.FullName, ClaimValueTypes.String),
+        new Claim(IdentityUser.ClaimNameIdentifier, user.Id.ToString(), ClaimValueTypes.Integer64),
+        new Claim(IdentityUser.ClaimEmail, user.Email ?? "", ClaimValueTypes.String),
+        new Claim(IdentityUser.ClaimLogin, user.Login, ClaimValueTypes.String),
+        new Claim(IdentityUser.ClaimType, user.UserType.ToString(), ClaimValueTypes.String),
+        new Claim(IdentityUser.ClaimForceToResetPassword, user.ChangePasswordOnFirstLogon.ToString(), ClaimValueTypes.Boolean),
+        new Claim(IdentityUser.ClaimIsAdministrative, user.IsAdministrative().ToString(), ClaimValueTypes.Boolean),
+        new Claim(IdentityUser.ClaimCanEdit, user.CanEdit().ToString(), ClaimValueTypes.Boolean),
+        new Claim(IdentityUser.ClaimPermissions, JsonConvert.SerializeObject(user.GetPermissionsMap()), ClaimValueTypes.String)
+      };
 
-      // Credentials are invalid, or account doesn't exist
-      return Task.FromResult<ClaimsIdentity>(null);
+      result.AddRange(user.Roles.Select(role => new Claim(IdentityUser.ClaimRole, role.Name, ClaimValueTypes.String)));
+
+      return result;
     }
 
   }

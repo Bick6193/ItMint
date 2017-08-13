@@ -10,13 +10,13 @@ using JetBrains.Annotations;
 namespace BLL
 {
     [UsedImplicitly]
-    public class ApplicationApplicationUserService : IApplicationUserService
+    public class ApplicationUserService : IApplicationUserService
     {
       private IApplicationUserRepository Repository { get; }
       
       private ITransactionManager TransactionManager { get; }
 
-      public ApplicationApplicationUserService(IApplicationUserRepository repository, ITransactionManager transactionManager)
+      public ApplicationUserService(IApplicationUserRepository repository, ITransactionManager transactionManager)
       {
         Repository = repository;
         TransactionManager = transactionManager;
@@ -28,9 +28,19 @@ namespace BLL
 
       public OperationResult<ApplicationUserLogin> LoginUser(string login, string password)
       {
-      var user = Repository.FindByLogin(login);
+        var user = Repository.FindByLogin(login);
 
-        if (user == null || user.Password != password)
+        if (user == null)
+        {
+          return new OperationResult<ApplicationUserLogin>()
+          {
+            Success = false,
+            Messages = new List<string>() { "Invalid username or password" },
+            Code = OperationCode.AuthenticationInvalidCredentials
+          };
+        }
+
+        if (user.Password != password)
         {
           return new OperationResult<ApplicationUserLogin>
           {
