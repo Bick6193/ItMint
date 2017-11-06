@@ -1,0 +1,31 @@
+<body class="page-login">
+<div id="wrapper">
+		<!-- header  start -->
+		<header id="header">
+			<strong class="logo"><a href="#">ITMINT</a></strong>
+		</header>
+		<!-- header  end
+		     main  start -->
+		<div id="main">
+			<div class="text-center">
+				<div class="text-inner">
+					<div class="text-last">
+						<div class="form-login">
+							<form action="#">
+								<fieldset>
+									<label for="popup-username" class="label-form">Username</label>
+									<input id="popup-username" type="text" name="log" [(ngModel)]="user.Login" />
+									<span class="form-error">Text error</span>
+									<label for="popup-password" class="label-form">Password</label>
+									<input id="popup-password" type="password" name="pass"  [(ngModel)]="user.Password" />
+									<span class="form-error">Text error</span>
+                  <button class="btn btn-close" type="submit" (click)="submit(user)">Sign In</button>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+</body>

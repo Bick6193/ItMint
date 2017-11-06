@@ -38,5 +38,9 @@ namespace DAL.Model
         public virtual ICollection<ApplicationUserRole> Users { get; set; }
 
         public virtual ICollection<RolePermission> RolePermissions { get; set; }
+
+        public string  Test { get; set; }
+
+        public string Test2 { get; set; }
     }
 }

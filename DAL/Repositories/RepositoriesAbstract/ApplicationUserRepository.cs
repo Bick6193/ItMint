@@ -5,6 +5,7 @@ using System.Text;
 using AutoMapper;
 using Common.List;
 using DAL.Context;
+using DAL.Models;
 using DAL.Repositories.Infrastructure;
 using Domain.User;
 using Microsoft.EntityFrameworkCore;
@@ -15,25 +16,37 @@ namespace DAL.Repositories.RepositoriesAbstract
   {
     public ApplicationUserRepository(ApplicationContext context) : base(context)
     {
+
     }
 
-
-    public ListResult<ApplicationUserDisplay> List(ListCriteria criteria)
+    public IEnumerable<AppUser> GetAll()
     {
       throw new NotImplementedException();
     }
 
     public ApplicationUserLogin FindByLogin(string username)
     {
-      var user = Mapper.Map<ApplicationUserLogin>(Context.ApplicationUsers.FirstOrDefault(u => u.Login == username));
-      if (user != null)
-      {
-        var roles = Context.Roles.Include(x => x.RolePermissions)
-                      .Where(r => r.Users.Any(u => u.UserId == user.Id))
-                      .ToList();
-        user.Roles.AddRange(Mapper.Map<List<RoleDetails>>(roles));
-      }
-      return user;
+      return null;
+    }
+
+    public AppUser GetById(int id)
+    {
+      throw new NotImplementedException();
+    }
+
+    public void Create(AppUser appUser)
+    {
+      throw new NotImplementedException();
+    }
+
+    public void Update(AppUser appUser)
+    {
+      throw new NotImplementedException();
+    }
+
+    public void Delete(int id)
+    {
+      throw new NotImplementedException();
     }
   }
 }

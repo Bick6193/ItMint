@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.1 (35376) - http://www.bohemiancoding.com/sketch -->
+    <title>ic-023</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M41.025,9.06 C40.005,3.885 35.46,0 30,0 C25.665,0 21.9,2.46 20.025,6.06 C15.51,6.54 12,10.365 12,15 C12,19.965 16.035,24 21,24 L40.5,24 C44.64,24 48,20.64 48,16.5 C48,12.54 44.925,9.33 41.025,9.06 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="36" height="24" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <path d="M35.025,21.06 C34.005,15.885 29.46,12 24,12 C19.665,12 15.9,14.46 14.025,18.06 C9.51,18.54 6,22.365 6,27 C6,31.965 10.035,36 15,36 L34.5,36 C38.64,36 42,32.64 42,28.5 C42,24.54 38.925,21.33 35.025,21.06 Z" id="path-3"></path>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="36" height="24" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <path d="M29.025,33.06 C28.005,27.885 23.46,24 18,24 C13.665,24 9.9,26.46 8.025,30.06 C3.51,30.54 0,34.365 0,39 C0,43.965 4.035,48 9,48 L28.5,48 C32.64,48 36,44.64 36,40.5 C36,36.54 32.925,33.33 29.025,33.06 Z" id="path-5"></path>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="36" height="24" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+    </defs>
+    <g id="Desktop-Full-HD-1920" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="005-Frontend-Desktop-Full-HD-1920-About" transform="translate(-520.000000, -1659.000000)" stroke-width="2" stroke="#3D454C">
+            <g id="Main" transform="translate(0.000000, 906.000000)">
+                <g id="Services" transform="translate(416.000000, 0.000000)">
+                    <g id="List" transform="translate(0.000000, 261.000000)">
+                        <g id="03-copy-5" transform="translate(104.000000, 492.000000)">
+                            <g id="ic_cloud_black_24px">
+                                <g id="ic-023">
+                                    <use id="Shape-Copy" mask="url(#mask-2)" fill="#FF6E26" xlink:href="#path-1"></use>
+                                    <use id="Shape" mask="url(#mask-4)" fill="#4CBF86" xlink:href="#path-3"></use>
+                                    <use id="Shape-Copy-2" mask="url(#mask-6)" fill="#FFFFFF" xlink:href="#path-5"></use>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

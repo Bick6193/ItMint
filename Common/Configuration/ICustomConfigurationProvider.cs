@@ -3,60 +3,58 @@
 namespace Common.Configuration
 {
 
-    public interface ICustomConfigurationProvider : IBaseConfigurationProvider
-    {
+  public interface ICustomConfigurationProvider : IBaseConfigurationProvider
+  {
 
-    }
+  }
 
-    
-    public interface IBaseConfigurationProvider
-    {
-        SeedType SeedType { get; }
 
-        bool EnableSqlLog { get; }
+  public interface IBaseConfigurationProvider
+  {
+    bool EnableSqlLog { get; }
 
-        bool EnableDetailedSqlLog { get; }
-      
-        string ApplicationUrl { get; }
+    bool EnableDetailedSqlLog { get; }
 
-        /// <summary>
-        /// Git commit hash.
-        /// </summary>
-        string Revision { get; }
-        
-        /// <summary>
-        /// Build Number.
-        /// </summary>
-        long BuildNumber { get; }
-        
-        /// <summary>
-        /// Enable client version validation filter.
-        /// </summary>
-        bool ClientVersionFilterEnabled { get; }
+    string ApplicationUrl { get; }
 
-        string LoggerSeqUrl { get; }
+    /// <summary>
+    /// Git commit hash.
+    /// </summary>
+    string Revision { get; }
 
-        string LoggerDirectory { get; }
+    /// <summary>
+    /// Build Number.
+    /// </summary>
+    long BuildNumber { get; }
 
-        string LoggerConsoleTemplate { get; }
+    /// <summary>
+    /// Enable client version validation filter.
+    /// </summary>
+    bool ClientVersionFilterEnabled { get; }
 
-        string LoggerFileTemplate { get; }
+    string LoggerSeqUrl { get; }
 
-        string ConnectionString { get; }
-        
-        int SMTPSendAttemptsNumber { get; }
+    string LoggerDirectory { get; }
 
-        int SMTPSendTimeout { get; }
+    string LoggerConsoleTemplate { get; }
 
-        TimeZoneInfo TimeZone { get; }
+    string LoggerFileTemplate { get; }
 
-        string ContentRootPath { get; }
-    }
+    string ConnectionString { get; }
 
-    public enum SeedType
-    {
-        Non,
-        TestData,
-        StressTestData
-    }
+    int SMTPSendAttemptsNumber { get; }
+
+    int SMTPSendTimeout { get; }
+
+    TimeZoneInfo TimeZone { get; }
+
+    string ContentRootPath { get; }
+  }
+
+  public enum SeedType
+  {
+    Non,
+    TestData,
+    StressTestData
+  }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -56,7 +56,7 @@ namespace Web
         try
         {
           Log.Logger().Information("Configure Dependency Injection...");
-          DependencyMapper.Configure(services, ConfigurationProvider);
+          DependencyMapper.Configure(services, ConfigurationProvider);  
 
           Log.Logger().Information("Configure ApplicationContext...");
           services.AddEntityFramework()
@@ -74,7 +74,7 @@ namespace Web
       }
 
       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-      public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, BasicSeedManager seedManager)
+      public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, BasicSeedManager seedManager, ApplicationContext dBcontext)
       {
         var stopwatch = Stopwatch.StartNew();
         try
@@ -121,7 +121,9 @@ namespace Web
         {
           //applay migrations
           //seed data
+          dBcontext.Database.Migrate();
           seedManager.Seed();
+          
         }
       }
         catch (Exception e)

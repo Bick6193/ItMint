@@ -4,9 +4,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using DAL.Context;
-using Domain.Authorization;
-using Domain;
-using Domain.Permissions;
+using DAL.Models;
 
 namespace DAL.Migrations
 {
@@ -19,40 +17,12 @@ namespace DAL.Migrations
                 .HasAnnotation("ProductVersion", "1.1.2")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("DAL.Model.ApiClient", b =>
+            modelBuilder.Entity("DAL.Models.AppUser", b =>
                 {
-                    b.Property<string>("ClientId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<bool>("Active");
-
-                    b.Property<int>("ApplicationType");
-
-                    b.Property<string>("Name")
-                        .IsRequired();
-
-                    b.Property<int>("RefreshTokenLifeTime");
-
-                    b.Property<string>("Secret")
-                        .IsRequired();
-
-                    b.HasKey("ClientId");
-
-                    b.ToTable("ApiClients");
-                });
-
-            modelBuilder.Entity("DAL.Model.ApplicationUser", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<bool>("Active");
-
-                    b.Property<bool>("CanEdit");
-
-                    b.Property<DateTime>("CreatedDate");
-
-                    b.Property<DateTime?>("DeletedDate");
 
                     b.Property<string>("Email");
 
@@ -64,15 +34,11 @@ namespace DAL.Migrations
 
                     b.Property<bool>("IsAdministrative");
 
-                    b.Property<bool>("IsDeleted");
-
                     b.Property<string>("LastName");
 
                     b.Property<string>("Login");
 
                     b.Property<string>("Password");
-
-                    b.Property<byte[]>("RowVersion");
 
                     b.Property<int>("Type");
 
@@ -81,103 +47,161 @@ namespace DAL.Migrations
                     b.ToTable("ApplicationUsers");
                 });
 
-            modelBuilder.Entity("DAL.Model.ApplicationUserRole", b =>
+            modelBuilder.Entity("DAL.Models.BinaryFileData", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CreatedDate");
-
-                    b.Property<DateTime?>("DeletedDate");
-
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<long?>("RoleId");
-
-                    b.Property<byte[]>("RowVersion");
-
-                    b.Property<long?>("UserId");
+                    b.Property<byte[]>("Content");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoleId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("ApplicationUserRoles");
+                    b.ToTable("BinaryFilesData");
                 });
 
-            modelBuilder.Entity("DAL.Model.Role", b =>
+            modelBuilder.Entity("DAL.Models.File", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<bool>("Active");
+                    b.Property<int>("BinaryDataId");
 
-                    b.Property<bool>("CanEdit");
+                    b.Property<string>("ContentType")
+                        .HasMaxLength(100);
 
                     b.Property<DateTime>("CreatedDate");
 
-                    b.Property<DateTime?>("DeletedDate");
+                    b.Property<int?>("FileIndex");
 
-                    b.Property<bool>("IsAdministrative");
+                    b.Property<string>("FileName")
+                        .HasMaxLength(255);
 
-                    b.Property<bool>("IsBuiltIn");
+                    b.Property<int?>("RequestFormId");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<string>("RequestFormToken");
+
+                    b.Property<int?>("RequestId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BinaryDataId")
+                        .IsUnique();
+
+                    b.HasIndex("RequestId");
+
+                    b.ToTable("Files");
+                });
+
+            modelBuilder.Entity("DAL.Models.Metadata", b =>
+                {
+                    b.Property<int>("MetaDataId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Action");
+
+                    b.Property<string>("Author");
+
+                    b.Property<string>("Controller");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Keywords");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("MetaDataId");
+
+                    b.ToTable("Metadata");
+                });
+
+            modelBuilder.Entity("DAL.Models.Request", b =>
+                {
+                    b.Property<int>("RequestId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("Date");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(450);
 
                     b.Property<string>("Name")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(450);
 
-                    b.Property<byte[]>("RowVersion");
+                    b.Property<string>("Phone")
+                        .HasMaxLength(20);
 
-                    b.HasKey("Id");
+                    b.Property<int?>("RequestTypeId");
 
-                    b.ToTable("Roles");
+                    b.Property<string>("RequestTypeInString")
+                        .HasMaxLength(450);
+
+                    b.Property<string>("UserId")
+                        .HasMaxLength(450);
+
+                    b.Property<bool>("Viewed");
+
+                    b.HasKey("RequestId");
+
+                    b.HasIndex("RequestTypeId");
+
+                    b.ToTable("Requests");
                 });
 
-            modelBuilder.Entity("DAL.Model.RolePermission", b =>
+            modelBuilder.Entity("DAL.Models.RequestType", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CreatedDate");
+                    b.Property<string>("EmployeesEmail");
 
-                    b.Property<DateTime?>("DeletedDate");
+                    b.Property<string>("EmployeesName");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDefault");
 
-                    b.Property<int>("Object");
+                    b.Property<bool>("IsEnabled");
 
-                    b.Property<byte>("Permission");
+                    b.Property<string>("MessageBodyToCustomer");
 
-                    b.Property<long?>("RoleId");
+                    b.Property<string>("MessageToCustomer");
 
-                    b.Property<byte[]>("RowVersion");
+                    b.Property<int>("OrderWeight");
+
+                    b.Property<bool>("SendEmailToCustomer");
+
+                    b.Property<bool>("SendEmailToEmployee");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(20);
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("RolePermissions");
+                    b.ToTable("RequestsType");
                 });
 
-            modelBuilder.Entity("DAL.Model.ApplicationUserRole", b =>
+            modelBuilder.Entity("DAL.Models.File", b =>
                 {
-                    b.HasOne("DAL.Model.Role", "Role")
-                        .WithMany("Users")
-                        .HasForeignKey("RoleId");
+                    b.HasOne("DAL.Models.BinaryFileData", "BinaryData")
+                        .WithOne("File")
+                        .HasForeignKey("DAL.Models.File", "BinaryDataId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("DAL.Model.ApplicationUser", "ApplicationUser")
-                        .WithMany("Roles")
-                        .HasForeignKey("UserId");
+                    b.HasOne("DAL.Models.Request", "Request")
+                        .WithMany("Files")
+                        .HasForeignKey("RequestId");
                 });
 
-            modelBuilder.Entity("DAL.Model.RolePermission", b =>
+            modelBuilder.Entity("DAL.Models.Request", b =>
                 {
-                    b.HasOne("DAL.Model.Role", "Role")
-                        .WithMany("RolePermissions")
-                        .HasForeignKey("RoleId");
+                    b.HasOne("DAL.Models.RequestType")
+                        .WithMany("RequestForms")
+                        .HasForeignKey("RequestTypeId");
                 });
         }
     }

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="38px" height="48px" viewBox="0 0 38 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.1 (35376) - http://www.bohemiancoding.com/sketch -->
+    <title>ic-011</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M7.99978931,32 C6.34335276,32 5,30.7591711 5,29.2282834 L5,16.7721059 C5,15.2412182 6.34335276,14 7.99978931,14 C9.65706861,14 11,15.2412182 11,16.7721059 L11,29.2282834 C11,30.7591711 9.65706861,32 7.99978931,32 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="6" height="18" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <path d="M39.9997893,32 C38.3433528,32 37,30.7591711 37,29.2282834 L37,16.7721059 C37,15.2412182 38.3433528,14 39.9997893,14 C41.6570686,14 43,15.2412182 43,16.7721059 L43,29.2282834 C43,30.7591711 41.6570686,32 39.9997893,32 Z" id="path-3"></path>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="6" height="18" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <path d="M24.0001808,1.00011226 C35.6222266,1.04219327 36,13 36,13 L12,13 C12,13 12.2671527,0.957606194 24.0001808,1.00011226 Z" id="path-5"></path>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="24" height="12" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+        <path d="M19,48 C17.3434471,48 16,46.7591711 16,45.2282834 L16,32.7717166 C16,31.2408289 17.3434471,30 19,30 C20.6569743,30 22,31.2408289 22,32.7717166 L22,45.2282834 C22,46.7591711 20.6569743,48 19,48 Z" id="path-7"></path>
+        <mask id="mask-8" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="6" height="18" fill="white">
+            <use xlink:href="#path-7"></use>
+        </mask>
+        <path d="M29,48 C27.3434471,48 26,46.7591711 26,45.2282834 L26,32.7717166 C26,31.2408289 27.3434471,30 29,30 C30.6569743,30 32,31.2408289 32,32.7717166 L32,45.2282834 C32,46.7591711 30.6569743,48 29,48 Z" id="path-9"></path>
+        <mask id="mask-10" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="6" height="18" fill="white">
+            <use xlink:href="#path-9"></use>
+        </mask>
+        <path d="M34.5632399,38 L13.4374785,38 C12.6440277,38 12,37.2890153 12,36.4120945 L12,15.5879055 C12,14.7109847 12.6440277,14 13.4374785,14 L34.5632399,14 C35.3566907,14 36,14.7109847 36,15.5879055 L36,36.4120945 C36,37.2890153 35.3566907,38 34.5632399,38 Z" id="path-11"></path>
+        <mask id="mask-12" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="24" height="24" fill="white">
+            <use xlink:href="#path-11"></use>
+        </mask>
+        <path d="M20.5,9 C19.6715465,9 19,8.32845345 19,7.5 C19,6.67154655 19.6715465,6 20.5,6 C21.3280781,6 22,6.67154655 22,7.5 C22,8.32845345 21.3280781,9 20.5,9 Z" id="path-13"></path>
+        <mask id="mask-14" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="5" height="5">
+            <rect x="18" y="5" width="5" height="5" fill="white"></rect>
+            <use xlink:href="#path-13" fill="black"></use>
+        </mask>
+        <path d="M27.5,9 C26.6715465,9 26,8.32845345 26,7.5 C26,6.67154655 26.6715465,6 27.5,6 C28.3280781,6 29,6.67154655 29,7.5 C29,8.32845345 28.3280781,9 27.5,9 Z" id="path-15"></path>
+        <mask id="mask-16" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="5" height="5">
+            <rect x="25" y="5" width="5" height="5" fill="white"></rect>
+            <use xlink:href="#path-15" fill="black"></use>
+        </mask>
+    </defs>
+    <g id="Desktop-Full-HD-1920" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="002-Frontend-Desktop-Full-HD-1920-Mobile-Application-Development" transform="translate(-525.000000, -1389.000000)">
+            <g id="Main" transform="translate(0.000000, 906.000000)">
+                <g id="Services" transform="translate(416.000000, 0.000000)">
+                    <g id="List" transform="translate(0.000000, 282.000000)">
+                        <g id="02" transform="translate(104.000000, 201.000000)">
+                            <g id="ic-011">
+                                <rect id="placeholder" x="0" y="0" width="48" height="48"></rect>
+                                <use id="Fill-4" stroke="#3D454C" mask="url(#mask-2)" stroke-width="2" fill="#4CBF86" xlink:href="#path-1"></use>
+                                <use id="Fill-4-Copy" stroke="#3D454C" mask="url(#mask-4)" stroke-width="2" fill="#4CBF86" xlink:href="#path-3"></use>
+                                <path d="M31.4932255,3.96057722 C31.4462223,4.02840136 31.3011953,4.00674666 31.1678186,3.91073057 C31.0368524,3.81634879 30.9677537,3.68356058 31.0147569,3.61573644 L33.5059273,0.0398519327 C33.553734,-0.0287893604 33.6999662,-0.00631750846 33.8313342,0.0884728487 C33.9639073,0.184080364 34.0326043,0.316051422 33.9847977,0.384692715 L31.4932255,3.96057722" id="Fill-9" fill="#3D454C"></path>
+                                <path d="M14.4932255,3.96057722 C14.4462223,4.02840136 14.3011953,4.00674666 14.1678186,3.91073057 C14.0368524,3.81634879 13.9677537,3.68356058 14.0147569,3.61573644 L16.5059273,0.0398519327 C16.553734,-0.0287893604 16.6999662,-0.00631750846 16.8313342,0.0884728487 C16.9639073,0.184080364 17.0326043,0.316051422 16.9847977,0.384692715 L14.4932255,3.96057722" id="Fill-9-Copy" fill="#3D454C" transform="translate(15.500000, 2.000000) scale(-1, 1) translate(-15.500000, -2.000000) "></path>
+                                <use id="Combined-Shape" stroke="#3D454C" mask="url(#mask-6)" stroke-width="2" fill="#4CBF86" xlink:href="#path-5"></use>
+                                <use id="Fill-12" stroke="#3D454C" mask="url(#mask-8)" stroke-width="2" fill="#4CBF86" xlink:href="#path-7"></use>
+                                <use id="Fill-12-Copy" stroke="#3D454C" mask="url(#mask-10)" stroke-width="2" fill="#4CBF86" xlink:href="#path-9"></use>
+                                <use id="Fill-1" stroke="#3D454C" mask="url(#mask-12)" stroke-width="2" fill="#4CBF86" xlink:href="#path-11"></use>
+                                <g id="Fill-6">
+                                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-13"></use>
+                                    <use stroke="#3D454C" mask="url(#mask-14)" stroke-width="2" xlink:href="#path-13"></use>
+                                </g>
+                                <g id="Fill-6-Copy">
+                                    <use fill="#FF6E26" fill-rule="evenodd" xlink:href="#path-15"></use>
+                                    <use stroke="#3D454C" mask="url(#mask-16)" stroke-width="2" xlink:href="#path-15"></use>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

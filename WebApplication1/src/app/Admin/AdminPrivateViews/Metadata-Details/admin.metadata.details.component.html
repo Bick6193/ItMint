@@ -1,0 +1,75 @@
+<div id="wrapper">
+		<!-- header  start -->
+		<header id="header">
+			<strong class="logo"><a href="#">ITMINT</a></strong>
+			<ul class="head-aside">
+				<li><a routerLink="/Admin/Settings"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-power-off" aria-hidden="true"></i></a></li>
+			</ul>
+			<nav id="nav">
+				<ul class="menu">
+					<li><a routerLink="/Admin/Inbox"><i class="fa fa-inbox" aria-hidden="true"></i>INBOX</a></li>
+					<li class="active"><a routerLink="/Admin/Metadata"><i class="fa fa-tags" aria-hidden="true"></i>METADATA</a></li>
+					<li><a routerLink="/Admin/Projects"><i class="fa fa-file-text" aria-hidden="true"></i>PROJECTS</a></li>
+				</ul>
+			</nav>
+		</header>
+		<!-- header  end
+		     main  start -->
+		<div id="main">
+			<h1><a href="#" class="link-back"><i class="fa fa-angle-left" aria-hidden="true"></i>Metadata</a></h1>
+			<div class="container">
+				<form action="#">
+					<fieldset>
+						<div class="wrap-row error">
+							<div class="row">
+								<div class="col ">
+									<label for="data-name" class="label-form">Name</label>
+									<input id="data-name" type="text" value="Technologies" />
+									<span class="form-error">text message</span>
+								</div>
+								<div class="col">
+									<label for="data-title" class="label-form">Title</label>
+									<input id="data-title" type="text" value="ITMINT | Technologies " />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<label for="data-url" class="label-form">URL</label>
+									<div class="field-way">
+										<input id="data-url" type="text" value="Home/Technologies" />
+										<span class="text-way">itmint.ca/</span>
+									</div>
+								</div>
+								<div class="col">
+									<label for="data-autor" class="label-form">Author</label>
+									<input id="data-autor" type="text" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<label for="data-keywords" class="label-form">Keywords</label>
+									<textarea id="data-keywords" cols="3" rows="3"></textarea>
+								</div>
+								<div class="col">
+									<label for="data-description" class="label-form">Description</label>
+									<textarea id="data-description" cols="3" rows="3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</textarea>
+								</div>
+							</div>
+						</div>
+						<div class="hold-foot">
+							<button class="btn" type="submit">Save</button>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<!-- main  end -->
+	</div>
+	<!-- wrapper  end -->
+
+	<!-- scripts  -->
+	<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery.main.js"></script>
+</body>
+</html>

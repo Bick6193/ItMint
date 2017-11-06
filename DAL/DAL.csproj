@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="DBcd.cd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="DBcd.cd" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.1.1" />
     <PackageReference Include="JetBrains.Annotations" Version="11.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="1.1.2" />
