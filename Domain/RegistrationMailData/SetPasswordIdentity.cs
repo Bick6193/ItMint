@@ -8,20 +8,18 @@ namespace Domain.RegistrationMailData
 {
   public class SetPasswordIdentity : ISetPasswordIdentity
   {
-    public void SendEmailRuntime(EmailModel emailModel)
+    public void SendEmailRuntime(EmailModel emailModel, string message)
     {
       try
       {
         string fromAddress = "sviridovich1nikita@gmail.com"; //temporary
 
 
-        string fromAdressTitle = "Registration ItMint";
+        string fromAdressTitle = "ItMint";
         string toAddress = emailModel.EmailFor;
         string toAdressTitle = "For";
-        string subject = "Set Password";
-        string bodyContent = "Hello, " + emailModel.FullName + Environment.NewLine + 
-                             "Please, click to the link to set your password for ItMint Admin part:" +
-                             "LINK: http://localhost:4200/Reset/" + emailModel.Id;
+        string subject = "ItMint";
+        string bodyContent = message;
 
         string SmtpServer = "smtp.gmail.com";
         int SmtpPortNumber = 587;

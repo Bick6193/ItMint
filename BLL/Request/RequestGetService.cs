@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using BLL.Infrastructure.RequestSignature;
 using AutoMapper;
+using DAL.Model;
 using DAL.Models;
 using DAL.Repositories.Infrastructure;
 using DAL.Repositories.RepositoriesAbstract;
 using DAL.UnitOfWork;
+using Domain.RegistrationMailData;
 using Domain.Request;
 
 namespace BLL.Request
@@ -14,10 +16,14 @@ namespace BLL.Request
   public class RequestGetService : IRequestGetService
   {
     private IRequestRepository Repository { get;}
+    private ISetPasswordIdentity setPasswordIdentity { get; }
 
-    public RequestGetService(IRequestRepository repository)
+    private readonly string Message = "New Requeqst";
+
+    public RequestGetService(IRequestRepository repository, ISetPasswordIdentity passwordIdentity)
     {
       Repository = repository;
+      setPasswordIdentity = passwordIdentity;
     }
 
     public IEnumerable<RequestDTO> GetAllRequests()

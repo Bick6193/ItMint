@@ -6,6 +6,6 @@ namespace Domain.RegistrationMailData
 {
   public interface ISetPasswordIdentity
   {
-    void SendEmailRuntime(EmailModel emailModel);
+    void SendEmailRuntime(EmailModel emailModel, string message);
   }
 }

@@ -21,6 +21,10 @@ namespace BLL
 
     private ISetPasswordIdentity setPasswordIdentity { get; }
 
+    private readonly string Message = "Hello, " + Environment.NewLine +
+                                   "Please, click to the link to set your password for ItMint Admin part:" +
+                                   "LINK: http://localhost:4200/Reset/";
+
     public ApplicationUserService(IApplicationUserRepository repository,
       ITransactionManager transactionManager,
       ISetPasswordIdentity passwordIdentity)
@@ -97,7 +101,7 @@ namespace BLL
         FullName = userDto.FullName,
         EmailFor = userDto.Email
       };
-      setPasswordIdentity.SendEmailRuntime(emailModel);
+      setPasswordIdentity.SendEmailRuntime(emailModel, Message+ emailModel.Id);
     }
 
     public void UpdateUser(UserDTO userDto)
