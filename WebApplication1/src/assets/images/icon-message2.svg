@@ -1,1 +1,9 @@
-<svg id="SvgjsSvg1491" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="15" height="15" viewBox="0 0 15 15"><title>Shape</title><desc>Created with Avocode.</desc><defs id="SvgjsDefs1492"></defs><path id="SvgjsPath1493" d="M618.5 793C617.67 793 617.01 793.68 617.01 794.5L617 808L620 805L630.5 805C631.33 805 632 804.33 632 803.5L632 794.5C632 793.68 631.33 793 630.5 793ZM620 802L620 800.5L629 800.5L629 802ZM620 799.75L620 798.25L629 798.25L629 799.75ZM620 797.5L620 796L629 796L629 797.5Z " fill="#00a653" fill-opacity="1" transform="matrix(1,0,0,1,-617,-793)"></path></svg>
+<svg id="SvgjsSvg1491" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:svgjs="http://svgjs.com/svgjs" width="15" height="15" viewBox="0 0 15 15">
+  <title>Shape</title>
+  <desc>Created with Avocode.</desc>
+  <defs id="SvgjsDefs1492"></defs>
+  <path id="SvgjsPath1493"
+        d="M618.5 793C617.67 793 617.01 793.68 617.01 794.5L617 808L620 805L630.5 805C631.33 805 632 804.33 632 803.5L632 794.5C632 793.68 631.33 793 630.5 793ZM620 802L620 800.5L629 800.5L629 802ZM620 799.75L620 798.25L629 798.25L629 799.75ZM620 797.5L620 796L629 796L629 797.5Z "
+        fill="#00a653" fill-opacity="1" transform="matrix(1,0,0,1,-617,-793)"></path>
+</svg>

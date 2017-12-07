@@ -1,99 +1,89 @@
 <div id="wrapper">
-		<!-- header  start -->
-		<header id="header">
-			<strong class="logo"><a href="#">ITMINT</a></strong>
-			<ul class="head-aside">
-				<li><a routerLink="/Admin/Settings"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-power-off" aria-hidden="true"></i></a></li>
-			</ul>
-			<nav id="nav">
-				<ul class="menu">
-					<li><a routerLink="/Admin/Inbox"><i class="fa fa-inbox" aria-hidden="true"></i>INBOX</a></li>
-					<li><a routerLink="/Admin/Metadata"><i class="fa fa-tags" aria-hidden="true"></i>METADATA</a></li>
-					<li><a routerLink="/Admin/Projects"><i class="fa fa-file-text" aria-hidden="true"></i>PROJECTS</a></li>
-				</ul>
-			</nav>
-		</header>
-		<!-- header  end
-		     main  start -->
-		<div id="main">
-			<h1><a routerLink="/Admin/Projects" class="link-back"><i class="fa fa-angle-left" aria-hidden="true"></i>Projects</a></h1>
-			<div class="container">
-				<form action="#">
-					<fieldset>
-						<div class="wrap-row error">
-							<div class="row">
-								<div class="col ">
-									<div class="inner-col">
-										<label for="data-name" class="label-form">Name</label>
-										<input id="data-name" type="text" value="Ascendas Business Solutions" />
-									</div>
-									<div class="inner-col">
-										<label for="data-url" class="label-form">URL</label>
-										<div class="hold-field field-way">
-											<input id="data-url" type="text" value="ascendas-business-solutions" />
-											<a href="#" class="btn-field"><i class="fa fa-clipboard" aria-hidden="true"></i></a>
-											<span class="text-way">../projects/</span>
-										</div>
-									</div>
-									<div class="inner-col tarea-large">
-										<label for="data-Description" class="label-form">Description</label>
-										<textarea id="data-Description" cols="3" rows="3"></textarea>
-									</div>
-									<div class="inner-col">
-										<label for="data-password" class="label-form">Password</label>
-										<div class="hold-field">
-											<input id="data-password" type="password" value="4m7p?#naJggW" />
-											<a href="#" class="btn-field"><i class="fa fa-keyboard-o" aria-hidden="true"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="col col-other">
-									<div class="inner-col">
-										<label class="label-form">Files</label>
-										<div class="box-area">
-											<ul class="list-files">
-												<li><i class="fa fa-folder" aria-hidden="true"></i>css</li>
-												<li><i class="fa fa-folder" aria-hidden="true"></i>js</li>
-												<li><i class="fa fa-file-o" aria-hidden="true"></i>001-001-admin-summary-view.html</li>
-												<li><i class="fa fa-file-o" aria-hidden="true"></i>001-002-admin-summary-edit.html</li>
-												<li><i class="fa fa-file-o" aria-hidden="true"></i>001-003-admin-categories-view.html</li>
-												<li><i class="fa fa-file-o" aria-hidden="true"></i>001-004-admin-categories-edit.html</li>
-												<li><i class="fa fa-file-o" aria-hidden="true"></i>001-004-admin-categories-edit.html</li>
-												<li><i class="fa fa-file-o" aria-hidden="true"></i>001-009-admin-divisions-edit.html</li>
-												<li><i class="fa fa-file-o" aria-hidden="true"></i>001-017-admin-notification-sequences-view.html</li>
-												<li><i class="fa fa-file-o" aria-hidden="true"></i>001-019-admin-auditing.html</li>
-												<li><i class="fa fa-file-o" aria-hidden="true"></i>002-002-contracts-advances-search.html</li>
-											</ul>
-										</div>
-									</div>
-									<div class="inner-col">
-										<div class="field-btn">
-											<a href="#" class="btn btn-small"><i class="fa fa-upload" aria-hidden="true"></i></a>
-											<div class="hold-select">
-												<select class="customSelect">
-													<option selected="selected">Revision 4 (08.06.2017)</option>
-													<option>Revision 4 (08.06.2017)2</option>
-													<option>Revision 4 (08.06.2017)3</option>
-													<option>Revision 4 (08.06.2017)4</option>
-													<option>Revision 4 (08.06.2017)5</option>
-													<option>Revision 4 (08.06.2017)6</option>
-												</select>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="hold-foot">
-							<label class="label-check"><input type="checkbox" checked="checked" class="customCheckbox" />Active</label>
-							<button class="btn" type="submit">Save</button>
-							<button class="btn btn-red" type="button">Delete</button>
-						</div>
-					</fieldset>
-				</form>
-			</div>
-		</div>
-		<!-- main  end -->
-	</div>
+  <!-- header  start -->
+  <header id="header">
+    <strong class="logo"><a href="#">ITMINT</a></strong>
+    <ul class="head-aside">
+      <li><a routerLink="/Admin/Settings"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
+      <li><a href="#"><i class="fa fa-power-off" aria-hidden="true"></i></a></li>
+    </ul>
+    <nav id="nav">
+      <ul class="menu">
+        <li><a routerLink="/Admin/Inbox"><i class="fa fa-inbox" aria-hidden="true"></i>INBOX</a></li>
+        <li><a routerLink="/Admin/Metadata"><i class="fa fa-tags" aria-hidden="true"></i>METADATA</a></li>
+        <li><a routerLink="/Admin/Projects"><i class="fa fa-file-text" aria-hidden="true"></i>PROJECTS</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- header  end
+           main  start -->
+  <div id="main">
+    <h1><a routerLink="/Admin/Projects" class="link-back"><i class="fa fa-angle-left"
+                                                             aria-hidden="true"></i>Projects</a></h1>
+    <div class="container">
+      <form action="#">
+        <fieldset>
+          <div class="wrap-row error">
+            <div class="row">
+              <div class="col ">
+                <div class="inner-col">
+                  <label for="data-name" class="label-form">Name</label>
+                  <input id="data-name" type="text" placeholder="Ascendas Business Solutions" name="name"
+                         [(ngModel)]="project.Name"/>
+                </div>
+                <div class="inner-col">
+                  <label for="data-url" class="label-form">URL</label>
+                  <div class="hold-field">
+                    <input id="data-url" type="text" placeholder="ascendas-business-solutions" name="url"
+                           [(ngModel)]="project.Url"/>
+                    <a href="#" class="btn-field"><i class="fa fa-clipboard" aria-hidden="true"></i></a>
+                  </div>
+                </div>
+                <div class="inner-col tarea-large">
+                  <label for="data-Description" class="label-form">Description</label>
+                  <textarea id="data-Description" cols="3" rows="3" name="desc"
+                            [(ngModel)]="project.Description"></textarea>
+                </div>
+                <div class="inner-col">
+                  <label for="data-password" class="label-form">Password</label>
+                  <div class="hold-field">
+                    <input id="data-password" type="password" name="pass" [(ngModel)]="project.Password"/>
+                    <a href="#" class="btn-field"><i class="fa fa-keyboard-o" aria-hidden="true"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col col-other">
+                <div class="inner-col">
+                  <label class="label-form">Files</label>
+                  <div class="box-area">
+                    <ul class="list-files">
+                      <li><i class="fa fa-folder" aria-hidden="true"></i>css</li>
+                      <li><i class="fa fa-file-o" aria-hidden="true"></i>001-001-admin-summary-view.html</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="inner-col">
+                  <div class="field-btn">
+                    <a href="" onclick="document.getElementById('filedown').click(); return false" class="btn btn-small"><i class="fa fa-upload" aria-hidden="true"></i></a>
+                    <div class="hold-select">
+                      <select class="customSelect">
+                        <option selected="selected">Revision 4 (08.06.2017)</option>
+                      </select>
+                    </div>
+                    <input type="file" id="filedown" name="filedown" (change)="UploadArchive($event)" style="visibility: hidden;"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hold-foot">
+            <label class="label-check"><input type="checkbox" [checked]="project.IsActive"
+                                              (change)="project.IsActive=!project.IsActive" class="customCheckbox"/>Active</label>
+            <button class="btn" type="submit" (click)="InsertProject(project)">Save</button>
+            <button class="btn btn-red" type="button">Delete</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <!-- main  end -->
+</div>

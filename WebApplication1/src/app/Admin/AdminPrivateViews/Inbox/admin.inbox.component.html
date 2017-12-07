@@ -1,10 +1,10 @@
 ﻿<div id="wrapper">
 		<!-- header  start -->
 		<header id="header">
-			<strong class="logo"><a routerLink="">ITMINT</a></strong>
+			<strong class="logo"><a href="#">ITMINT</a></strong>
 			<ul class="head-aside">
 				<li><a routerLink="/Admin/Settings"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-power-off" aria-hidden="true"></i></a></li>
+				<li><a href="javascript:0" (click)="logout()"><i class="fa fa-power-off" aria-hidden="true"></i></a></li>
 			</ul>
 			<nav id="nav">
 				<ul class="menu">
@@ -23,20 +23,17 @@
 						<strong class="bar-title">NEW REQUEST
 							<span class="hold-icon"><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></span>
 						</strong>
-						<strong class="bar-number">5</strong>
-						<span class="bar-info">LATEST WAS 11 HOURS AGO</span>
-					</div>
+						<strong class="bar-number">{{totalRequests?.notViewed}}</strong>
+						<span class="bar-info">LATEST WAS {{totalRequests?.latestRequest}} HOURS AGO</span>
+    </div>
 				</li>
 				<li>
 					<div class="bar-hold hold-green">
 						<strong class="bar-title">TOP TYPES
 							<span class="hold-icon"><i class="fa fa-circle-o" aria-hidden="true"></i></span>
 						</strong>
-						<ul class="list">
-							<li><a href="#">Web Development</a></li>
-							<li><a href="#">Design</a></li>
-							<li><a href="#">Testing</a></li>
-							<li><a href="#">QA</a></li>
+						<ul class="list" *ngFor="let items of totalRequests?.topTypes">
+							<li><a href="javascript:void(0)" (click)="SearchMethod(items)" ngDefaultControl>{{items}}</a></li>
 						</ul>
 					</div>
 				</li>
@@ -45,11 +42,8 @@
 						<strong class="bar-title">TOP COUNTRIES
 							<span class="hold-icon"><i class="fa fa-globe" aria-hidden="true"></i></span>
 						</strong>
-						<ul class="list">
-							<li><a href="#">United States</a></li>
-							<li><a href="#">Belarus</a></li>
-							<li><a href="#">Canada</a></li>
-							<li><a href="#">United Kingdom</a></li>
+						<ul class="list" *ngFor="let items of totalRequests?.topCountry">
+              <li><a href="javascript:void(0)" (click)="SearchMethod(items)" ngDefaultControl>{{items}}</a></li>
 						</ul>
 					</div>
 				</li>
@@ -58,7 +52,7 @@
 						<strong class="bar-title">TOTAL REQUESTS
 							<span class="hold-icon"><i class="fa fa-telegram" aria-hidden="true"></i></span>
 						</strong>
-						<strong class="bar-number">114</strong>
+						<strong class="bar-number">{{totalRequests?.totalRequests}}</strong>
 						<span class="bar-info">13% DECREASE THIS MONTH</span>
 					</div>
 				</li>
@@ -71,7 +65,7 @@
 					<div class="hold-search">
 						<form action="#">
 							<fieldset>
-								<input type="text" placeholder="Search" />
+								<input type="text" placeholder="Search" name="search" [(ngModel)]="baseSearchWord" (change)="SearchMethod(baseSearchWord)" />
 								<button class="btn-search" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 							</fieldset>
 						</form>
@@ -86,12 +80,12 @@
 							<th>Type</th>
 							<th>Att</th>
 						</tr>
-						<tr class="odd">
-							<td>Max Trukhanovich</td>
-							<td>max.t@itmint.ca</td>
-							<td>12th May, 2017 <span class="text-gray">@</span> 17:31</td>
-							<td><span class="text-type">Web Development</span></td>
-							<td><span class="btn-icon"><i class="fa fa-files-o" aria-hidden="true"></i></span></td>
+						<tr *ngFor="let items of reqModel" [ngClass]="flagRequest(items.flag, items.viewed)" [routerLink]="['/Admin/Request-Details', items.id]" >
+							<td>{{items.name}}</td>
+							<td>{{items.email}}</td>
+							<td>{{items.date | date: 'dd MMMM, yyyy'}}<span class="text-gray"> @ </span>{{items.date | date: 'HH:mm'}}</td>
+							<td><span [ngClass]="getCssClass(items.requestTypeInString)">{{items.requestTypeInString}}</span></td>
+							<td><span class="btn-icon"><i class="fa fa-file-o" aria-hidden="true"></i></span></td>
 						</tr>
 					</table>
 				</div>
@@ -99,7 +93,7 @@
 			<div class="pager">
 				<a href="#" class="btn-prev disabled">prev</a>
 				<a href="#" class="btn-next">next</a>
-				<span class="number-page">Page 1 of 13</span>
+				<span class="number-page">Page 1 of 1</span>
 			</div>
 		</div>
 		<!-- main  end -->

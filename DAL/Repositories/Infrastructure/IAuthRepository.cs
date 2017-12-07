@@ -11,7 +11,7 @@ namespace DAL.Repositories.Infrastructure
 
         void Delete(string tokenId);
         
-        RefreshTokenDetails GetToken(string tokenId);
+        RefreshTokenDetails GetToken(string token);
 
         RefreshTokenDetails GetTokenByUserAndClient(long userId, string clientId);
 

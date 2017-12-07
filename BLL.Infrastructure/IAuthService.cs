@@ -10,7 +10,7 @@ namespace BLL.Infrastructure
 
         void Delete(string refreshTokenId);
 
-        RefreshTokenDetails GetTokenById(string refreshTokenId);
+        RefreshTokenDetails GetTokenByRefresh(string refreshToken);
 
         RefreshTokenDetails GetTokenByUserAndClient(long userId, string clientId);
 

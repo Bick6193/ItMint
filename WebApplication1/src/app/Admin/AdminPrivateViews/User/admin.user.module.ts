@@ -6,6 +6,6 @@ import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [routing, CommonModule, FormsModule],
-  declarations: [AdminUserComponent]
+  declarations: []
 })
 export class LazyAdminUserModule {}

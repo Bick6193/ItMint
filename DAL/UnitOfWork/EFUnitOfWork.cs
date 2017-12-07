@@ -12,7 +12,7 @@ namespace DAL.UnitOfWork
     private ApplicationContext applicationContext;
     private RequestRepository requestRepository;
 
-    public EFUnitOfWork(string conString)
+    public EFUnitOfWork()
     {
     }
 

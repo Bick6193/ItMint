@@ -1,1 +1,52 @@
-<svg id="SvgjsSvg1116" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="48" height="48" viewBox="0 0 48 48"><title>ic</title><desc>Created with Avocode.</desc><defs id="SvgjsDefs1117"><clipPath id="SvgjsClipPath1121"><path id="SvgjsPath1120" d="M1184 680L1184 632L1232 632L1232 680Z " fill="#ffffff"></path></clipPath><clipPath id="SvgjsClipPath1125"><path id="SvgjsPath1124" d="M1190 654L1190 638L1206 638L1206 654Z " fill="#ffffff"></path></clipPath><clipPath id="SvgjsClipPath1129"><path id="SvgjsPath1128" d="M1190 674L1190 658L1206 658L1206 674Z " fill="#ffffff"></path></clipPath><clipPath id="SvgjsClipPath1133"><path id="SvgjsPath1132" d="M1210 654L1210 638L1226 638L1226 654Z " fill="#ffffff"></path></clipPath><clipPath id="SvgjsClipPath1137"><path id="SvgjsPath1136" d="M1210 674L1210 658L1226 658L1226 674Z " fill="#ffffff"></path></clipPath></defs><path id="SvgjsPath1118" d="M1184 680L1184 632L1232 632L1232 680Z " fill="#ffffff" fill-opacity="1" transform="matrix(1,0,0,1,-1184,-632)"></path><path id="SvgjsPath1119" d="M1184 680L1184 632L1232 632L1232 680Z " fill-opacity="0" fill="#ffffff" stroke-dasharray="0" stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1" stroke="#3d454d" stroke-miterlimit="50" stroke-width="2" clip-path="url(&quot;#SvgjsClipPath1121&quot;)" transform="matrix(1,0,0,1,-1184,-632)"></path><path id="SvgjsPath1122" d="M1190 654L1190 638L1206 638L1206 654Z " fill="#4dbf86" fill-opacity="1" transform="matrix(1,0,0,1,-1184,-632)"></path><path id="SvgjsPath1123" d="M1190 654L1190 638L1206 638L1206 654Z " fill-opacity="0" fill="#ffffff" stroke-dasharray="0" stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1" stroke="#3d454d" stroke-miterlimit="50" stroke-width="2" clip-path="url(&quot;#SvgjsClipPath1125&quot;)" transform="matrix(1,0,0,1,-1184,-632)"></path><path id="SvgjsPath1126" d="M1190 674L1190 658L1206 658L1206 674Z " fill="#ff6f26" fill-opacity="1" transform="matrix(1,0,0,1,-1184,-632)"></path><path id="SvgjsPath1127" d="M1190 674L1190 658L1206 658L1206 674Z " fill-opacity="0" fill="#ffffff" stroke-dasharray="0" stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1" stroke="#3d454d" stroke-miterlimit="50" stroke-width="2" clip-path="url(&quot;#SvgjsClipPath1129&quot;)" transform="matrix(1,0,0,1,-1184,-632)"></path><path id="SvgjsPath1130" d="M1210 654L1210 638L1226 638L1226 654Z " fill="#ff6f26" fill-opacity="1" transform="matrix(1,0,0,1,-1184,-632)"></path><path id="SvgjsPath1131" d="M1210 654L1210 638L1226 638L1226 654Z " fill-opacity="0" fill="#ffffff" stroke-dasharray="0" stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1" stroke="#3d454d" stroke-miterlimit="50" stroke-width="2" clip-path="url(&quot;#SvgjsClipPath1133&quot;)" transform="matrix(1,0,0,1,-1184,-632)"></path><path id="SvgjsPath1134" d="M1210 674L1210 658L1226 658L1226 674Z " fill="#4dbf86" fill-opacity="1" transform="matrix(1,0,0,1,-1184,-632)"></path><path id="SvgjsPath1135" d="M1210 674L1210 658L1226 658L1226 674Z " fill-opacity="0" fill="#ffffff" stroke-dasharray="0" stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1" stroke="#3d454d" stroke-miterlimit="50" stroke-width="2" clip-path="url(&quot;#SvgjsClipPath1137&quot;)" transform="matrix(1,0,0,1,-1184,-632)"></path></svg>
+<svg id="SvgjsSvg1116" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:svgjs="http://svgjs.com/svgjs" width="48" height="48" viewBox="0 0 48 48">
+  <title>ic</title>
+  <desc>Created with Avocode.</desc>
+  <defs id="SvgjsDefs1117">
+    <clipPath id="SvgjsClipPath1121">
+      <path id="SvgjsPath1120" d="M1184 680L1184 632L1232 632L1232 680Z " fill="#ffffff"></path>
+    </clipPath>
+    <clipPath id="SvgjsClipPath1125">
+      <path id="SvgjsPath1124" d="M1190 654L1190 638L1206 638L1206 654Z " fill="#ffffff"></path>
+    </clipPath>
+    <clipPath id="SvgjsClipPath1129">
+      <path id="SvgjsPath1128" d="M1190 674L1190 658L1206 658L1206 674Z " fill="#ffffff"></path>
+    </clipPath>
+    <clipPath id="SvgjsClipPath1133">
+      <path id="SvgjsPath1132" d="M1210 654L1210 638L1226 638L1226 654Z " fill="#ffffff"></path>
+    </clipPath>
+    <clipPath id="SvgjsClipPath1137">
+      <path id="SvgjsPath1136" d="M1210 674L1210 658L1226 658L1226 674Z " fill="#ffffff"></path>
+    </clipPath>
+  </defs>
+  <path id="SvgjsPath1118" d="M1184 680L1184 632L1232 632L1232 680Z " fill="#ffffff" fill-opacity="1"
+        transform="matrix(1,0,0,1,-1184,-632)"></path>
+  <path id="SvgjsPath1119" d="M1184 680L1184 632L1232 632L1232 680Z " fill-opacity="0" fill="#ffffff"
+        stroke-dasharray="0" stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1" stroke="#3d454d"
+        stroke-miterlimit="50" stroke-width="2" clip-path="url(&quot;#SvgjsClipPath1121&quot;)"
+        transform="matrix(1,0,0,1,-1184,-632)"></path>
+  <path id="SvgjsPath1122" d="M1190 654L1190 638L1206 638L1206 654Z " fill="#4dbf86" fill-opacity="1"
+        transform="matrix(1,0,0,1,-1184,-632)"></path>
+  <path id="SvgjsPath1123" d="M1190 654L1190 638L1206 638L1206 654Z " fill-opacity="0" fill="#ffffff"
+        stroke-dasharray="0" stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1" stroke="#3d454d"
+        stroke-miterlimit="50" stroke-width="2" clip-path="url(&quot;#SvgjsClipPath1125&quot;)"
+        transform="matrix(1,0,0,1,-1184,-632)"></path>
+  <path id="SvgjsPath1126" d="M1190 674L1190 658L1206 658L1206 674Z " fill="#ff6f26" fill-opacity="1"
+        transform="matrix(1,0,0,1,-1184,-632)"></path>
+  <path id="SvgjsPath1127" d="M1190 674L1190 658L1206 658L1206 674Z " fill-opacity="0" fill="#ffffff"
+        stroke-dasharray="0" stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1" stroke="#3d454d"
+        stroke-miterlimit="50" stroke-width="2" clip-path="url(&quot;#SvgjsClipPath1129&quot;)"
+        transform="matrix(1,0,0,1,-1184,-632)"></path>
+  <path id="SvgjsPath1130" d="M1210 654L1210 638L1226 638L1226 654Z " fill="#ff6f26" fill-opacity="1"
+        transform="matrix(1,0,0,1,-1184,-632)"></path>
+  <path id="SvgjsPath1131" d="M1210 654L1210 638L1226 638L1226 654Z " fill-opacity="0" fill="#ffffff"
+        stroke-dasharray="0" stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1" stroke="#3d454d"
+        stroke-miterlimit="50" stroke-width="2" clip-path="url(&quot;#SvgjsClipPath1133&quot;)"
+        transform="matrix(1,0,0,1,-1184,-632)"></path>
+  <path id="SvgjsPath1134" d="M1210 674L1210 658L1226 658L1226 674Z " fill="#4dbf86" fill-opacity="1"
+        transform="matrix(1,0,0,1,-1184,-632)"></path>
+  <path id="SvgjsPath1135" d="M1210 674L1210 658L1226 658L1226 674Z " fill-opacity="0" fill="#ffffff"
+        stroke-dasharray="0" stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1" stroke="#3d454d"
+        stroke-miterlimit="50" stroke-width="2" clip-path="url(&quot;#SvgjsClipPath1137&quot;)"
+        transform="matrix(1,0,0,1,-1184,-632)"></path>
+</svg>

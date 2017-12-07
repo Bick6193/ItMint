@@ -1,35 +1,72 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using BLL.Infrastructure.DTO;
 using BLL.Infrastructure.RequestSignature;
 using AutoMapper;
+using DAL.Models;
+using DAL.Repositories.Infrastructure;
+using DAL.Repositories.RepositoriesAbstract;
 using DAL.UnitOfWork;
+using Domain.Request;
 
 namespace BLL.Request
 {
   public class RequestGetService : IRequestGetService
   {
-    private IUnitOfWork Database { get; set; }
+    private IRequestRepository Repository { get;}
 
-    public RequestGetService(IUnitOfWork tempUOF)
+    public RequestGetService(IRequestRepository repository)
     {
-      Database = tempUOF;
+      Repository = repository;
     }
 
     public IEnumerable<RequestDTO> GetAllRequests()
     {
-      Mapper.Initialize(cfg=>cfg.CreateMap<DAL.Models.Request, RequestDTO>());
-      return Mapper.Map<IEnumerable<DAL.Models.Request>, List<RequestDTO>>(Database.Requests.GetAll());
+      return Repository.GetAll();
     }
 
-    public RequestDTO GetRequestById(int? id)
+    public RequestDTO GetRequestById(int id)
     {
-      throw new NotImplementedException();
+      return Repository.GetById(id);
     }
 
-    public void MakeRequest(RequestDTO request)
+    public IEnumerable<RequestDTO> BasicSearch(string line)
     {
-      throw new NotImplementedException();
+      InboxPanelService panel = new InboxPanelService();
+      panel.SearchDataContainer.SearchTerm = line;
+      return Repository.BasicSearch(panel);
+    }
+
+    public DataRequestServices CountRequests()
+    {
+      return Repository.CountRequests();
+    }
+
+    public void MakeRequest(RequestDTO requestDto)
+    {
+      DAL.Models.Request request = new DAL.Models.Request
+      {
+        Name = requestDto.Name,
+        Date = DateTime.Now,
+        Description = requestDto.Description, 
+        Email = requestDto.Email,
+        Phone = requestDto.Phone,
+        RequestTypeInString = requestDto.RequestTypeInString,
+        RequestTypeId = null,
+        UserId = requestDto.UserId,
+        Viewed = false
+      };
+      Repository.Insert(request);
+    }
+
+    public void GetFlag(int id)
+    {
+      Repository.GetFlag(id);
+    }
+
+    public void Delete(int id)
+    {
+      Repository.Delete(id);
     }
   }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http.Headers;
@@ -27,7 +27,7 @@ namespace Web.Filters
         {
             var message = new OperationResult
             {
-                Messages = new List<string>() { "[Unhandled Exception] " + Exception.Message },
+                Message = "[Unhandled Exception] " + Exception.Message,
                 StackTrace = Exception.StackTrace,
                 Success = false,
                 Code = OperationCode.UnhandledError

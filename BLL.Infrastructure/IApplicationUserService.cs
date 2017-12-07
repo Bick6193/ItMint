@@ -1,41 +1,47 @@
-﻿using Common.List;
+﻿using System.Collections.Generic;
+using Common.List;
 using Domain;
+using Domain.Request;
 using Domain.User;
 using JetBrains.Annotations;
 
 namespace BLL.Infrastructure
 {
-    public interface IApplicationUserService
-    {
-        [NotNull]
-        [MustUseReturnValue]
-        ListResult<ApplicationUserDisplay> List([NotNull] ListCriteria criteria);
+  public interface IApplicationUserService
+  {
+    [NotNull]
+    [MustUseReturnValue]
+    List<UserDTO> List();
 
-        [NotNull]
-        [MustUseReturnValue]
-        OperationResult<ApplicationUserLogin> LoginUser([NotNull] string login, [NotNull] string password);
+    [NotNull]
+    [MustUseReturnValue]
+    OperationResult<UserDTO> LoginUser([NotNull] string login, [NotNull] string password);
 
-        [CanBeNull]
-        [MustUseReturnValue]
-        ApplicationUserLogin FindByLogin([NotNull] string login);
+    [CanBeNull]
+    [MustUseReturnValue]
+    UserDTO FindById(int id);
 
-//        [MustUseReturnValue]
-//        UserDetails GetById(long id);
-//    
-//        [NotNull]
-//        [MustUseReturnValue]
-//        OperationResult<UserDetails> Upsert([NotNull] UserDetails details);
+    [CanBeNull]
+    [MustUseReturnValue]
+    UserDTO FindByLogin([NotNull] string login);
 
-        [NotNull]
-        [MustUseReturnValue]
-        OperationResult ResetPassword([NotNull] UserPasswordReset request);
+    [NotNull]
+    [MustUseReturnValue]
+    void ResetPassword([NotNull] UserDTO request);
 
-        [NotNull]
-        [MustUseReturnValue]
-        OperationResult RecoverPassword([NotNull] string email);
+    [NotNull]
+    [MustUseReturnValue]
+    OperationResult RecoverPassword([NotNull] string email);
 
-        [NotNull]
-        [MustUseReturnValue]
-        OperationResult<bool> ValidateUserName(long userId, [NotNull] string username);
-    }
+    [NotNull]
+    [MustUseReturnValue]
+    OperationResult<bool> ValidateUserName(long userId, [NotNull] string username);
+
+
+    void CreateUser(UserDTO userDto);
+
+    void UpdateUser(UserDTO userDto);
+
+    void DeleteUser(int id);
+  }
 }

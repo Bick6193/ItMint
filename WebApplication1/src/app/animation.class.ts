@@ -1,6 +1,7 @@
 declare function animPage(): void;
 declare function initMap(): void;
 declare function initCounter(): void;
+declare function customForm(): void;
 
 export class AnimationClass {
   public static animWeb() {
@@ -9,5 +10,8 @@ export class AnimationClass {
 public static animWebMap() {
     initMap();
     initCounter();
+}
+public static animBar() {
+    customForm();
 }
 }

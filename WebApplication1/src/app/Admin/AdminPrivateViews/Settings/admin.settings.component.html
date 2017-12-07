@@ -1,167 +1,114 @@
 <div id="wrapper">
-		<!-- header  start -->
-		<header id="header">
-			<strong class="logo"><a routerLink="">ITMINT</a></strong>
-			<ul class="head-aside">
-				<li class="active"><a routerLink="/Admin/Settings"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
-				<li><a routerLink="/Admin"><i class="fa fa-power-off" aria-hidden="true"></i></a></li>
-			</ul>
-			<nav id="nav">
-				<ul class="menu">
-					<li><a routerLink="/Admin/Inbox"><i class="fa fa-inbox" aria-hidden="true"></i>INBOX</a></li>
-					<li><a routerLink="/Admin/Metadata"><i class="fa fa-tags" aria-hidden="true"></i>METADATA</a></li>
-					<li><a routerLink="/Admin/Projects"><i class="fa fa-file-text" aria-hidden="true"></i>PROJECTS</a></li>
-				</ul>
-			</nav>
-		</header>
-		<!-- header  end
-		     main  start -->
-		<div id="main">
-			<div class="hold-table">
-				<div class="head-table">
-					<div class="hold-title">
-						<h1>Requests</h1>
-					</div>
-					<a routerLink="/Admin/Requests" class="btn btn-small btn-add">+</a>
-				</div>
-				<div class="inner-table">
-					<div class="row row-head">
-						<div class="col">Name</div>
-						<div class="col cell-aside">Manager Email</div>
-						<div class="col">Request</div>
-						<div class="col">Status</div>
-						<div class="col">Default</div>
-						<div class="col">&nbsp;</div>
-					</div>
-					<div class="row">
-						<div class="col"><span class="text-type">Web Development</span></div>
-						<div class="col cell-aside">max.t@itmint.ca</div>
-						<div class="col">113</div>
-						<div class="col"><span class="icon-circle">&nbsp;</span></div>
-						<div class="col"><span class="icon-circle">&nbsp;</span></div>
-						<div class="col">
+  <!-- header  start -->
+  <header id="header">
+    <strong class="logo"><a routerLink="">ITMINT</a></strong>
+    <ul class="head-aside">
+      <li class="active"><a routerLink="/Admin/Settings"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
+      <li><a routerLink="/Admin"><i class="fa fa-power-off" aria-hidden="true"></i></a></li>
+    </ul>
+    <nav id="nav">
+      <ul class="menu">
+        <li><a routerLink="/Admin/Inbox"><i class="fa fa-inbox" aria-hidden="true"></i>INBOX</a></li>
+        <li><a routerLink="/Admin/Metadata"><i class="fa fa-tags" aria-hidden="true"></i>METADATA</a></li>
+        <li><a routerLink="/Admin/Projects"><i class="fa fa-file-text" aria-hidden="true"></i>PROJECTS</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- header  end
+           main  start -->
+  <div id="main">
+    <div class="hold-table">
+      <div class="head-table">
+        <div class="hold-title">
+          <h1>Requests</h1>
+        </div>
+        <a routerLink="/Admin/Requests" class="btn btn-small btn-add">+</a>
+      </div>
+      <div class="inner-table">
+        <div class="row row-head">
+          <div class="col">Name</div>
+          <div class="col cell-aside">Manager Email</div>
+          <div class="col">Request</div>
+          <div class="col">Status</div>
+          <div class="col">Default</div>
+          <div class="col">&nbsp;</div>
+        </div>
+        <div class="row" *ngFor="let items of requests">
+          <div class="col"><span [ngClass]="items.color">{{items.type}}</span></div>
+          <div class="col cell-aside">{{items.employeesEmail}}</div>
+          <div class="col">{{items.count}}</div>
+          <div class="col"><span class="icon-circle">&nbsp;</span></div>
+          <div class="col"><span class="icon-circle">&nbsp;</span></div>
+          <div class="col">
 							<span class="btn-icon icon-menu icon-gray">
 								<span></span>
 								<span></span>
 								<span></span>
 							</span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col"><span class="text-type gray-type">Design</span></div>
-						<div class="col cell-aside">j.e.rousher@yahoo.com</div>
-						<div class="col">65</div>
-						<div class="col"><span class="icon-circle">&nbsp;</span></div>
-						<div class="col"><span class="icon-circle circle-gray">&nbsp;</span></div>
-						<div class="col">
-							<span class="btn-icon icon-menu">
-								<span></span>
-								<span></span>
-								<span></span>
-							</span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col"><span class="text-type orange-type">QA</span></div>
-						<div class="col cell-aside">sara@veritaslegalplan.com</div>
-						<div class="col">11</div>
-						<div class="col"><span class="icon-circle">&nbsp;</span></div>
-						<div class="col"><span class="icon-circle circle-gray">&nbsp;</span></div>
-						<div class="col">
-							<span class="btn-icon icon-menu icon-gray">
-								<span></span>
-								<span></span>
-								<span></span>
-							</span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col"><span class="text-type green-type">Testing</span></div>
-						<div class="col cell-aside">andy.silver@gmail.com</div>
-						<div class="col">78</div>
-						<div class="col"><span class="icon-circle">&nbsp;</span></div>
-						<div class="col"><span class="icon-circle circle-gray">&nbsp;</span></div>
-						<div class="col">
-							<span class="btn-icon icon-menu icon-gray">
-								<span></span>
-								<span></span>
-								<span></span>
-							</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="hold-table">
-				<div class="head-table">
-					<div class="hold-title">
-						<h2>Users</h2>
-					</div>
-					<a routerLink="/Admin/AddUser" class="btn btn-small btn-add">+</a>
-				</div>
-				<div class="inner-table">
-					<table>
-						<tr>
-							<th>Name</th>
-							<th class="cell-aside">Manager Email</th>
-							<th class="cell-aside">Request</th>
-							<th>Status</th>
-						</tr>
-						<tr>
-							<td>Max Trukhanovich</td>
-							<td class="cell-aside">max.t@itmint.ca</td>
-							<td class="cell-aside">Technical Director</td>
-							<td><span class="icon-circle">&nbsp;</span></td>
-						</tr>
-						<tr>
-							<td>Nikolay Areshko</td>
-							<td class="cell-aside">nick@itmint.ca</td>
-							<td class="cell-aside">Director</td>
-							<td><span class="icon-circle">&nbsp;</span></td>
-						</tr>
-						<tr>
-							<td>Tatiana Astashko</td>
-							<td class="cell-aside">tatiana@itmint.ca</td>
-							<td class="cell-aside">Sales Director</td>
-							<td><span class="icon-circle circle-gray">&nbsp;</span></td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<div class="container">
-				<form action="#">
-					<fieldset>
-						<h2>Email Settings</h2>
-						<div class="wrap-row">
-							<div class="row">
-								<div class="col ">
-									<label for="data-email" class="label-form">Email</label>
-									<input id="data-email" type="text" value="no-reply@itmint.ca" />
-								</div>
-								<div class="col">
-									<label for="data-server" class="label-form">Server</label>
-									<input id="data-server" type="text" value="mail.itmint.ca" />
-								</div>
-							</div>
-							<div class="row">
-								<div class="col">
-									<label for="data-password" class="label-form">Password</label>
-									<input id="data-password" type="text" value="Password" />
-								</div>
-								<div class="col">
-									<label for="data-port" class="label-form">Port</label>
-									<div class="field-check">
-										<label class="label-check"><input type="checkbox" class="customCheckbox" />SSL</label>
-										<input id="data-port" type="text" value="25" />
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="hold-foot">
-							<button class="btn" type="submit">Save</button>
-						</div>
-					</fieldset>
-				</form>
-			</div>
-		</div>
-		<!-- main  end -->
-	</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hold-table">
+      <div class="head-table">
+        <div class="hold-title">
+          <h2>Users</h2>
+        </div>
+        <a [routerLink]="['/Admin/AddUser']" class="btn btn-small btn-add">+</a>
+      </div>
+      <div class="inner-table">
+        <table>
+          <tr>
+            <th>Name</th>
+            <th class="cell-aside">Manager Email</th>
+            <th class="cell-aside">Request</th>
+            <th>Status</th>
+          </tr>
+          <tr *ngFor="let item of users" [routerLink]="['/Admin/AddUser', item.id]">
+            <td>{{item.fullName}}</td>
+            <td class="cell-aside">{{item.email}}</td>
+            <td class="cell-aside">{{item.position}}</td>
+            <td><span [ngClass]="(item.active)?'icon-circle':'icon-circle circle-gray'">&nbsp;</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="container">
+      <form action="#">
+        <fieldset>
+          <h2>Email Settings</h2>
+          <div class="wrap-row">
+            <div class="row">
+              <div class="col ">
+                <label for="data-email" class="label-form">Email</label>
+                <input id="data-email" type="text" value="no-reply@itmint.ca"/>
+              </div>
+              <div class="col">
+                <label for="data-server" class="label-form">Server</label>
+                <input id="data-server" type="text" value="mail.itmint.ca"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="data-password" class="label-form">Password</label>
+                <input id="data-password" type="text" value="Password"/>
+              </div>
+              <div class="col">
+                <label for="data-port" class="label-form">Port</label>
+                <div class="field-check">
+                  <label class="label-check"><input type="checkbox" class="customCheckbox"/>SSL</label>
+                  <input id="data-port" type="text" value="25"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hold-foot">
+            <button class="btn" type="submit">Save</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <!-- main  end -->
+</div>

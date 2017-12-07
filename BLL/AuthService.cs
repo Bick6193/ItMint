@@ -28,9 +28,9 @@ namespace BLL
             AuthRepository.Delete(refreshTokenId);
         }
 
-        public RefreshTokenDetails GetTokenById(string refreshTokenId)
+        public RefreshTokenDetails GetTokenByRefresh(string refreshToken)
         {
-            return AuthRepository.GetToken(refreshTokenId);
+            return AuthRepository.GetToken(refreshToken);
         }
 
         public RefreshTokenDetails GetTokenByUserAndClient(long userId, string clientId)

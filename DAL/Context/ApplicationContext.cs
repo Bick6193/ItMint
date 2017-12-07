@@ -13,17 +13,23 @@ namespace DAL.Context
     {
 
     }
-    public ApplicationContext(DbContextOptions connectionString):base(connectionString)
+    public ApplicationContext(DbContextOptions<ApplicationContext> connectionString) : base(connectionString)
     {
 
     }
 
-    public DbSet<AppUser> ApplicationUsers { get; set; }
+    
     public DbSet<BinaryFileData> BinaryFilesData { get; set; }
     public DbSet<File> Files { get; set; }
     public DbSet<Metadata> Metadata { get; set; }
     public DbSet<Request> Requests { get; set; }
     public DbSet<RequestType> RequestsType { get; set; }
+    public DbSet<Projects> Projectses { get; set; }
+    public DbSet<ProjectFile> ProjectFiles { get; set; }
+    public DbSet<BinaryProjectFileData> BinaryProjectFileDatas { get; set; }
+    public DbSet<Token> Tokens { get; set; }
+    public DbSet<ApiUser> ApiUsers { get; set; }
+    public DbSet<AppUser> ApplicationUsers { get; set; }
 
 
 

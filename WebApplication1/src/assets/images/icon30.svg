@@ -1,1 +1,37 @@
-<svg id="SvgjsSvg1023" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="48" height="48" viewBox="0 0 48 48"><title>Combined Shape Copy 2</title><desc>Created with Avocode.</desc><defs id="SvgjsDefs1024"><clipPath id="SvgjsClipPath1028"><path id="SvgjsPath1027" d="M520 1566L520 1572L560 1572L560 1576L568 1569L560 1562L560 1566Z " fill="#ffffff"></path></clipPath><clipPath id="SvgjsClipPath1032"><path id="SvgjsPath1031" d="M520 1583L520 1589L560 1589L560 1593L568 1586L560 1579L560 1583Z " fill="#ffffff"></path></clipPath><clipPath id="SvgjsClipPath1036"><path id="SvgjsPath1035" d="M520 1600L520 1606L560 1606L560 1610L568 1603L560 1596L560 1600Z " fill="#ffffff"></path></clipPath></defs><path id="SvgjsPath1025" d="M520 1566L520 1572L560 1572L560 1576L568 1569L560 1562L560 1566Z " fill="#ff6e26" fill-opacity="1" transform="matrix(1,0,0,1,-520,-1562)"></path><path id="SvgjsPath1026" d="M520 1566L520 1572L560 1572L560 1576L568 1569L560 1562L560 1566Z " fill-opacity="0" fill="#ffffff" stroke-dasharray="0" stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1" stroke="#3d454d" stroke-miterlimit="50" stroke-width="2" clip-path="url(&quot;#SvgjsClipPath1028&quot;)" transform="matrix(1,0,0,1,-520,-1562)"></path><path id="SvgjsPath1029" d="M520 1583L520 1589L560 1589L560 1593L568 1586L560 1579L560 1583Z " fill="#4cbf86" fill-opacity="1" transform="matrix(1,0,0,1,-520,-1562)"></path><path id="SvgjsPath1030" d="M520 1583L520 1589L560 1589L560 1593L568 1586L560 1579L560 1583Z " fill-opacity="0" fill="#ffffff" stroke-dasharray="0" stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1" stroke="#3d454d" stroke-miterlimit="50" stroke-width="2" clip-path="url(&quot;#SvgjsClipPath1032&quot;)" transform="matrix(1,0,0,1,-520,-1562)"></path><path id="SvgjsPath1033" d="M520 1600L520 1606L560 1606L560 1610L568 1603L560 1596L560 1600Z " fill="#ffffff" fill-opacity="1" transform="matrix(1,0,0,1,-520,-1562)"></path><path id="SvgjsPath1034" d="M520 1600L520 1606L560 1606L560 1610L568 1603L560 1596L560 1600Z " fill-opacity="0" fill="#ffffff" stroke-dasharray="0" stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1" stroke="#3d454d" stroke-miterlimit="50" stroke-width="2" clip-path="url(&quot;#SvgjsClipPath1036&quot;)" transform="matrix(1,0,0,1,-520,-1562)"></path></svg>
+<svg id="SvgjsSvg1023" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:svgjs="http://svgjs.com/svgjs" width="48" height="48" viewBox="0 0 48 48">
+  <title>Combined Shape Copy 2</title>
+  <desc>Created with Avocode.</desc>
+  <defs id="SvgjsDefs1024">
+    <clipPath id="SvgjsClipPath1028">
+      <path id="SvgjsPath1027" d="M520 1566L520 1572L560 1572L560 1576L568 1569L560 1562L560 1566Z "
+            fill="#ffffff"></path>
+    </clipPath>
+    <clipPath id="SvgjsClipPath1032">
+      <path id="SvgjsPath1031" d="M520 1583L520 1589L560 1589L560 1593L568 1586L560 1579L560 1583Z "
+            fill="#ffffff"></path>
+    </clipPath>
+    <clipPath id="SvgjsClipPath1036">
+      <path id="SvgjsPath1035" d="M520 1600L520 1606L560 1606L560 1610L568 1603L560 1596L560 1600Z "
+            fill="#ffffff"></path>
+    </clipPath>
+  </defs>
+  <path id="SvgjsPath1025" d="M520 1566L520 1572L560 1572L560 1576L568 1569L560 1562L560 1566Z " fill="#ff6e26"
+        fill-opacity="1" transform="matrix(1,0,0,1,-520,-1562)"></path>
+  <path id="SvgjsPath1026" d="M520 1566L520 1572L560 1572L560 1576L568 1569L560 1562L560 1566Z " fill-opacity="0"
+        fill="#ffffff" stroke-dasharray="0" stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1"
+        stroke="#3d454d" stroke-miterlimit="50" stroke-width="2" clip-path="url(&quot;#SvgjsClipPath1028&quot;)"
+        transform="matrix(1,0,0,1,-520,-1562)"></path>
+  <path id="SvgjsPath1029" d="M520 1583L520 1589L560 1589L560 1593L568 1586L560 1579L560 1583Z " fill="#4cbf86"
+        fill-opacity="1" transform="matrix(1,0,0,1,-520,-1562)"></path>
+  <path id="SvgjsPath1030" d="M520 1583L520 1589L560 1589L560 1593L568 1586L560 1579L560 1583Z " fill-opacity="0"
+        fill="#ffffff" stroke-dasharray="0" stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1"
+        stroke="#3d454d" stroke-miterlimit="50" stroke-width="2" clip-path="url(&quot;#SvgjsClipPath1032&quot;)"
+        transform="matrix(1,0,0,1,-520,-1562)"></path>
+  <path id="SvgjsPath1033" d="M520 1600L520 1606L560 1606L560 1610L568 1603L560 1596L560 1600Z " fill="#ffffff"
+        fill-opacity="1" transform="matrix(1,0,0,1,-520,-1562)"></path>
+  <path id="SvgjsPath1034" d="M520 1600L520 1606L560 1606L560 1610L568 1603L560 1596L560 1600Z " fill-opacity="0"
+        fill="#ffffff" stroke-dasharray="0" stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1"
+        stroke="#3d454d" stroke-miterlimit="50" stroke-width="2" clip-path="url(&quot;#SvgjsClipPath1036&quot;)"
+        transform="matrix(1,0,0,1,-520,-1562)"></path>
+</svg>

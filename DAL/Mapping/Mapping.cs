@@ -12,7 +12,7 @@ namespace DAL.Mapping
                 //configuration.ShouldMapField = ShouldMap;
                 //configuration.ShouldMapProperty = ShouldMap;
 
-                configuration.AddProfile<ApplicationUserProfile>();
+                configuration.AddProfile<RequestConfiguration>();
             });
 
             //precompile

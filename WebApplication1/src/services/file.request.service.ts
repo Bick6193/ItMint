@@ -1,19 +1,30 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {FileRequestModel} from '../app/models/file.request.model';
 import {HttpClientService} from './http.client.service';
+import {HttpClientAttachService} from './http.client.attach.service';
 
 @Injectable()
 export class FileRequestService {
-  private url = '/api/Request/Form/Doc';
-  constructor(private http: HttpClient) {}
-  public requestFileToServer(obj: FileRequestModel) {
-    let httpCS = new HttpClientService(this.http);
-    let temp = [
-      'FileName=' + obj.FileName +
-      '&CreatedDay=' + obj.CreatedDay +
-      '&FileSize=' + obj.FileSize
-    ];
-    return httpCS.post(this.url, temp);
+  private url = 'api/Request/Doc';
+  private urlProj = 'api/Project/Doc';
+  constructor(private http: HttpClientAttachService) {
+  }
+
+  public makeFileRequest(files: Array<File>, token: string) {
+    console.log(files);
+    let formData = new FormData();
+    for (const value of files) {
+      formData.append('files', value, value.name);
+    }
+    formData.append(token, token);
+    return this.http.post(this.url, formData);
+  }
+
+  public ProjectFile(file: Array<File>) {
+    console.log(file);
+    let formData = new FormData();
+    for (const value of file) {
+      formData.append('files', value, value.name);
+    }
+    return this.http.post(this.urlProj, formData);
   }
 }

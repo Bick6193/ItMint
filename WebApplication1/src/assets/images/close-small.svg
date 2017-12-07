@@ -1,1 +1,10 @@
-<svg id="SvgjsSvg1015" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="12.707106781186667" height="12.70710678118644"><defs id="SvgjsDefs1016"></defs><path id="SvgjsPath1017" d="M1309 678L1321 690 " fill-opacity="0" fill="#ffffff" stroke-dasharray="0" stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1" stroke="#ffffff" stroke-miterlimit="50" stroke-width="1" transform="matrix(1,0,0,1,-1308.6464466094067,-677.6464466094068)"></path><path id="SvgjsPath1018" d="M1309 690L1321 678 " fill-opacity="0" fill="#ffffff" stroke-dasharray="0" stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1" stroke="#ffffff" stroke-miterlimit="50" stroke-width="1" transform="matrix(1,0,0,1,-1308.6464466094067,-677.6464466094068)"></path></svg>
+<svg id="SvgjsSvg1015" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:svgjs="http://svgjs.com/svgjs" width="12.707106781186667" height="12.70710678118644">
+  <defs id="SvgjsDefs1016"></defs>
+  <path id="SvgjsPath1017" d="M1309 678L1321 690 " fill-opacity="0" fill="#ffffff" stroke-dasharray="0"
+        stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1" stroke="#ffffff" stroke-miterlimit="50"
+        stroke-width="1" transform="matrix(1,0,0,1,-1308.6464466094067,-677.6464466094068)"></path>
+  <path id="SvgjsPath1018" d="M1309 690L1321 678 " fill-opacity="0" fill="#ffffff" stroke-dasharray="0"
+        stroke-linejoin="miter" stroke-linecap="butt" stroke-opacity="1" stroke="#ffffff" stroke-miterlimit="50"
+        stroke-width="1" transform="matrix(1,0,0,1,-1308.6464466094067,-677.6464466094068)"></path>
+</svg>

@@ -15,6 +15,8 @@ namespace Common.Configuration
 
     bool EnableDetailedSqlLog { get; }
 
+    bool ApplyMigrations { get; }
+
     string ApplicationUrl { get; }
 
     /// <summary>

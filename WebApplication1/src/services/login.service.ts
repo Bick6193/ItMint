@@ -1,32 +1,52 @@
 import {Injectable} from '@angular/core';
-import {Response} from '@angular/http';
-import {LoginModel} from '../app/models/login.model';
+import {LoginModel} from '../app/responce.models/login.model';
 import 'rxjs/add/operator/map';
-import {isUndefined} from 'util';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClientService} from './http.client.service';
+import {TokenInterceptor} from './library/token.interceptor.library';
+import {Router} from '@angular/router';
+export class AuthRequest {
+  username: string;
+  password: string;
+  grant_type = 'password';
+  client_id = 'ngApp';
+
+  constructor(username:string, password:string)
+  {
+    this.username = username;
+    this.password = password;
+  }
+}
+
 @Injectable()
 export class LoginService {
+
   public token: string;
-  constructor(private http: HttpClient) { }
-  public login(obj: LoginModel) {
-    let temp = 'Login=' + obj.Login + '&Password=' + obj.Password;
-    if (isUndefined(obj.Login) || isUndefined(obj.Password)) {
-      obj.Login = '';
-      obj.Password = '';
-    }
-    else {
-      return this.http.post('/api/authenticate', temp, {headers: new HttpHeaders().set('Content-type', 'application/x-www-form-urlencoded')})
-        .subscribe(resp => {
-        if (!isUndefined(resp)) {
-          this.token = resp['access_token'];
-          localStorage.setItem('adm_token', this.token);
-          return this.token;
-        }
-      });
-    }
+
+  public urlLogin = 'api/token';
+
+  router: Router;
+
+  constructor(private http: HttpClientService, private route: Router) {
+    this.router = route;
   }
+
+  public login(obj: LoginModel) {
+    const body = new AuthRequest(obj.Login, obj.Password);
+    console.log(body);
+    this.http.post(this.urlLogin, body)
+      .subscribe(resp => {
+        console.log(resp);
+        this.token = resp['object'];
+        localStorage.setItem('access_token', this.token['accessToken']);
+        localStorage.setItem('refresh_token', this.token['refreshToken']);
+        this.router.navigate(['/Admin/Inbox']);
+      });
+
+
+  }
+
   logout(): void {
     this.token = null;
-    localStorage.removeItem('adm_token');
+    localStorage.removeItem('access_token');
   }
 }

@@ -17,7 +17,7 @@
 		<!-- header  end
 		     main  start -->
 		<div id="main">
-			<h1><a href="#" class="link-back"><i class="fa fa-angle-left" aria-hidden="true"></i>Metadata</a></h1>
+			<h1><a routerLink="/Admin/Metadata" class="link-back"><i class="fa fa-angle-left" aria-hidden="true"></i>Metadata</a></h1>
 			<div class="container">
 				<form action="#">
 					<fieldset>
@@ -25,40 +25,40 @@
 							<div class="row">
 								<div class="col ">
 									<label for="data-name" class="label-form">Name</label>
-									<input id="data-name" type="text" value="Technologies" />
+									<input id="data-name" type="text" placeholder="Technologies" name="controller" [(ngModel)]="metadata.Controller" />
 									<span class="form-error">text message</span>
 								</div>
 								<div class="col">
 									<label for="data-title" class="label-form">Title</label>
-									<input id="data-title" type="text" value="ITMINT | Technologies " />
+									<input id="data-title" type="text" placeholder="ITMINT | Technologies " name="title" [(ngModel)]="metadata.Title" />
 								</div>
 							</div>
 							<div class="row">
 								<div class="col">
 									<label for="data-url" class="label-form">URL</label>
 									<div class="field-way">
-										<input id="data-url" type="text" value="Home/Technologies" />
+										<input id="data-url" type="text" placeholder="Home/Technologies" name="url" [(ngModel)]="metadata.Action" />
 										<span class="text-way">itmint.ca/</span>
 									</div>
 								</div>
 								<div class="col">
 									<label for="data-autor" class="label-form">Author</label>
-									<input id="data-autor" type="text" />
+									<input id="data-autor" type="text" name="author" [(ngModel)]="metadata.Author" />
 								</div>
 							</div>
 							<div class="row">
 								<div class="col">
 									<label for="data-keywords" class="label-form">Keywords</label>
-									<textarea id="data-keywords" cols="3" rows="3"></textarea>
+									<textarea id="data-keywords" cols="3" rows="3" name="keywords" [(ngModel)]="metadata.Keywords"></textarea>
 								</div>
 								<div class="col">
 									<label for="data-description" class="label-form">Description</label>
-									<textarea id="data-description" cols="3" rows="3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</textarea>
+									<textarea id="data-description" cols="3" rows="3" name="desc" [(ngModel)]="metadata.Description"></textarea>
 								</div>
 							</div>
 						</div>
 						<div class="hold-foot">
-							<button class="btn" type="submit">Save</button>
+							<button class="btn" type="submit" (click)="SendMetadata(metadata)">Save</button>
 						</div>
 					</fieldset>
 				</form>
@@ -71,5 +71,4 @@
 	<!-- scripts  -->
 	<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
 	<script type="text/javascript" src="js/jquery.main.js"></script>
-</body>
-</html>
+

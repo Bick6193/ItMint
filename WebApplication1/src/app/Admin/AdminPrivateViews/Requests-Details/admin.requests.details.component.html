@@ -1,37 +1,37 @@
 <div id="wrapper">
 		<!-- header  start -->
 		<header id="header">
-			<strong class="logo"><a href="#">ITMINT</a></strong>
+			<strong class="logo"><a routerLink="">ITMINT</a></strong>
 			<ul class="head-aside">
-				<li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
+				<li><a routerLink="/Admin/Settings"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
 				<li><a href="#"><i class="fa fa-power-off" aria-hidden="true"></i></a></li>
 			</ul>
 			<nav id="nav">
 				<ul class="menu">
-					<li class="active"><a href="#"><i class="fa fa-inbox" aria-hidden="true"></i>INBOX</a></li>
-					<li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>METADATA</a></li>
-					<li><a href="#"><i class="fa fa-file-text" aria-hidden="true"></i>PROJECTS</a></li>
+					<li class="active"><a routerLink="/Admin/Inbox"><i class="fa fa-inbox" aria-hidden="true"></i>INBOX</a></li>
+					<li><a routerLink="/Admin/Metadata"><i class="fa fa-tags" aria-hidden="true"></i>METADATA</a></li>
+					<li><a routerLink="/Admin/Projects"><i class="fa fa-file-text" aria-hidden="true"></i>PROJECTS</a></li>
 				</ul>
 			</nav>
 		</header>
 		<!-- header  end
 		     main  start -->
 		<div id="main">
-			<h1><a href="#" class="link-back"><i class="fa fa-angle-left" aria-hidden="true"></i>Inbox</a></h1>
-			<div class="container">
+			<h1><a routerLink="/Admin/Inbox" class="link-back"><i class="fa fa-angle-left" aria-hidden="true"></i>Inbox</a></h1>
+			<div class="container" >
 				<form action="#">
 					<div class="wrap-info">
 						<div class="row">
 							<div class="col">
 								<dl class="info">
 									<dt>Name</dt>
-									<dd>Max Trukhanovich</dd>
+									<dd>{{reqModel?.name}}</dd>
 								</dl>
 							</div>
 							<div class="col">
 								<dl class="info">
 									<dt>Type</dt>
-									<dd><span class="text-type">Web Development</span></dd>
+									<dd><span [ngClass]="getCssClass(reqModel?.requestTypeInString)">{{reqModel?.requestTypeInString}}</span></dd>
 								</dl>
 							</div>
 						</div>
@@ -39,13 +39,13 @@
 							<div class="col">
 								<dl class="info">
 									<dt>Email</dt>
-									<dd>max.t@itmint.ca</dd>
+									<dd>{{reqModel?.email}}</dd>
 								</dl>
 							</div>
 							<div class="col">
 								<dl class="info">
 									<dt>Country</dt>
-									<dd>New York, United States</dd>
+									<dd>{{reqModel?.country}}</dd>
 								</dl>
 							</div>
 						</div>
@@ -53,43 +53,31 @@
 							<div class="col">
 								<dl class="info">
 									<dt>Phone</dt>
-									<dd>+375 33 3500330</dd>
+									<dd>+{{reqModel?.phone}}</dd>
 								</dl>
 							</div>
 							<div class="col">
 								<dl class="info">
 									<dt>Time</dt>
-									<dd>12th May, 2017 @ 17:31</dd>
+									<dd>{{reqModel?.date | date: 'dd MMMM, yyyy'}} @ {{reqModel?.date | date: 'HH:mm'}}</dd>
 								</dl>
 							</div>
 						</div>
 					</div>
 					<div class="hold-line">
 						<h2>Description</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-						dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-						ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-						nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-						id est laborum.</p>
+						<p>{{reqModel?.description}}</p>
 					</div>
 					<div class="hold-line">
 						<h2>Attachments</h2>
-						<ul class="list-attachments">
-							<li><a href="#"><i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>Presentation.pptx</a></li>
-							<li><a href="#"><i class="fa fa-file-word-o" aria-hidden="true"></i>Project description.docx</a></li>
-							<li><a href="#"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>Specifications from 11.12.2016 (v.5 rev. 1.3).pdf</a></li>
-							<li><a href="#"><i class="fa fa-file-excel-o" aria-hidden="true"></i>Data table.xlsx</a></li>
-							<li><a href="#"><i class="fa fa-file-archive-o" aria-hidden="true"></i>Files.zip</a></li>
-							<li><a href="#"><i class="fa fa-file-text-o" aria-hidden="true"></i>List.txt</a></li>
-							<li><a href="#"><i class="fa fa-file-image-o" aria-hidden="true"></i>Map.jpeg</a></li>
-							<li><a href="#"><i class="fa fa-file-code-o" aria-hidden="true"></i>Customers.cs</a></li>
-							<li><a href="#"><i class="fa fa-file-o" aria-hidden="true"></i>Generic_business_company.backup</a></li>
+						<ul class="list-attachments" >
+							<li *ngFor="let items of fileModel"><a href="#"><i [ngClass]="fileClasses(items.contentType)" aria-hidden="true"></i>{{items.fileName}}</a></li>
 							<li><a class="link-all" href="#"><i class="fa fa-archive" aria-hidden="true"></i>DOWNLOAD ALL</a></li>
 						</ul>
 					</div>
 					<div class="hold-foot">
-						<label class="label-check"><input type="checkbox" class="customCheckbox" />Flag message</label>
-						<button class="btn btn-red" type="submit">Delete</button>
+						<label class="label-check"><input type="checkbox" [checked]="reqModel?.flag" (change)="CheckingFlag(reqModel.id)" class="customCheckbox " />Flag message</label>
+						<button class="btn btn-red" type="submit" (click)="DeleteRequest(reqModel?.id)" routerLink="/Admin/Inbox">Delete</button>
 					</div>
 				</form>
 			</div>

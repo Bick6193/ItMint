@@ -1,22 +1,27 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using DAL.Models;
+using DAL.Repositories.RepositoriesAbstract;
+using Domain.Request;
 using JetBrains.Annotations;
 
 namespace DAL.Repositories.Infrastructure
 {
   public interface IRequestRepository
   {
-    [NotNull]
-    [MustUseReturnValue]
-    IEnumerable<Request> GetAll();
+    IEnumerable<RequestDTO> GetAll();
 
     [NotNull]
     [MustUseReturnValue]
-    Request GetById(int id);
+    RequestDTO GetById(int id);
+
+    IEnumerable<RequestDTO> BasicSearch(InboxPanelService dataContainer);
+
+    DataRequestServices CountRequests();
 
     void Insert(Request request);
+
+    void GetFlag(int id);
 
     void Delete(int id);
   }

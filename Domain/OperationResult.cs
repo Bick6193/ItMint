@@ -17,7 +17,7 @@ namespace Domain
         /// <summary>
         /// Optional response message.
         /// </summary>
-        public List<string> Messages { get; set; } = new List<string>();
+        public string Message { get; set; }
 
         /// <summary>
         /// Exception stack trace if any.
@@ -50,7 +50,7 @@ namespace Domain
             }
             return new OperationResult<T>
             {
-                Messages = errorResult.Messages,
+                Message = errorResult.Message,
                 Code = errorResult.Code,
                 Success = errorResult.Success,
                 StackTrace = errorResult.StackTrace
@@ -61,7 +61,7 @@ namespace Domain
         {
             return new OperationResult<T>
             {
-                Messages = new List<string> {e.Message},
+                Message = e.Message,
                 Success = false,
                 StackTrace = e.StackTrace,
                 Code = errorCode
@@ -72,7 +72,7 @@ namespace Domain
         {
             return new OperationResult
             {
-                Messages = new List<string> {e.Message},
+                Message = e.Message,
                 Success = false,
                 StackTrace = e.StackTrace,
                 Code = errorCode
