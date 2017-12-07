@@ -45,7 +45,7 @@ namespace Web.Controllers
     public IActionResult SetPassword([FromBody] UserDTO userDto)
     {
       applicationUserService.ResetPassword(userDto);
-      return Ok(new { temp = true });
+      return Ok(new { temp = true }); 
     }
 
     [HttpGet("GetUsersSettings")]
