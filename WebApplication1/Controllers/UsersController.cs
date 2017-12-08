@@ -26,45 +26,53 @@ namespace Web.Controllers
       requestTypesService = requestTypes;
     }
 
-    [HttpPost("RequestUser")]
+    [HttpPost]
+    [Route("RequestUser")]
     public void RequestUser([FromBody]UserDTO userDto)
     {
       applicationUserService.CreateUser(userDto);
     }
-    [HttpPost("UpdateUser")]
+    [HttpPost]
+    [Route("UpdateUser")]
     public void UpdateUser([FromBody] UserDTO userDto)
     {
       applicationUserService.UpdateUser(userDto);
     }
-    [HttpPost("DeleteUser")]
+    [HttpPost]
+    [Route("DeleteUser")]
     public void DeleteUser(int id)
     {
       applicationUserService.DeleteUser(id);
     }
-    [HttpPost("SetPassword")]
+    [HttpPost]
+    [Route("SetPassword")]
     public IActionResult SetPassword([FromBody] UserDTO userDto)
     {
       applicationUserService.ResetPassword(userDto);
       return Ok(new { temp = true }); 
     }
 
-    [HttpGet("GetUsersSettings")]
+    [HttpGet]
+    [Route("GetUsersSettings")]
     public List<UserDTO> GetToSettings()
     {
       return applicationUserService.List(); 
     }
-    [HttpPost("GetUser")]
+    [HttpPost]
+    [Route("GetUser")]
     public UserDTO GetById(int id)
     {
       return applicationUserService.FindById(id);
     }
-    [HttpPost("SaveRequest")]
+    [HttpPost]
+    [Route("SaveRequest")]
     public IActionResult SaveRequest([FromBody] RequestTypeDTO requestTypeDto)
     {
       requestTypesService.Insert(requestTypeDto);
       return Ok(new { temp = true });
     }
-    [HttpGet("GetRequestTypes")]
+    [HttpGet]
+    [Route("GetRequestTypes")]
     public List<RequestTypesViewModel> RequestTypes()
     {
       RequestTypesViewModel requestTypesModel;

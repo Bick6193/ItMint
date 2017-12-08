@@ -17,7 +17,8 @@ namespace Web.Controllers
     {
       
     }
-    [HttpPost("Insert")]
+    [HttpPost]
+    [Route("Insert")]
     public IActionResult SaveMetadata([FromBody]MetadataDTO metadataDto)
     {
       return Ok(new {temp = true});

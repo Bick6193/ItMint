@@ -20,7 +20,7 @@ using Web.Models;
 
 namespace Web.Controllers
 {
-  
+
   [Route("api/Request")]
   public class RequestController : Controller
   {
@@ -36,14 +36,16 @@ namespace Web.Controllers
       fileService = file;
       requestTypesService = typesService;
     }
-    [HttpPost("Form")]
+    [HttpPost]
+    [Route("Form")]
     public IActionResult RequestFromClientForm([FromForm]RequestDTO requestForm)
     {
       requestGetService.MakeRequest(requestForm);
-      return Ok(new {temp = true});
+      return Ok(new { temp = true });
     }
     [Authorize]
-    [HttpGet("RequestToInbox")]
+    [HttpGet]
+    [Route("RequestToInbox")]
     public IEnumerable<RequestDTO> GetRequestToInbox()
     {
       var user = ControllerContext.HttpContext.User.Identity.IsAuthenticated;
@@ -51,41 +53,47 @@ namespace Web.Controllers
       return requestDtos;
     }
     [Authorize]
-    [HttpPost("RequestIdToInbox")]
+    [HttpPost]
+    [Route("RequestIdToInbox")]
     public RequestDTO GetRequestToInboxById(int id)
     {
       RequestDTO requestDtos = requestGetService.GetRequestById(id);
       return requestDtos;
     }
     [Authorize]
-    [HttpPost("RequestSearchToInbox")]
+    [HttpPost]
+    [Route("RequestSearchToInbox")]
     public IEnumerable<RequestDTO> GetSearchData(string line)
     {
       IEnumerable<RequestDTO> requestDto = requestGetService.BasicSearch(line);
       return requestDto;
     }
     [Authorize]
-    [HttpPost("RequestFlagToInbox")]
+    [HttpPost]
+    [Route("RequestFlagToInbox")]
     public bool GetFlag(int id)
     {
       requestGetService.GetFlag(id);
       return true;
     }
     [Authorize]
-    [HttpGet("RequestToInboxInfo")]
+    [HttpGet]
+    [Route("RequestToInboxInfo")]
     public DataRequestServices GetInboxInformation()
     {
       return requestGetService.CountRequests();
     }
     [Authorize]
-    [HttpPost("Delete")]
+    [HttpPost]
+    [Route("Delete")]
     public IActionResult DeleteRequest(int id)
     {
       requestGetService.Delete(id);
       return Ok(new { temp = true });
     }
 
-    [HttpPost("Doc")]
+    [HttpPost]
+    [Route("Doc")]
     public async Task<IActionResult> RequestFromClientFormDoc()
     {
 
@@ -124,12 +132,14 @@ namespace Web.Controllers
       return Ok(new { count = fullRequestForm.Files.Count });
     }
 
-    [HttpPost("Files")]
+    [HttpPost]
+    [Route("Files")]
     public IEnumerable<FileDTO> GetFiles(int id)
     {
       return fileService.GetById(id);
     }
-    [HttpGet("Types")]
+    [HttpGet]
+    [Route("Types")]
     public IEnumerable<string> GetTypes()
     {
       return requestTypesService.GetStringTypes();

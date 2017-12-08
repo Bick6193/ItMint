@@ -20,13 +20,15 @@ namespace Web.Controllers
     {
       projectService = service;
     }
-    [HttpPost("Insert")]
+    [HttpPost]
+    [Route("Insert")]
     public IActionResult InsertProject([FromBody] ProjectDTO project)
     {
       projectService.Insert(project);
       return Ok();
     }
-    [HttpPost("Doc")]
+    [HttpPost]
+    [Route("Doc")]
     public async Task<IActionResult> GetFile()
     {
       FullRequestForm file = new FullRequestForm(Request);

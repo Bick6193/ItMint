@@ -21,7 +21,7 @@ namespace DAL.Repositories.RepositoriesAbstract
     public ApiClientDetails GetClient(string clientId)
     {
       return Mapper.Map<ApiUser, ApiClientDetails>
-        (Context.ApiUsers.Where(x=>x.ClientId.Equals(clientId)).FirstOrDefault());
+        (Context.ApiUsers.Single(x=>x.ClientId.Equals(clientId)));
     }
 
     public RefreshTokenDetails Upsert(RefreshTokenDetails domain)
@@ -68,9 +68,8 @@ namespace DAL.Repositories.RepositoriesAbstract
     public RefreshTokenDetails GetTokenByUserAndClient(long userId, string clientId)
     {
       return Mapper.Map<Token, RefreshTokenDetails>
-        (Context.Tokens.Where(x => x.ClientId.Equals(clientId)
-        && x.UserId == userId)
-        .FirstOrDefault());
+        (Context.Tokens.Single(x => x.ClientId.Equals(clientId)
+        && x.UserId == userId));
     }
   }
 }

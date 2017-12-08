@@ -18,7 +18,8 @@ namespace Web.Controllers
     {
       requestGetService = request;
     }
-    [HttpPost("Delete")]
+    [HttpPost]
+    [Route("Delete")]
     public void DeleteRequest(int id)
     {
       

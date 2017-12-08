@@ -82,26 +82,14 @@ namespace BLL
 
     public void CreateUser(UserDTO userDto)
     {
-      AppUser user = new AppUser
-      {
-        FullName = userDto.FullName,
-        Active = true,
-        Email = userDto.Email,
-        Login = userDto.Email,
-        ForceToResetPassword = false,
-        IsAdministrative = userDto.IsAdministrative,
-        Password = null,
-        PhoneNumber = userDto.PhoneNumber,
-        Position = userDto.Position
-      };
-      Repository.Create(user);
+      Repository.Create(AutoMapper.Mapper.Map<UserDTO, AppUser>(userDto));
       EmailModel emailModel = new EmailModel
       {
-        Id = Repository.ReturnId(user),
+        Id = Repository.ReturnId(AutoMapper.Mapper.Map<UserDTO, AppUser>(userDto)),
         FullName = userDto.FullName,
         EmailFor = userDto.Email
       };
-      setPasswordIdentity.SendEmailRuntime(emailModel, Message+ emailModel.Id);
+      setPasswordIdentity.SendEmailRuntime(emailModel, Message + emailModel.Id);
     }
 
     public void UpdateUser(UserDTO userDto)
