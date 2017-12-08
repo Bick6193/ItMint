@@ -20,20 +20,8 @@ namespace DAL.Repositories.RepositoriesAbstract
 
     public ApiClientDetails GetClient(string clientId)
     {
-      ApiClientDetails client = new ApiClientDetails();
-      var items = (from i in Context.ApiUsers where i.ClientId == clientId select i).LastOrDefault();
-
-      client = new ApiClientDetails
-      {
-        ClientId = items.ClientId,
-        Active = items.Active,
-        ApplicationType = items.ApplicationType,
-        Name = items.Name,
-        RefreshTokenLifeTime = (int)items.RefreshTokenLifeTime,
-        Secret = items.Secret
-      };
-
-      return client;
+      return Mapper.Map<ApiUser, ApiClientDetails>
+        (Context.ApiUsers.Where(x=>x.ClientId.Equals(clientId)).FirstOrDefault());
     }
 
     public RefreshTokenDetails Upsert(RefreshTokenDetails domain)
@@ -79,26 +67,10 @@ namespace DAL.Repositories.RepositoriesAbstract
 
     public RefreshTokenDetails GetTokenByUserAndClient(long userId, string clientId)
     {
-      RefreshTokenDetails token = null;
-      var item = from i in Context.Tokens where i.ClientId == clientId && i.UserId == userId select i;
-      if (item != null)
-      {
-        foreach (var coll in item)
-        {
-          token = new RefreshTokenDetails
-          {
-            UserId = coll.UserId,
-            AccessToken = coll.AccessToken,
-            AccessTokenExpiresUtc = coll.AccessTokenExpiresUtc,
-            ClientId = coll.ClientId,
-            IssuedUtc = coll.IssuedUtc,
-            RefreshToken = coll.RefreshToken,
-            RefreshTokenExpiresUtc = coll.RefreshTokenExpiresUtc
-          };
-        }
-
-      }
-      return token;
+      return Mapper.Map<Token, RefreshTokenDetails>
+        (Context.Tokens.Where(x => x.ClientId.Equals(clientId)
+        && x.UserId == userId)
+        .FirstOrDefault());
     }
   }
 }

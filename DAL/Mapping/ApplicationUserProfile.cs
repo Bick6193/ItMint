@@ -1,4 +1,4 @@
-﻿  using AutoMapper;
+﻿using AutoMapper;
 using DAL.Models;
 using Domain.Authorization;
 using Domain.Request;
@@ -16,6 +16,8 @@ namespace DAL.Mapping
       CreateMap<RefreshTokenDetails, Token>();
       CreateMap<ProjectDTO, Projects>();
       CreateMap<UserDTO, AppUser>();
+      CreateMap<Token, RefreshTokenDetails>();
+      CreateMap<ApiUser, ApiClientDetails>();
     }
   }
 }

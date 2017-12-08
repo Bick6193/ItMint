@@ -106,7 +106,7 @@ namespace DAL.Repositories.RepositoriesAbstract
 
     public void Insert(Request request)
     {
-      request.Country = "Minsk, Belarus";
+      request.Country = "Belarus";
       ApplicationContext.Requests.Add(request);
       ApplicationContext.SaveChanges();
     }

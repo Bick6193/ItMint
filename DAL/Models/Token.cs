@@ -28,5 +28,9 @@ namespace DAL.Models
 
     [Required]
     public DateTime RefreshTokenExpiresUtc { get; set; }
+
+    public bool TokenIsExpired => RefreshTokenExpiresUtc <= EntityCreatedDate;
+
+    private DateTime EntityCreatedDate { get; } = DateTime.UtcNow;
   }
 }

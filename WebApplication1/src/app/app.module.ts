@@ -20,7 +20,6 @@ import {TokenInterceptor} from '../services/library/token.interceptor.library';
 import {AuthenticateGuardService} from '../services/library/authenticate.guard.service';
 import {JwtInterceptor} from '../services/library/jwt.interceptor.library';
 import {RootAdminComponent} from './Admin/AdminPrivateViews/RootAdmin/root.admin.component';
-import {ModalMessageComponent} from './GetInToutchView/ModalMessage/get-in-touch/modal.message.component';
 
 
 @NgModule({
@@ -33,8 +32,7 @@ import {ModalMessageComponent} from './GetInToutchView/ModalMessage/get-in-touch
     IndustriesComponent,
     TechnologiesComponent,
     DesignComponent,
-    CustomSoftwareDevelopmentComponent,
-    ModalMessageComponent
+    CustomSoftwareDevelopmentComponent
   ],
   imports: [
     BrowserModule,
