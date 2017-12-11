@@ -17,6 +17,11 @@ namespace DAL.Repositories.RepositoriesAbstract
       ApplicationContext = context;
     }
 
+    public IEnumerable<Projects> GetProjects()
+    {
+      return AutoMapper.Mapper.Map<List<Projects>>(ApplicationContext.Projectses);
+    }
+
     public void Insert(Projects projects)
     {
       ApplicationContext.Projectses.Add(projects);

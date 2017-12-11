@@ -10,6 +10,7 @@ using DAL.Repositories.Infrastructure;
 using DAL.Repositories.RepositoriesAbstract;
 using DAL.Seed;
 using DAL.SeedMamagers;
+using Domain;
 using Domain.RegistrationMailData;
 using JetBrains.Annotations;
 
@@ -33,6 +34,7 @@ namespace Configuration.IoC
       services.AddScoped<IRequestTypesRepository, RequestTypesRepository>();
       services.AddScoped<IProjectService, ProjectService>();
       services.AddScoped<IProjectRepository, ProjectRepository>();
+      services.AddScoped<IFolderVersion, FolderVersion>();
       services.AddScoped<ApplicationContext>();
       services.AddScoped<MigrationManager>();
       services.AddScoped<BasicSeedManager>();

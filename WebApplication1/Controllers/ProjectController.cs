@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
 using BLL.Infrastructure;
@@ -20,6 +22,13 @@ namespace Web.Controllers
     {
       projectService = service;
     }
+    [HttpGet]
+    [Route("GetProjects")]
+    public IEnumerable<ProjectDTO> GetProjects()
+    {
+
+      return projectService.GetProjects();
+    }
     [HttpPost]
     [Route("Insert")]
     public IActionResult InsertProject([FromBody] ProjectDTO project)
@@ -31,9 +40,15 @@ namespace Web.Controllers
     [Route("Doc")]
     public async Task<IActionResult> GetFile()
     {
-      FullRequestForm file = new FullRequestForm(Request);
+      IFormFile file = Request.Form.Files.FirstOrDefault();
+      string name = Request.Form.Keys.LastOrDefault();
+      if (file != null && file.Length != 0)
+      {
+        projectService.GetArchive(file, name);
+
+      }
       return Ok(new { count = true });
     }
 
   }
-} 
+}

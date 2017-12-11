@@ -18,6 +18,7 @@ namespace DAL.Mapping
       CreateMap<UserDTO, AppUser>();
       CreateMap<Token, RefreshTokenDetails>();
       CreateMap<ApiUser, ApiClientDetails>();
+      CreateMap<Projects, ProjectDTO>();
     }
   }
 }

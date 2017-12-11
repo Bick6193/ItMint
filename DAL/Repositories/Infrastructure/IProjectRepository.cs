@@ -8,6 +8,8 @@ namespace DAL.Repositories.Infrastructure
   public interface IProjectRepository
   {
 
+    IEnumerable<Projects> GetProjects();
+
     void Insert(Projects projects);
 
   }

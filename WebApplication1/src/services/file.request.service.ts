@@ -19,12 +19,13 @@ export class FileRequestService {
     return this.http.post(this.url, formData);
   }
 
-  public ProjectFile(file: Array<File>) {
+  public ProjectFile(file: Array<File>, name: string) {
     console.log(file);
     let formData = new FormData();
     for (const value of file) {
       formData.append('files', value, value.name);
     }
+    formData.append(name, name);
     return this.http.post(this.urlProj, formData);
   }
 }
