@@ -19,6 +19,7 @@ namespace DAL.Mapping
       CreateMap<Token, RefreshTokenDetails>();
       CreateMap<ApiUser, ApiClientDetails>();
       CreateMap<Projects, ProjectDTO>();
+      CreateMap<ProjectFile, ProjectFileDTO>();
     }
   }
 }

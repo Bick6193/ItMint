@@ -11,6 +11,8 @@ namespace BLL.Infrastructure.RequestSignature
 
     IEnumerable<string> GetStringTypes();
 
+    RequestTypeDTO GetById(int id);
+
     int GetCountsTypes(string type);
 
     void Insert(RequestTypeDTO requestTypeDto);

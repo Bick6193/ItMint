@@ -8,6 +8,8 @@ namespace DAL.Models
   {
     public int Id { get; set; }
 
+    public string ProjectId { get; set; }
+
     public string Name { get; set; }
 
     public string Url { get; set; }
@@ -18,8 +20,8 @@ namespace DAL.Models
 
     public bool IsActive { get; set; }
 
-    public ProjectFile ProjectFiles { get; set; }
+    public DateTime RevisionTime { get; set; }
 
-    public List<Revision> Revisions { get; set; }
+    public ProjectFile ProjectFiles { get; set; }
   }
 }

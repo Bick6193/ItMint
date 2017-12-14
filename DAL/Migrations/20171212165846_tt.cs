@@ -61,19 +61,6 @@ namespace DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BinaryProjectFileDatas",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Content = table.Column<byte[]>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BinaryProjectFileDatas", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Metadata",
                 columns: table => new
                 {
@@ -101,6 +88,8 @@ namespace DAL.Migrations
                     IsActive = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
+                    ProjectId = table.Column<string>(nullable: true),
+                    RevisionTime = table.Column<DateTime>(nullable: false),
                     Url = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -160,43 +149,19 @@ namespace DAL.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    FileDataId = table.Column<int>(nullable: false),
+                    DefaultFolder = table.Column<string>(nullable: true),
                     FileName = table.Column<string>(nullable: true),
-                    ProjectFormId = table.Column<int>(nullable: false),
-                    ProjectId = table.Column<int>(nullable: true)
+                    ProjectId = table.Column<string>(nullable: true),
+                    ProjectId1 = table.Column<int>(nullable: true),
+                    RevisionTime = table.Column<DateTime>(nullable: false),
+                    VersionFolder = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ProjectFiles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProjectFiles_BinaryProjectFileDatas_FileDataId",
-                        column: x => x.FileDataId,
-                        principalTable: "BinaryProjectFileDatas",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ProjectFiles_Projectses_ProjectId",
-                        column: x => x.ProjectId,
-                        principalTable: "Projectses",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Revision",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ProjectsId = table.Column<int>(nullable: true),
-                    RevisionTime = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Revision", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Revision_Projectses_ProjectsId",
-                        column: x => x.ProjectsId,
+                        name: "FK_ProjectFiles_Projectses_ProjectId1",
+                        column: x => x.ProjectId1,
                         principalTable: "Projectses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -227,6 +192,26 @@ namespace DAL.Migrations
                         name: "FK_Requests_RequestsType_RequestTypeId",
                         column: x => x.RequestTypeId,
                         principalTable: "RequestsType",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BinaryProjectFileDatas",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Content = table.Column<byte[]>(nullable: true),
+                    ProjectFileId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BinaryProjectFileDatas", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_BinaryProjectFileDatas_ProjectFiles_ProjectFileId",
+                        column: x => x.ProjectFileId,
+                        principalTable: "ProjectFiles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -264,6 +249,11 @@ namespace DAL.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_BinaryProjectFileDatas_ProjectFileId",
+                table: "BinaryProjectFileDatas",
+                column: "ProjectFileId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Files_BinaryDataId",
                 table: "Files",
                 column: "BinaryDataId",
@@ -275,25 +265,16 @@ namespace DAL.Migrations
                 column: "RequestId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProjectFiles_FileDataId",
+                name: "IX_ProjectFiles_ProjectId1",
                 table: "ProjectFiles",
-                column: "FileDataId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProjectFiles_ProjectId",
-                table: "ProjectFiles",
-                column: "ProjectId");
+                column: "ProjectId1",
+                unique: true,
+                filter: "[ProjectId1] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Requests_RequestTypeId",
                 table: "Requests",
                 column: "RequestTypeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Revision_ProjectsId",
-                table: "Revision",
-                column: "ProjectsId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -305,28 +286,25 @@ namespace DAL.Migrations
                 name: "ApplicationUsers");
 
             migrationBuilder.DropTable(
+                name: "BinaryProjectFileDatas");
+
+            migrationBuilder.DropTable(
                 name: "Files");
 
             migrationBuilder.DropTable(
                 name: "Metadata");
 
             migrationBuilder.DropTable(
-                name: "ProjectFiles");
-
-            migrationBuilder.DropTable(
-                name: "Revision");
-
-            migrationBuilder.DropTable(
                 name: "Tokens");
+
+            migrationBuilder.DropTable(
+                name: "ProjectFiles");
 
             migrationBuilder.DropTable(
                 name: "BinaryFilesData");
 
             migrationBuilder.DropTable(
                 name: "Requests");
-
-            migrationBuilder.DropTable(
-                name: "BinaryProjectFileDatas");
 
             migrationBuilder.DropTable(
                 name: "Projectses");

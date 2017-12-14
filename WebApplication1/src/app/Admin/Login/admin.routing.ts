@@ -55,6 +55,11 @@ const routes: Routes = [
         canActivate: [AuthenticateGuardService]
       },
       {
+        path: 'Projects-Details/:id',
+        component: AdminProjectDetailsComponent,
+        canActivate: [AuthenticateGuardService]
+      },
+      {
         path: 'Settings',
         component: AdminSettingsComponent,
         canActivate: [AuthenticateGuardService]
@@ -71,6 +76,11 @@ const routes: Routes = [
       },
       {
         path: 'Requests',
+        component: AdminRequestsComponent,
+        canActivate: [AuthenticateGuardService]
+      },
+      {
+        path: 'Requests/:id',
         component: AdminRequestsComponent,
         canActivate: [AuthenticateGuardService]
       }

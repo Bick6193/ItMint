@@ -12,6 +12,8 @@ namespace DAL.Repositories.Infrastructure
 
     IEnumerable<string> GetStringTypes();
 
+    RequestType GetById(int id);
+
     int GetCountsTypes(string type);
 
     void Insert(RequestType requestType);

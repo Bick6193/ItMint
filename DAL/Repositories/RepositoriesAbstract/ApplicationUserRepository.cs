@@ -65,7 +65,23 @@ namespace DAL.Repositories.RepositoriesAbstract
     }
     public void Update(AppUser appUser)
     {
-      ApplicationContext.ApplicationUsers.Update(appUser);
+      var item = (from i in ApplicationContext.ApplicationUsers where i.Id == appUser.Id select i).LastOrDefault();
+      #region dontSeeIt
+
+      item.Active = appUser.Active;
+      item.Email = appUser.Email;
+      item.ForceToResetPassword = appUser.ForceToResetPassword;
+      item.FullName = appUser.FullName;
+      item.IsAdministrative = appUser.IsAdministrative;
+      item.Login = appUser.Login;
+      item.Password = appUser.Password;
+      item.PhoneNumber = appUser.PhoneNumber;
+      item.Position = appUser.Position;
+      item.Type = appUser.Type;
+
+      #endregion
+      ApplicationContext.ApplicationUsers.Update(item);
+      ApplicationContext.SaveChanges();
     }
 
     public void UpdatePassword(AppUser appUser)

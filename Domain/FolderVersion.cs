@@ -11,10 +11,6 @@ namespace Domain
   {
     public string GetFolderVersion(string path)
     {
-      if (!Directory.Exists(path))
-      {
-        Directory.CreateDirectory(path);
-      }
       int versionNumber = 0;
       List<string> versionCollection = new List<string>();
       try
@@ -30,7 +26,7 @@ namespace Domain
         }
 
         versionNumber = versionCollection.Count + 1;
-        return Directory.CreateDirectory(path + "\\Version" + versionNumber.ToString()).ToString();
+        return "\\Version" + versionNumber.ToString();
       }
       catch (Exception e)
       {

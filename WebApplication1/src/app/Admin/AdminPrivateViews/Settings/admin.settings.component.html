@@ -33,7 +33,7 @@
           <div class="col">Default</div>
           <div class="col">&nbsp;</div>
         </div>
-        <div class="row" *ngFor="let items of requests">
+        <div class="row" *ngFor="let items of requests" [routerLink]="['/Admin/Requests', items.id]">
           <div class="col"><span [ngClass]="items.color">{{items.type}}</span></div>
           <div class="col cell-aside">{{items.employeesEmail}}</div>
           <div class="col">{{items.count}}</div>

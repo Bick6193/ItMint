@@ -8,15 +8,17 @@ namespace DAL.Models
   {
     public int Id { get; set; }
 
+    public string ProjectId { get; set; }
+
     public string FileName { get; set; }
 
-    public int ProjectFormId { get; set; }
+    public string DefaultFolder { get; set; }
+
+    public string VersionFolder { get; set; }
 
     public virtual Projects Project { get; set; }
-
-    public int FileDataId { get; set; }
-
-    public virtual BinaryProjectFileData FileData { get; set; }
+    
+    public DateTime RevisionTime { get; set; }
 
   }
 }

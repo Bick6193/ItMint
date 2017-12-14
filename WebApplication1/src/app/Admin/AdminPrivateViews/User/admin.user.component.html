@@ -27,30 +27,27 @@
               <div class="col ">
                 <div class="inner-col">
                   <label for="data-name" class="label-form">Name</label>
-                  <input id="data-name" type="text" placeholder="Name" name="name" [(ngModel)]="userModel.FullName"
-                         value="{{responseUserModel?.fullName}}"/>
+                  <input id="data-name" type="text" placeholder="Name" name="name" [(ngModel)]="userModel.fullName"/>
                 </div>
                 <div class="inner-col">
                   <label for="data-email" class="label-form">Email</label>
-                  <input id="data-email" type="text" placeholder="Email" name="mail" [(ngModel)]="userModel.Email"
-                         value="{{responseUserModel?.email}}"/>
+                  <input id="data-email" type="text" placeholder="Email" name="mail" [(ngModel)]="userModel.email"/>
                 </div>
               </div>
               <div class="col">
                 <div class="inner-col">
                   <label for="data-position" class="label-form">Position</label>
                   <input id="data-position" type="text" placeholder="Position" name="pos"
-                         [(ngModel)]="userModel.Position"
-                         value="{{responseUserModel?.position}}"/>
+                         [(ngModel)]="userModel.position"/>
                 </div>
                 <div class="inner-col">
                   <label for="data-mobile" class="label-form">Mobile</label>
                   <div class="field-check check-more">
-                    <label class="label-check"><input type="checkbox" [checked]="userModel.IsAdministrative"
-                                                      (change)="userModel.IsAdministrative = !userModel.IsAdministrative"
+                    <label class="label-check"><input type="checkbox" [checked]="userModel.isAdministrative"
+                                                      (change)="userModel.isAdministrative = !userModel.isAdministrative"
                                                       class="customCheckbox"/>Admin</label>
-                    <input id="data-mobile" type="text" value="{{responseUserModel?.phoneNumber}}" name="mob"
-                           [(ngModel)]="userModel.PhoneNumber"/>
+                    <input id="data-mobile" type="text" name="mob"
+                           [(ngModel)]="userModel.phoneNumber"/>
                   </div>
                 </div>
               </div>

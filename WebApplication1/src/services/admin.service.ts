@@ -26,6 +26,8 @@ export class AdminService
 
   private urlDeleteUser = '/api/Users/DeleteUser';
 
+  private urlGetRequest = '/api/Users/GetRequest';
+
   constructor(private http: JsonRequestsService,
               private httpCliend: HttpClientService)
   {
@@ -69,10 +71,17 @@ export class AdminService
     this.http.post(this.urlSaveRequest, items).subscribe();
   }
 
-  public GetUser(id: number): Observable<UserModel>
+  public GetUser(id: number): Observable<AddUsersModel>
   {
     let tempId =
       'Id=' + id;
     return this.httpCliend.post(this.urlGetUser, tempId);
+  }
+
+  public GetRequest(id: number): Observable<CreateRequestModel>
+  {
+    let tempId =
+      'Id=' + id;
+    return this.httpCliend.post(this.urlGetRequest, tempId);
   }
 }

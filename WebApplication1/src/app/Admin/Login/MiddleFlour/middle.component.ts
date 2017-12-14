@@ -30,7 +30,7 @@ export class MiddleComponent implements OnInit{
   ngOnInit(): void {
     this.sub = this.route.params.subscribe(params => { //Сделать проверку на пароль в базе. Если есть, то менять нельзя
       this.selectedId = +params['id'];
-      this.modelUser.Id = this.selectedId;
+      this.modelUser.id = this.selectedId;
     });
   }
   public Reset(): any {

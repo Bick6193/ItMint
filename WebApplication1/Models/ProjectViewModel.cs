@@ -9,6 +9,8 @@ namespace Web.Models
   {
     public int Id { get; set; }
 
+    public string ProjectId { get; set; }
+
     public string Name { get; set; }
 
     public string Url { get; set; }
@@ -18,5 +20,9 @@ namespace Web.Models
     public string Password { get; set; }
 
     public bool IsActive { get; set; }
+
+    public DateTime RevisionTime { get; set; }
+
+    public string VersionFolder { get; set; }
   }
 }

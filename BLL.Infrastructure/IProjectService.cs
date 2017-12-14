@@ -11,8 +11,20 @@ namespace BLL.Infrastructure
   {
     IEnumerable<ProjectDTO> GetProjects();
 
-    void GetArchive(IFormFile file, string name);
+    ProjectDTO GetProjectById(string id);
+
+    ProjectDTO GetDataByDate(DateTime date, string id);
+
+    ProjectFileDTO GetFileById(string id);
+
+    List<DateTime> GetDatesById(string id);
+
+    ProjectFileDTO GetFileByDate(DateTime date, string id);
+
+    void GetArchive(IFormFile file, string name, string id);
 
     void Insert(ProjectDTO projectDto);
+
+    void Delete(string id);
   }
 }

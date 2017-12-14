@@ -1,10 +1,10 @@
 export class CreateRequestModel {
-  Type: string;
-  EmployeesName: string;
-  EmployeesEmail: string;
-  MessageToCustomer: string;
-  MessageBodyToCustomer: string
-  IsDefault: boolean;
-  IsEnabled: boolean;
-  Color: string;
+  type: string;
+  employeesName: string;
+  employeesEmail: string;
+  messageToCustomer: string;
+  messageBodyToCustomer: string
+  isDefault: boolean;
+  isEnabled: boolean;
+  color: string;
 }

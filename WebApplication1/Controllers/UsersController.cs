@@ -28,15 +28,17 @@ namespace Web.Controllers
 
     [HttpPost]
     [Route("RequestUser")]
-    public void RequestUser([FromBody]UserDTO userDto)
+    public IActionResult RequestUser([FromBody]UserDTO userDto)
     {
       applicationUserService.CreateUser(userDto);
+      return Ok(new {temp = true});
     }
     [HttpPost]
     [Route("UpdateUser")]
-    public void UpdateUser([FromBody] UserDTO userDto)
+    public IActionResult UpdateUser([FromBody] UserDTO userDto)
     {
       applicationUserService.UpdateUser(userDto);
+      return Ok(new { temp = true });
     }
     [HttpPost]
     [Route("DeleteUser")]
@@ -84,6 +86,7 @@ namespace Web.Controllers
         var counts = requestTypesService.GetCountsTypes(collection.Type);
         requestTypesModel = new RequestTypesViewModel
         {
+          Id = collection.Id,
           EmployeesEmail = collection.EmployeesEmail,
           Type = collection.Type,
           IsDefault = collection.IsDefault,
@@ -94,6 +97,13 @@ namespace Web.Controllers
         requestTypesViewModel.Add(requestTypesModel);
       }
       return requestTypesViewModel;
+    }
+
+    [HttpPost]
+    [Route("GetRequest")]
+    public RequestTypeDTO GetTypeById(int id)
+    {
+      return requestTypesService.GetById(id);
     }
   }
 }

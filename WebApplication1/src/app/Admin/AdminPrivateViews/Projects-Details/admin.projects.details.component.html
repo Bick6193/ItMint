@@ -28,26 +28,30 @@
                 <div class="inner-col">
                   <label for="data-name" class="label-form">Name</label>
                   <input id="data-name" type="text" placeholder="Ascendas Business Solutions" name="name"
-                         [(ngModel)]="project.Name"/>
+                         [(ngModel)]="project.name"/>
                 </div>
                 <div class="inner-col">
                   <label for="data-url" class="label-form">URL</label>
-                  <div class="hold-field">
-                    <input id="data-url" type="text" placeholder="ascendas-business-solutions" name="url"
-                           [(ngModel)]="project.Url"/>
-                    <a href="#" class="btn-field"><i class="fa fa-clipboard" aria-hidden="true"></i></a>
+                  <div class="hold-field field-way">
+                    <input id="data-url" type="text" name="url"
+                           [(ngModel)]="project.url"/>
+                    <a href="javascript:0" class="btn-field"><i class="fa fa-clipboard" aria-hidden="true"></i></a>
+                    <span class="text-way">../Projects/{{project.url}}{{fileVersionModel?.version}}</span>
                   </div>
+
                 </div>
                 <div class="inner-col tarea-large">
                   <label for="data-Description" class="label-form">Description</label>
                   <textarea id="data-Description" cols="3" rows="3" name="desc"
-                            [(ngModel)]="project.Description"></textarea>
+                            [(ngModel)]="project.description"></textarea>
                 </div>
                 <div class="inner-col">
                   <label for="data-password" class="label-form">Password</label>
                   <div class="hold-field">
-                    <input id="data-password" type="text" name="pass" [(ngModel)]="project.Password"/>
-                    <a href="#" class="btn-field"><i class="fa fa-keyboard-o" aria-hidden="true"></i></a>
+                    <input id="data-password" type="text" name="pass"
+                           [(ngModel)]="password"/>
+                    <a href="javascript:0" class="btn-field"><i class="fa fa-keyboard-o" aria-hidden="true"
+                                                                (click)="GenerateHash()"></i></a>
                   </div>
                 </div>
               </div>
@@ -56,30 +60,33 @@
                   <label class="label-form">Files</label>
                   <div class="box-area">
                     <ul class="list-files">
-                      <li><i class="fa fa-folder" aria-hidden="true"></i>css</li>
-                      <li><i class="fa fa-file-o" aria-hidden="true"></i>001-001-admin-summary-view.html</li>
+                      <li *ngFor="let item1 of nameDirectoryArray"><i class="fa fa-folder" aria-hidden="true"></i>{{item1}}</li>
+                      <li *ngFor="let item2 of nameFileArray"><i class="fa fa-file-o" aria-hidden="true"></i>{{item2}}</li>
                     </ul>
                   </div>
                 </div>
                 <div class="inner-col">
                   <div class="field-btn">
-                    <a href="" onclick="document.getElementById('filedown').click(); return false" class="btn btn-small"><i class="fa fa-upload" aria-hidden="true"></i></a>
+                    <a href="" onclick="document.getElementById('filedown').click(); return false"
+                       class="btn btn-small"><i class="fa fa-upload" aria-hidden="true"></i></a>
                     <div class="hold-select">
-                      <select class="customSelect">
-                        <option selected="selected">Revision 4 (08.06.2017)</option>
+                      <select class="customSelect" (change)="DataByDate($event.target.value, project.projectId)">
+                        <option *ngFor="let item of dateArray" >{{item | date: 'dd MMMM yyyy HH:mm:ss'}}</option>
                       </select>
+                      <!--| date: 'dd MMMM, yyyy | HH:mm:ss'-->
                     </div>
-                    <input type="file" id="filedown" name="filedown" (change)="UploadArchive($event)" style="visibility: hidden;"/>
+                    <input type="file" id="filedown" accept=".zip" name="filedown" (change)="UploadArchive($event)"
+                           style="visibility: hidden;"/>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="hold-foot">
-            <label class="label-check"><input type="checkbox" [checked]="project.IsActive"
-                                              (change)="project.IsActive=!project.IsActive" class="customCheckbox"/>Active</label>
+            <label class="label-check"><input type="checkbox" [checked]="project.isActive"
+                                              (change)="project.IsActive=!project.isActive" class="customCheckbox"/>Active</label>
             <button class="btn" type="submit" (click)="InsertProject(project)">Save</button>
-            <button class="btn btn-red" type="button">Delete</button>
+            <button class="btn btn-red" type="button" (click)="DeleteProject(project.projectId)" routerLink="/Admin/Projects">Delete</button>
           </div>
         </fieldset>
       </form>

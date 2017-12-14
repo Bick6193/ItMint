@@ -1,5 +1,6 @@
-export class ProjectModel {
+export class ProjectModelSmall {
   name: string;
+  projectId: string;
   url: string;
   description: string;
   password: string;

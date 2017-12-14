@@ -4,7 +4,6 @@ import { AdminService } from '../../../../services/admin.service';
 import { HttpClientService } from '../../../../services/http.client.service';
 import { JsonRequestsService } from '../../../../services/InboxServices/json.requests.service';
 import { ActivatedRoute } from '@angular/router';
-import { isUndefined } from 'util';
 import { UserModel } from '../../../request.models/user.model';
 
 @Component({
@@ -27,9 +26,7 @@ export class AdminUserComponent implements OnInit
 
   public userModel: AddUsersModel = new AddUsersModel();
 
-  public responseUserModel: UserModel;
-
-  constructor(private service: AdminService, tempRoute: ActivatedRoute,)
+  constructor(private service: AdminService, tempRoute: ActivatedRoute)
   {
 
     this.route = tempRoute;
@@ -56,27 +53,26 @@ export class AdminUserComponent implements OnInit
     }
     else
     {
-      console.log(items);
       this.UpdateUser(items);
     }
   }
 
   public RequestUser(items: AddUsersModel): any
   {
-    items.Login = items.Email;
+    items.login = items.email;
     this.service.RequestUser(items);
   }
 
   public UpdateUser(items: AddUsersModel): any
   {
-    items.Login = items.Email;
+    items.login = items.email;
     this.service.UpdateUser(items);
   }
   public GetUser(): any
   {
     this.service.GetUser(this.selectedId).subscribe(data =>
     {
-      this.responseUserModel = data;
+      this.userModel = data;
     });
   }
 

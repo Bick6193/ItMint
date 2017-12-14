@@ -24,6 +24,11 @@ namespace DAL.Repositories.RepositoriesAbstract
       return AutoMapper.Mapper.Map<List<RequestTypeDTO>>(ApplicationContext.RequestsType);
     }
 
+    public RequestType GetById(int id)
+    {
+      return ApplicationContext.RequestsType.Single(x => x.Id == id);
+    }
+
     public IEnumerable<string> GetStringTypes()
     {
       return ApplicationContext.RequestsType.Select(x => x.Type);

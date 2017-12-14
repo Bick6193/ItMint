@@ -93,7 +93,11 @@ namespace DAL.Migrations
 
                     b.Property<byte[]>("Content");
 
+                    b.Property<int?>("ProjectFileId");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ProjectFileId");
 
                     b.ToTable("BinaryProjectFileDatas");
                 });
@@ -158,20 +162,23 @@ namespace DAL.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("FileDataId");
+                    b.Property<string>("DefaultFolder");
 
                     b.Property<string>("FileName");
 
-                    b.Property<int>("ProjectFormId");
+                    b.Property<string>("ProjectId");
 
-                    b.Property<int?>("ProjectId");
+                    b.Property<int?>("ProjectId1");
+
+                    b.Property<DateTime>("RevisionTime");
+
+                    b.Property<string>("VersionFolder");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FileDataId")
-                        .IsUnique();
-
-                    b.HasIndex("ProjectId");
+                    b.HasIndex("ProjectId1")
+                        .IsUnique()
+                        .HasFilter("[ProjectId1] IS NOT NULL");
 
                     b.ToTable("ProjectFiles");
                 });
@@ -188,6 +195,10 @@ namespace DAL.Migrations
                     b.Property<string>("Name");
 
                     b.Property<string>("Password");
+
+                    b.Property<string>("ProjectId");
+
+                    b.Property<DateTime>("RevisionTime");
 
                     b.Property<string>("Url");
 
@@ -264,22 +275,6 @@ namespace DAL.Migrations
                     b.ToTable("RequestsType");
                 });
 
-            modelBuilder.Entity("DAL.Models.Revision", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("ProjectsId");
-
-                    b.Property<DateTime>("RevisionTime");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProjectsId");
-
-                    b.ToTable("Revision");
-                });
-
             modelBuilder.Entity("DAL.Models.Token", b =>
                 {
                     b.Property<long>("Id")
@@ -316,6 +311,13 @@ namespace DAL.Migrations
                     b.ToTable("Tokens");
                 });
 
+            modelBuilder.Entity("DAL.Models.BinaryProjectFileData", b =>
+                {
+                    b.HasOne("DAL.Models.ProjectFile", "ProjectFile")
+                        .WithMany()
+                        .HasForeignKey("ProjectFileId");
+                });
+
             modelBuilder.Entity("DAL.Models.File", b =>
                 {
                     b.HasOne("DAL.Models.BinaryFileData", "BinaryData")
@@ -330,14 +332,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Models.ProjectFile", b =>
                 {
-                    b.HasOne("DAL.Models.BinaryProjectFileData", "FileData")
-                        .WithOne("ProjectFile")
-                        .HasForeignKey("DAL.Models.ProjectFile", "FileDataId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("DAL.Models.Projects", "Project")
-                        .WithMany("ProjectFiles")
-                        .HasForeignKey("ProjectId");
+                        .WithOne("ProjectFiles")
+                        .HasForeignKey("DAL.Models.ProjectFile", "ProjectId1");
                 });
 
             modelBuilder.Entity("DAL.Models.Request", b =>
@@ -345,13 +342,6 @@ namespace DAL.Migrations
                     b.HasOne("DAL.Models.RequestType")
                         .WithMany("RequestForms")
                         .HasForeignKey("RequestTypeId");
-                });
-
-            modelBuilder.Entity("DAL.Models.Revision", b =>
-                {
-                    b.HasOne("DAL.Models.Projects", "Projects")
-                        .WithMany("Revisions")
-                        .HasForeignKey("ProjectsId");
                 });
 #pragma warning restore 612, 618
         }

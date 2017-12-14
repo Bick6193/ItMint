@@ -23,6 +23,11 @@ namespace BLL.Request
       return requestTypesRepository.GetAll();
     }
 
+    public RequestTypeDTO GetById(int id)
+    {
+      return AutoMapper.Mapper.Map<RequestTypeDTO>(requestTypesRepository.GetById(id));
+    }
+
     public IEnumerable<string> GetStringTypes()
     {
       return requestTypesRepository.GetStringTypes();

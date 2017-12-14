@@ -15,7 +15,7 @@ namespace BLL.Request
     private IRequestRepository Repository { get;}
     private ISetPasswordIdentity setPasswordIdentity { get; }
 
-    private readonly string Message = "New Requeqst";
+    private readonly string Message = "New Request";
 
     public RequestGetService(IRequestRepository repository, ISetPasswordIdentity passwordIdentity)
     {
@@ -60,6 +60,12 @@ namespace BLL.Request
         Viewed = false
       };
       Repository.Insert(request);
+      EmailModel emailModel = new EmailModel
+      {
+        EmailFor = "nikita.sviridovich@itmint.ca",
+        FullName = requestDto.Name
+      };
+      setPasswordIdentity.SendEmailRuntime(emailModel, Message);
     }
 
     public void GetFlag(int id)

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../../../services/ProjectServices/project.service';
 import { JsonRequestsService } from '../../../../services/InboxServices/json.requests.service';
-import { ProjectModel } from '../../../request.models/project.model';
+import { ProjectModelSmall } from '../../../request.models/project.model';
+import { HttpClientService } from '../../../../services/http.client.service';
 
 @Component({
   selector: 'admin-project',
@@ -10,12 +11,12 @@ import { ProjectModel } from '../../../request.models/project.model';
     '../../../../assets/css/all.css',
     '../../../../assets/css/font-awesome.min.css'
   ],
-  providers: [ProjectService, JsonRequestsService]
+  providers: [ProjectService, JsonRequestsService, HttpClientService]
 })
 export class AdminProjectsComponent implements OnInit
 {
 
-  public projects: ProjectModel[];
+  public projects: ProjectModelSmall[];
 
 
   constructor(private http: ProjectService) {}
