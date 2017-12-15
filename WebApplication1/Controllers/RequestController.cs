@@ -131,7 +131,24 @@ namespace Web.Controllers
       }
       return Ok(new { count = fullRequestForm.Files.Count });
     }
-
+    [HttpPost]
+    [Route("GetFileFromByte")]
+    public IFormFile GetFileFromByte(int id)
+    {
+      var file = fileService.DownloadById(id);
+      //try
+      //{
+      //  using (var fileStream = new FileStream(file.File.FileName, FileMode.Create, FileAccess.Write))
+      //  {
+      //    fileStream.Write(file.Content, 0, file.Content.Length);
+      //  }
+      //}
+      //catch (Exception e)
+      //{
+      //  OperationResult.FromException(e, 0);
+      //}
+      return null;
+    }
     [HttpPost]
     [Route("Files")]
     public IEnumerable<FileDTO> GetFiles(int id)

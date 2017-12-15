@@ -17,5 +17,7 @@ namespace DAL.Repositories.Infrastructure
     int GetCountsTypes(string type);
 
     void Insert(RequestType requestType);
+
+    void Update(RequestType requestType);
   }
 }

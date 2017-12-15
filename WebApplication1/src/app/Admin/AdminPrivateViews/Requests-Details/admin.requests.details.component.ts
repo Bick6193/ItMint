@@ -57,7 +57,6 @@ export class AdminRequestsDetailsComponent implements OnInit
     this.service.GetDataById(id).subscribe(data =>
     {
       this.reqModel = data;
-      console.log(this.reqModel);
       this.reqModel.date = this.count.NormalRequestParseData(this.reqModel.date);
     });
   }
@@ -66,7 +65,6 @@ export class AdminRequestsDetailsComponent implements OnInit
   {
     this.service.GetFile(id).subscribe(data =>
     {
-      console.log(data);
       this.fileModel = data;
       console.log(this.fileModel);
     });
@@ -128,5 +126,10 @@ export class AdminRequestsDetailsComponent implements OnInit
       return 'fa fa-file-powerpoint-o';
     }
     return 'fa file';
+  }
+
+  public DownloadFileById(id: number): any
+  {
+   this.service.GetFileById(id).subscribe();
   }
 }

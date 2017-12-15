@@ -99,7 +99,7 @@ namespace DAL.SeedMamagers
           ApplicationType = ApplicationType.JavaScript,
           Secret = "",
           Name = "ngApp",
-          RefreshTokenLifeTime = 600,
+          RefreshTokenLifeTime = 6000,
         });
       }
       Context.SaveChanges();

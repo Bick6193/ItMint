@@ -84,7 +84,7 @@
           </div>
           <div class="hold-foot">
             <label class="label-check"><input type="checkbox" [checked]="project.isActive"
-                                              (change)="project.IsActive=!project.isActive" class="customCheckbox"/>Active</label>
+                                              (change)="project.isActive=!project.isActive" class="customCheckbox"/>Active</label>
             <button class="btn" type="submit" (click)="InsertProject(project)">Save</button>
             <button class="btn btn-red" type="button" (click)="DeleteProject(project.projectId)" routerLink="/Admin/Projects">Delete</button>
           </div>

@@ -79,11 +79,27 @@ export class AdminRequestsComponent implements OnInit
     this.request.color = item;
   }
 
+  public ChooseMethod(items: CreateRequestModel): any
+  {
+    if (isNaN(this.selectedId))
+    {
+      this.SaveRequest(items);
+    }
+    else
+    {
+      this.UpdateRequest(items);
+    }
+  }
+
   public SaveRequest(request: CreateRequestModel): any
   {
     this.http.SaveRequest(request);
   }
-
+  public UpdateRequest(request: CreateRequestModel): any
+  {
+    this.request.id = this.selectedId;
+    this.http.UpdateRequest(request);
+  }
   public GetRequest(): any
   {
     this.http.GetRequest(this.selectedId).subscribe(data =>

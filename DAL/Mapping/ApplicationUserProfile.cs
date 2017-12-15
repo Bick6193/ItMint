@@ -20,6 +20,7 @@ namespace DAL.Mapping
       CreateMap<ApiUser, ApiClientDetails>();
       CreateMap<Projects, ProjectDTO>();
       CreateMap<ProjectFile, ProjectFileDTO>();
+      CreateMap<BinaryFileData, BinaryDataDTO>();
     }
   }
 }

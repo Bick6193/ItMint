@@ -16,5 +16,7 @@ namespace BLL.Infrastructure.RequestSignature
     int GetCountsTypes(string type);
 
     void Insert(RequestTypeDTO requestTypeDto);
+
+    void Update(RequestTypeDTO requestTypeDto);
   }
 }

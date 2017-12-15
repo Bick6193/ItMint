@@ -60,7 +60,7 @@
 						<div class="hold-foot">
 							<label class="label-check"><input type="checkbox" [checked]="request.isEnabled" (change)="request.isEnabled = !request.isEnabled"  class="customCheckbox" />Active</label>
 							<label class="label-check"><input type="checkbox" [checked]="request.isDefault" (change)="request.isDefault = !request.isDefault"  class="customCheckbox" />Default</label>
-							<button class="btn" type="submit" (click)="SaveRequest(request)" routerLink="/Admin/Settings">Save</button>
+							<button class="btn" type="submit" (click)="ChooseMethod(request)" routerLink="/Admin/Settings">Save</button>
 							<button class="btn btn-red" type="button">Delete</button>
 						</div>
 					</fieldset>

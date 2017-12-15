@@ -28,6 +28,8 @@ export class AdminService
 
   private urlGetRequest = '/api/Users/GetRequest';
 
+  private urlUpdateRequest = '/api/Users/UpdateRequest';
+
   constructor(private http: JsonRequestsService,
               private httpCliend: HttpClientService)
   {
@@ -83,5 +85,9 @@ export class AdminService
     let tempId =
       'Id=' + id;
     return this.httpCliend.post(this.urlGetRequest, tempId);
+  }
+  public UpdateRequest(items: CreateRequestModel): any
+  {
+    return this.http.post(this.urlUpdateRequest, items).subscribe();
   }
 }

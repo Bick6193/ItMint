@@ -31,7 +31,7 @@ namespace Web.Controllers
     public IActionResult RequestUser([FromBody]UserDTO userDto)
     {
       applicationUserService.CreateUser(userDto);
-      return Ok(new {temp = true});
+      return Ok(new { temp = true });
     }
     [HttpPost]
     [Route("UpdateUser")]
@@ -51,14 +51,14 @@ namespace Web.Controllers
     public IActionResult SetPassword([FromBody] UserDTO userDto)
     {
       applicationUserService.ResetPassword(userDto);
-      return Ok(new { temp = true }); 
+      return Ok(new { temp = true });
     }
 
     [HttpGet]
     [Route("GetUsersSettings")]
     public List<UserDTO> GetToSettings()
     {
-      return applicationUserService.List(); 
+      return applicationUserService.List();
     }
     [HttpPost]
     [Route("GetUser")]
@@ -104,6 +104,13 @@ namespace Web.Controllers
     public RequestTypeDTO GetTypeById(int id)
     {
       return requestTypesService.GetById(id);
+    }
+    [HttpPost]
+    [Route("UpdateRequest")]
+    public IActionResult UpdateRequest([FromBody] RequestTypeDTO requestTypeDto)
+    {
+      requestTypesService.Update(requestTypeDto);
+      return Ok(new { temp = true });
     }
   }
 }

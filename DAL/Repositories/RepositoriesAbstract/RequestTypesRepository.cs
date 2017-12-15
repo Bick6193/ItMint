@@ -45,5 +45,23 @@ namespace DAL.Repositories.RepositoriesAbstract
       ApplicationContext.RequestsType.Add(requestType);
       ApplicationContext.SaveChanges();
     }
+
+    public void Update(RequestType requestType)
+    {
+      var item = (from i in ApplicationContext.RequestsType where i.Id == requestType.Id select i).LastOrDefault();
+      #region dontSeeIt
+      item.Color = requestType.Color;
+      item.EmployeesEmail = requestType.EmployeesEmail;
+      item.EmployeesName = requestType.EmployeesName;
+      item.IsDefault = requestType.IsDefault;
+      item.IsEnabled = requestType.IsEnabled;
+      item.MessageBodyToCustomer = requestType.MessageBodyToCustomer;
+      item.MessageToCustomer = requestType.MessageToCustomer;
+      item.Type = requestType.Type;
+
+      #endregion
+      ApplicationContext.RequestsType.Update(item);
+      ApplicationContext.SaveChanges();
+    }
   }
 }

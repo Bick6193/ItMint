@@ -55,7 +55,10 @@ namespace DAL.Repositories.RepositoriesAbstract
     {
       try
       {
-        return ApplicationContext.ProjectFiles.Single(x => x.RevisionTime.Date == date.Date && x.RevisionTime.Second == date.Second && x.ProjectId.Equals(id));
+        return ApplicationContext.ProjectFiles.Single(x => x.RevisionTime.Date == date.Date
+        && x.RevisionTime.Second == date.Second
+        && x.RevisionTime.Hour == date.Hour
+        && x.ProjectId.Equals(id));
       }
       catch (Exception e)
       {

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DAL.Context;
-using DAL.Models;
+using DAL.Model;
 using DAL.Repositories.Infrastructure;
 using Domain.Request;
+using File = DAL.Models.File;
 
 namespace DAL.Repositories.RepositoriesAbstract
 {
@@ -38,6 +39,16 @@ namespace DAL.Repositories.RepositoriesAbstract
       }
       ApplicationContext.Files.Add(fileDto);
       ApplicationContext.SaveChanges();
+    }
+
+    public BinaryDataDTO DownloadById(int id)
+    {
+      var item = ApplicationContext.Files.Where(x => x.Id == id).Select(x=>x.BinaryData.Content).LastOrDefault();
+      BinaryDataDTO fileDto = new BinaryDataDTO
+      {
+        Content = item,
+      };
+      return fileDto;
     }
   }
 }

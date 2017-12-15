@@ -6,7 +6,7 @@ namespace Domain.Request
 {
   public class FileDTO
   {
-    public int FileId { get; set; }
+    public int Id { get; set; }
 
     [StringLength(255)]
     public string FileName { get; set; }

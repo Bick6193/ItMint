@@ -1,4 +1,5 @@
 export class CreateRequestModel {
+  id: number;
   type: string;
   employeesName: string;
   employeesEmail: string;

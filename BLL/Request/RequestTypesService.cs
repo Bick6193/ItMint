@@ -54,5 +54,22 @@ namespace BLL.Request
       requestTypesRepository.Insert(requestType);
 
     }
+
+    public void Update(RequestTypeDTO requestTypeDto)
+    {
+      RequestType requestType = new RequestType //Add another values IMPORTANT!
+      {
+        Id = requestTypeDto.Id,
+        EmployeesName = requestTypeDto.EmployeesName,
+        EmployeesEmail = requestTypeDto.EmployeesEmail,
+        IsDefault = requestTypeDto.IsDefault,
+        IsEnabled = requestTypeDto.IsEnabled,
+        MessageBodyToCustomer = requestTypeDto.MessageBodyToCustomer,
+        MessageToCustomer = requestTypeDto.MessageToCustomer,
+        Color = requestTypeDto.Color,
+        Type = requestTypeDto.Type
+      };
+      requestTypesRepository.Update(requestType);
+    }
   }
 }

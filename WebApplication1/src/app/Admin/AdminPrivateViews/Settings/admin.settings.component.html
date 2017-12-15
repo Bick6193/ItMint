@@ -37,8 +37,8 @@
           <div class="col"><span [ngClass]="items.color">{{items.type}}</span></div>
           <div class="col cell-aside">{{items.employeesEmail}}</div>
           <div class="col">{{items.count}}</div>
-          <div class="col"><span class="icon-circle">&nbsp;</span></div>
-          <div class="col"><span class="icon-circle">&nbsp;</span></div>
+          <div class="col"><span [ngClass]="(items.isEnabled)?'icon-circle':'icon-circle circle-gray'">&nbsp;</span></div>
+          <div class="col"><span [ngClass]="(items.isDefault)?'icon-circle':'icon-circle circle-gray'">&nbsp;</span></div>
           <div class="col">
 							<span class="btn-icon icon-menu icon-gray">
 								<span></span>

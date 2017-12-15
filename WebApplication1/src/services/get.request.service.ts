@@ -21,6 +21,8 @@ export class GetRequestService
 
   private urlFile = 'api/Request/Files';
 
+  private urlGetFileFromByte = '/api/Request/GetFileFromByte';
+
   constructor(private http: HttpClientService)
   {
   }
@@ -62,5 +64,11 @@ export class GetRequestService
     let tempId =
       'Id=' + id;
     return this.http.post(this.urlFile, tempId);
+  }
+  public GetFileById(id: number): any
+  {
+    let tempId =
+      'Id=' + id;
+    return this.http.post(this.urlGetFileFromByte, tempId);
   }
 }
