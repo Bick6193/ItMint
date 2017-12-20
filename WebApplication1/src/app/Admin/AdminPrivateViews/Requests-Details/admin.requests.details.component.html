@@ -71,7 +71,7 @@
 					<div class="hold-line">
 						<h2>Attachments</h2>
 						<ul class="list-attachments" >
-							<li *ngFor="let items of fileModel"><a href="javascript:0" (click)="DownloadFileById(items.id)"><i [ngClass]="fileClasses(items.contentType)" aria-hidden="true" ></i>{{items.fileName}}</a></li>
+							<li *ngFor="let items of fileModel"><a href="javascript:0" (click)="DownloadFileById(items.id, items.fileName)"><i [ngClass]="fileClasses(items.contentType)" aria-hidden="true" ></i>{{items.fileName}}</a></li>
 							<li><a class="link-all" href="#"><i class="fa fa-archive" aria-hidden="true"></i>DOWNLOAD ALL</a></li>
 						</ul>
 					</div>

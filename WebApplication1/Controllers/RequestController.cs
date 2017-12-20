@@ -40,7 +40,7 @@ namespace Web.Controllers
     [Route("Form")]
     public IActionResult RequestFromClientForm([FromForm]RequestDTO requestForm)
     {
-      requestGetService.MakeRequest(requestForm);
+      //requestGetService.MakeRequest(requestForm);
       return Ok(new { temp = true });
     }
     [Authorize]
@@ -133,20 +133,20 @@ namespace Web.Controllers
     }
     [HttpPost]
     [Route("GetFileFromByte")]
-    public IFormFile GetFileFromByte(int id)
+    public IFormFile GetFileFromByte([FromBody] DownloadFileViewModel downloadFile)
     {
-      var file = fileService.DownloadById(id);
-      //try
-      //{
-      //  using (var fileStream = new FileStream(file.File.FileName, FileMode.Create, FileAccess.Write))
-      //  {
-      //    fileStream.Write(file.Content, 0, file.Content.Length);
-      //  }
-      //}
-      //catch (Exception e)
-      //{
-      //  OperationResult.FromException(e, 0);
-      //}
+      var file = fileService.DownloadById(downloadFile.IdRequest, downloadFile.IdFile);
+      try
+      {
+        using (var fileStream = new FileStream(downloadFile.FileName, FileMode.Create, FileAccess.Write))
+        {
+          fileStream.Write(file.Content, 0, file.Content.Length);
+        }
+      }
+      catch (Exception e)
+      {
+        OperationResult.FromException(e, 0);
+      }
       return null;
     }
     [HttpPost]

@@ -11,6 +11,7 @@ import { ProjectModelSmall } from '../../../request.models/project.model';
 import { DatePipe } from '@angular/common';
 import { DateModel } from '../../../responce.models/date.model';
 import { FileVersionModel } from '../../../request.models/file.version.model';
+import { DownloadFileModel } from '../../../request.models/download.file.model';
 
 @Component({
   selector: 'admin-projdet',
@@ -111,7 +112,6 @@ export class AdminProjectDetailsComponent implements OnInit
       this.fileVersionModel = data;
       this.nameDirectoryArray = this.http.ParseDirectory(this.fileVersionModel.listFile);
       this.nameFileArray = this.http.ParseFiles(this.fileVersionModel.listFile);
-
 
     });
 

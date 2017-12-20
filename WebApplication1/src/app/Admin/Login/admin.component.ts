@@ -4,6 +4,7 @@ import {LoginService} from '../../../services/login.service';
 import {HttpClientService} from '../../../services/http.client.service';
 import {Router} from '@angular/router';
 import {AuthenticateGuardService} from '../../../services/library/authenticate.guard.service';
+import { JsonRequestsService } from '../../../services/InboxServices/json.requests.service';
 
 @Component({
   selector: 'admin-root',
@@ -13,7 +14,8 @@ import {AuthenticateGuardService} from '../../../services/library/authenticate.g
     '../../../assets/css/font-awesome.min.css'
   ],
   providers: [LoginService,
-    HttpClientService]
+    HttpClientService,
+  JsonRequestsService]
 })
 export class AdminComponent {
   user: LoginModel = new LoginModel();

@@ -12,6 +12,6 @@ namespace DAL.Repositories.Infrastructure
 
     void Insert(File fileDto);
 
-    BinaryDataDTO DownloadById(int id);
+    BinaryDataDTO DownloadById(int idReq, int idFile);
   }
 }

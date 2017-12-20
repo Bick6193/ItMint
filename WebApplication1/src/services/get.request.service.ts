@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { RequestFromModel } from '../app/request.models/request.model';
 import { isUndefined } from 'util';
 import { FileModel } from '../app/request.models/file.model';
+import { DownloadFileModel } from '../app/request.models/download.file.model';
+import { JsonRequestsService } from './InboxServices/json.requests.service';
 
 @Injectable()
 export class GetRequestService
@@ -23,7 +25,7 @@ export class GetRequestService
 
   private urlGetFileFromByte = '/api/Request/GetFileFromByte';
 
-  constructor(private http: HttpClientService)
+  constructor(private http: HttpClientService, private httpJson: JsonRequestsService)
   {
   }
 
@@ -65,10 +67,8 @@ export class GetRequestService
       'Id=' + id;
     return this.http.post(this.urlFile, tempId);
   }
-  public GetFileById(id: number): any
+  public GetFileById(items: DownloadFileModel): any
   {
-    let tempId =
-      'Id=' + id;
-    return this.http.post(this.urlGetFileFromByte, tempId);
+    return this.httpJson.post(this.urlGetFileFromByte, items);
   }
 }

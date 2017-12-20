@@ -7,6 +7,7 @@ import {TotalRequestsService} from '../../../../services/InboxServices/total.req
 import {TotalServicesModel} from '../../../request.models/total.services.model';
 import {TypesCss} from '../../../../services/InboxServices/types.css';
 import {Router} from '@angular/router';
+import { JsonRequestsService } from '../../../../services/InboxServices/json.requests.service';
 
 @Component({
   selector: 'admin-inbox',
@@ -19,7 +20,8 @@ import {Router} from '@angular/router';
     GetRequestService,
     HttpClientService,
     TotalRequestsService,
-    TypesCss
+    TypesCss,
+    JsonRequestsService
   ]
 })
 export class AdminInboxComponent implements OnInit {

@@ -12,6 +12,6 @@ namespace BLL.Infrastructure
 
     void AddFile(FileDTO fileDto);
 
-    BinaryDataDTO DownloadById(int id);
+    BinaryDataDTO DownloadById(int idReq, int idFile);
   }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DAL.Models
 {
-  public sealed class Request
+  public class Request
   {
     public int Id { get; set; }
 
@@ -25,7 +25,7 @@ namespace DAL.Models
 
     public string RequestTypeInString { get; set; }
 
-    public List<File> Files { get; set; }
+    public virtual List<File> Files { get; set; }
 
     public DateTime Date { get; set; }
 

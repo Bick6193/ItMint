@@ -108,6 +108,10 @@ namespace DAL.Repositories.RepositoriesAbstract
     {
       request.Country = "Belarus";
       ApplicationContext.Requests.Add(request);
+      //File file = new File
+      //{
+      //  RequestFormToken = 
+      //};
       ApplicationContext.SaveChanges();
     }
 

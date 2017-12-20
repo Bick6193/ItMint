@@ -46,9 +46,9 @@ namespace BLL
       return fileRepository.GetById(id);
     }
 
-    public BinaryDataDTO DownloadById(int id)
+    public BinaryDataDTO DownloadById(int idReq, int idFile)
     {
-      return fileRepository.DownloadById(id);
+      return fileRepository.DownloadById(idReq, idFile);
     }
   }
 }

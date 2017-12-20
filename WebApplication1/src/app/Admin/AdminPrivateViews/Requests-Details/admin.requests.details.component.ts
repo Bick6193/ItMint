@@ -6,6 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 import { TotalRequestsService } from '../../../../services/InboxServices/total.requests.service';
 import { TypesCss } from '../../../../services/InboxServices/types.css';
 import { FileModel } from '../../../request.models/file.model';
+import { DownloadFileModel } from '../../../request.models/download.file.model';
+import { JsonRequestsService } from '../../../../services/InboxServices/json.requests.service';
 
 @Component({
   selector: 'admin-reqdet',
@@ -17,7 +19,8 @@ import { FileModel } from '../../../request.models/file.model';
   providers: [GetRequestService,
     HttpClientService,
     TotalRequestsService,
-    TypesCss
+    TypesCss,
+    JsonRequestsService
   ]
 })
 export class AdminRequestsDetailsComponent implements OnInit
@@ -40,6 +43,8 @@ export class AdminRequestsDetailsComponent implements OnInit
   protected flag: boolean;
 
   public cssType: TypesCss;
+
+  public downloadFile: DownloadFileModel = new DownloadFileModel();
 
   constructor(httpGetService: GetRequestService,
               tempRoute: ActivatedRoute,
@@ -128,8 +133,11 @@ export class AdminRequestsDetailsComponent implements OnInit
     return 'fa file';
   }
 
-  public DownloadFileById(id: number): any
+  public DownloadFileById(id: number, name: string): any
   {
-   this.service.GetFileById(id).subscribe();
+    this.downloadFile.idRequest = this.selectedId;
+    this.downloadFile.idFile = id;
+    this.downloadFile.fileName = name;
+    this.service.GetFileById(this.downloadFile).subscribe();
   }
 }
