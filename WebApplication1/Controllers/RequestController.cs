@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using AutoMapper;
 using BLL.Infrastructure;
@@ -16,11 +17,11 @@ using Domain;
 using Domain.Request;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Internal;
+using Newtonsoft.Json.Linq;
 using Web.Models;
 
 namespace Web.Controllers
 {
-
   [Route("api/Request")]
   public class RequestController : Controller
   {
@@ -29,20 +30,34 @@ namespace Web.Controllers
     IRequestTypesService requestTypesService;
 
     public RequestController(IRequestGetService request,
-                             IFileService file,
-                             IRequestTypesService typesService)
+      IFileService file,
+      IRequestTypesService typesService)
     {
       requestGetService = request;
       fileService = file;
       requestTypesService = typesService;
     }
+
+    private static readonly HttpClient client = new HttpClient();
+
     [HttpPost]
     [Route("Form")]
-    public IActionResult RequestFromClientForm([FromForm]RequestDTO requestForm)
+    public async Task<IActionResult> RequestFromClientForm([FromForm] RequestDTO requestForm)
     {
+
+      IpGeographicLocation model = null;
+      //On Deploy change this!!!
+      //var remoteIpAddress = HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString();
+      var RequestLocation = "134.17.27.99";
+      if (!string.IsNullOrEmpty(RequestLocation))
+      {
+        model = await IpGeographicLocation.QueryGeographicalLocationAsync(RequestLocation);
+      }
+      requestForm.Country = model.City;
       //requestGetService.MakeRequest(requestForm);
       return Ok(new { temp = true });
     }
+
     [Authorize]
     [HttpGet]
     [Route("RequestToInbox")]
@@ -52,6 +67,7 @@ namespace Web.Controllers
       IEnumerable<RequestDTO> requestDtos = requestGetService.GetAllRequests();
       return requestDtos;
     }
+
     [Authorize]
     [HttpPost]
     [Route("RequestIdToInbox")]
@@ -60,6 +76,7 @@ namespace Web.Controllers
       RequestDTO requestDtos = requestGetService.GetRequestById(id);
       return requestDtos;
     }
+
     [Authorize]
     [HttpPost]
     [Route("RequestSearchToInbox")]
@@ -68,6 +85,7 @@ namespace Web.Controllers
       IEnumerable<RequestDTO> requestDto = requestGetService.BasicSearch(line);
       return requestDto;
     }
+
     [Authorize]
     [HttpPost]
     [Route("RequestFlagToInbox")]
@@ -76,6 +94,7 @@ namespace Web.Controllers
       requestGetService.GetFlag(id);
       return true;
     }
+
     [Authorize]
     [HttpGet]
     [Route("RequestToInboxInfo")]
@@ -83,6 +102,7 @@ namespace Web.Controllers
     {
       return requestGetService.CountRequests();
     }
+
     [Authorize]
     [HttpPost]
     [Route("Delete")]
@@ -131,6 +151,7 @@ namespace Web.Controllers
       }
       return Ok(new { count = fullRequestForm.Files.Count });
     }
+
     [HttpPost]
     [Route("GetFileFromByte")]
     public IFormFile GetFileFromByte([FromBody] DownloadFileViewModel downloadFile)
@@ -149,17 +170,26 @@ namespace Web.Controllers
       }
       return null;
     }
+
     [HttpPost]
     [Route("Files")]
     public IEnumerable<FileDTO> GetFiles(int id)
     {
       return fileService.GetById(id);
     }
+
     [HttpGet]
-    [Route("Types")]
-    public IEnumerable<string> GetTypes()
+    [Route("RequestConfig")]
+    public RequestConfiguration GetTypes()
     {
-      return requestTypesService.GetStringTypes();
+      var types = requestTypesService.GetStringTypes();
+      RequestConfiguration requestConfiguration = new RequestConfiguration
+      {
+        Types = types,
+        Location = HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString()
+      };
+      return requestConfiguration;
     }
   }
 }
+

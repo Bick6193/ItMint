@@ -1,6 +1,6 @@
 ///<reference path="../../../services/file.request.service.ts"/>
 import {Component, OnInit} from '@angular/core';
-import {RequestService} from '../../../services/request.service';
+import { RequestConfig, RequestService } from '../../../services/request.service';
 import {RequestModel} from '../../responce.models/request.model';
 import {FileRequestService} from '../../../services/file.request.service';
 import {HttpClientService} from '../../../services/http.client.service';
@@ -34,14 +34,7 @@ export class AppComponent implements OnInit {
 
   public filesToUpload: Array<File>;
 
-  requestType: string[] = [
-    'Web Development',
-    'Design',
-    'QA',
-    'Testing'
-  ];
-
-  types: Array<string>;
+  types: RequestConfig;
 
   public barInPersent: number;
 
@@ -54,7 +47,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.token = this.tokenService.GenerateToken();
-    this.httpService.GetTypes().subscribe(data => {
+    this.httpService.GetRequestConfig().subscribe(data => {
       this.types = data;
     });
   }

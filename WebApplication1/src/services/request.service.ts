@@ -1,19 +1,28 @@
-import {Injectable} from '@angular/core';
-import {RequestModel} from '../app/responce.models/request.model';
-import {HttpClientService} from './http.client.service';
-import {Observable} from 'rxjs/Observable';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { RequestModel } from '../app/responce.models/request.model';
+import { HttpClientService } from './http.client.service';
+import { Observable } from 'rxjs/Observable';
+
+export class RequestConfig
+{
+  public types: Array<string>;
+
+  public location: string;
+}
 
 @Injectable()
-export class RequestService {
+export class RequestService
+{
   private url = '/api/Request/Form';
 
-  private urlTypes = '/api/Request/Types';
+  private urlConfig = '/api/Request/RequestConfig';
 
-  constructor(private http: HttpClientService, private httpClient: HttpClient) {
+  constructor(private http: HttpClientService)
+  {
   }
 
-  public requestToServer(obj: RequestModel, token: string) {
+  public requestToServer(obj: RequestModel, token: string)
+  {
     let temp =
       'Name=' + obj.Name +
       '&Phone=' + obj.Phone +
@@ -22,32 +31,12 @@ export class RequestService {
       '&RequestTypeInString=' + obj.RequestTypeInString +
       '&UserId=' + token;
 
-    // let temp2 = JSON.stringify({
-      //   Name: obj.Name,
-      //   Phone: obj.Phone,
-    //   Email: obj.Email,
-    //   Description: obj.Description,
-      //   RequestTypeInString: obj.RequestTypeInString,
-     //   UserId: token
-      // });
-    this.GetIp().subscribe(
-      data=>{
-        console.log(data);
-      }
-    );
     return this.http.post(this.url, temp);
   }
-  public GetTypes(): Observable<Array<string>> {
-    return this.http.get(this.urlTypes);
-  }
-  private GetIp(): Observable<IpModel>
+
+  public GetRequestConfig(): Observable<RequestConfig>
   {
-    let json = 'http://ipv4.myexternalip.com/json';
-    return this.httpClient.get(json);
+    return this.http.get(this.urlConfig);
   }
-}
-export class IpModel
-{
-  ip: string;
 }
 
