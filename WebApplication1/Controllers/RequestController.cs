@@ -38,22 +38,10 @@ namespace Web.Controllers
       requestTypesService = typesService;
     }
 
-    private static readonly HttpClient client = new HttpClient();
-
     [HttpPost]
     [Route("Form")]
     public async Task<IActionResult> RequestFromClientForm([FromForm] RequestDTO requestForm)
     {
-
-      IpGeographicLocation model = null;
-      //On Deploy change this!!!
-      //var remoteIpAddress = HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString();
-      var RequestLocation = "134.17.27.99";
-      if (!string.IsNullOrEmpty(RequestLocation))
-      {
-        model = await IpGeographicLocation.QueryGeographicalLocationAsync(RequestLocation);
-      }
-      requestForm.Country = model.City;
       //requestGetService.MakeRequest(requestForm);
       return Ok(new { temp = true });
     }
@@ -180,13 +168,22 @@ namespace Web.Controllers
 
     [HttpGet]
     [Route("RequestConfig")]
-    public RequestConfiguration GetTypes()
+    public async Task<RequestConfiguration> GetTypes()
     {
+      IpGeographicLocation model = null;
+      //On Deploy change this!!!
+      //var remoteIpAddress = HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString();
+      var RequestLocation = "134.17.27.99";
+      if (!string.IsNullOrEmpty(RequestLocation))
+      {
+        model = await IpGeographicLocation.QueryGeographicalLocationAsync(RequestLocation);
+      }
+      var code = IpGeographicLocation.GetQueryPhoneCode(model.CountryName);
       var types = requestTypesService.GetStringTypes();
       RequestConfiguration requestConfiguration = new RequestConfiguration
       {
         Types = types,
-        Location = HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString()
+        Code = code
       };
       return requestConfiguration;
     }

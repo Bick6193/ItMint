@@ -1,3 +1,4 @@
+<script src="../../../assets/js/PhoneValid.js"></script>
 <header id="header"><!--  fixed-header  -->
   <div class="wrap">
     <strong class="logo"><a routerLink="">itmint</a></strong>
@@ -106,7 +107,7 @@
                 </div>
                 <div [ngClass]="(req.Phone!='0-9]{12}')?'hold-field':'hold-field error'">
                   <input type="text" id="phone" placeholder="Phone" pattern="[0-9]{12}" maxlength="12" name="phone"
-                         #phone="ngModel" [(ngModel)]="req.Phone"/>
+                         #phone="ngModel" [(ngModel)]="req.Phone" (keyup)="GetFlag(req.Phone)"/>
                   <span class="icon-field icon-phone">&nbsp;</span>
                 </div>
                 <div [ngClass]="(email.errors)?'hold-field':'hold-field error'">
@@ -118,7 +119,7 @@
                 <div class="hold-select">
                   <select data-placeholder="Request Type" name="reqtype"
                           [(ngModel)]="req.RequestTypeInString" (click)="OnChange(req.RequestTypeInString)">
-                    <option *ngFor="let c of types" [ngValue]="c">{{c}}</option>
+                    <option *ngFor="let c of types.types" [ngValue]="c">{{c}}</option>
                   </select>
                   <span class="icon-field icon-case">&nbsp;</span>
                 </div>

@@ -9,6 +9,6 @@ namespace Web.Models
   {
     public IEnumerable<string> Types { get; set; }
 
-    public string Location { get; set; }
+    public string Code { get; set; }
   }
 }

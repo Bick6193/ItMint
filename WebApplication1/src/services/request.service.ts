@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { RequestModel } from '../app/responce.models/request.model';
 import { HttpClientService } from './http.client.service';
 import { Observable } from 'rxjs/Observable';
+import { ArrayJsonFlag, JsonFlagModel } from '../assets/json/model';
 
 export class RequestConfig
 {
   public types: Array<string>;
 
-  public location: string;
+  public code: string;
 }
 
 @Injectable()
@@ -37,6 +38,10 @@ export class RequestService
   public GetRequestConfig(): Observable<RequestConfig>
   {
     return this.http.get(this.urlConfig);
+  }
+  public GetFlag(url: string): Observable<ArrayJsonFlag>
+  {
+    return this.http.get(url);
   }
 }
 
